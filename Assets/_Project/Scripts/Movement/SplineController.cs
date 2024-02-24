@@ -16,7 +16,10 @@ namespace PS5.Movement
             _moveAlongPath = GetComponent<MoveAlongPath>();
 
             _moveAlongPath.SetSpline(CurrentSpline);
-            
+        }
+
+        private void Start()
+        {
             _moveAlongPath.onSplineEndAction += CreateNextSpline;
         }
 

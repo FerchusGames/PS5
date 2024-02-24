@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace PS5.Core
@@ -8,8 +9,10 @@ namespace PS5.Core
         public static GameManager Instance { get; private set; }
 
         [field:SerializeField]
-        public int CurrentScore { get; private set; }  
-    
+        public int CurrentScore { get; private set; }
+
+        public event Action<int> onScoreChangeAction;
+        
         private void Awake()
         {
             if (Instance == null)
@@ -27,6 +30,7 @@ namespace PS5.Core
         {
             CurrentScore += scoreToAdd;
             Debug.Log("Current Score: " + CurrentScore);
+            onScoreChangeAction?.Invoke(CurrentScore);
         }
     }
 }
