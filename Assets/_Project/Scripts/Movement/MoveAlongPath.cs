@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -11,9 +8,18 @@ namespace PS5.Movement
     {
         [SerializeField] private SplineContainer _spline;
         [SerializeField] private float _speed;
+
+        private SplineController _splineController;
+
+        public event Action onSplineEndAction;
         
         private float _distancePercentage;
         private float _splineLength;
+
+        private void Awake()
+        {
+            _splineController = GetComponent<SplineController>();
+        }
 
         private void Start()
         {
@@ -30,11 +36,18 @@ namespace PS5.Movement
             if (_distancePercentage > 1f)
             {
                 _distancePercentage = 0f;
+                _spline = _splineController.NextSpline;
+                onSplineEndAction?.Invoke();
             }
 
             Vector3 nextPosition = _spline.EvaluatePosition(_distancePercentage + 0.05f);
             Vector3 direction = nextPosition - currentPosition;
             transform.rotation = Quaternion.LookRotation(direction, transform.up);
+        }
+
+        public void SetSpline(SplineContainer splineContainer)
+        {
+            _spline = splineContainer;
         }
     }
 }
