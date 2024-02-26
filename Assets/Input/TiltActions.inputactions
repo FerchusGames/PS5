@@ -1,0 +1,54 @@
+{
+    "name": "TiltActions",
+    "maps": [
+        {
+            "name": "TIlt",
+            "id": "60e3f505-4498-4922-a5c6-005ab5684fc1",
+            "actions": [
+                {
+                    "name": "Rigth",
+                    "type": "Button",
+                    "id": "3ac7943f-59b6-4d3c-9a1d-fce495ae99cb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Left",
+                    "type": "Button",
+                    "id": "bee64956-f4f6-49ca-ab9c-e76ccb6d02e7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "685d2b23-fd02-44c5-9405-dd25b30a1f2d",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rigth",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ed1b482b-34f6-4c8d-a10b-5eefa5f6ce89",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
