@@ -144,7 +144,7 @@ PrefabInstance:
     - target: {fileID: 1923816018612787245, guid: 20e1f2b41af95ad468027e9ca00f57e9,
         type: 3}
       propertyPath: m_Name
-      value: Hamburger Meat
+      value: Hamburger Bottom
       objectReference: {fileID: 0}
     - target: {fileID: 3794060632961936885, guid: 20e1f2b41af95ad468027e9ca00f57e9,
         type: 3}
@@ -157,7 +157,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -4744605630609734064, guid: b6f3f55226ffba84faea0634bfa22561,
         type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4029182554318755893, guid: 20e1f2b41af95ad468027e9ca00f57e9, type: 3}
     m_RemovedGameObjects:
     - {fileID: 9032072466113574644, guid: 20e1f2b41af95ad468027e9ca00f57e9, type: 3}
     m_AddedGameObjects:
@@ -165,8 +166,45 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8867316764151174815}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1923816018612787245, guid: 20e1f2b41af95ad468027e9ca00f57e9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8267643376932460420}
   m_SourcePrefab: {fileID: 100100000, guid: 20e1f2b41af95ad468027e9ca00f57e9, type: 3}
+--- !u!1 &7225688679769053114 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1923816018612787245, guid: 20e1f2b41af95ad468027e9ca00f57e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 9147947651334737815}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &-8267643376932460420
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7225688679769053114}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &8002084268211850496 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1295089274922680983, guid: 20e1f2b41af95ad468027e9ca00f57e9,
