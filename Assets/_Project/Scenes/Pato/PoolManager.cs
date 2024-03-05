@@ -30,15 +30,15 @@ public class PoolManager : MonoBehaviour
         switch (_t)
         {
             case BULLET_TYPE.Pistola:
-                bulletPool.Add(Instantiate(_bulletPrefab, transform.position, transform.rotation).GetComponent<Bullet>());
+                bulletPool.Add(Instantiate(_pistolaPrefab, transform.position, transform.rotation).GetComponent<Bullet>());
                 break;
 
             case BULLET_TYPE.Subfusiles:
-                bulletPool.Add(Instantiate(_bulletPrefab, transform.position, transform.rotation).GetComponent<Bullet>());
+                bulletPool.Add(Instantiate(_SubfusilPrefab, transform.position, transform.rotation).GetComponent<Bullet>());
                 break;
             
             case BULLET_TYPE.Rocket_Launcher:
-                bulletPool.Add(Instantiate(_bulletPrefab, transform.position, transform.rotation).GetComponent<Bullet>());
+                bulletPool.Add(Instantiate(_RocketPrefab, transform.position, transform.rotation).GetComponent<Bullet>());
                 break;
         }
     }
