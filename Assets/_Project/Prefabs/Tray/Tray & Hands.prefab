@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5788533888709581088}
+  - component: {fileID: 8393943188488123875}
   m_Layer: 0
   m_Name: Tray & Hands
   m_TagString: Untagged
@@ -34,6 +35,23 @@ Transform:
   - {fileID: 5910887926640133321}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8393943188488123875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294923480518047871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45afbe215fdcba54ca05aa93ef232349, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  left: {fileID: -8499771033913355752, guid: 246cdc617de2a534d816923ff7f827d6, type: 3}
+  right: {fileID: 3860759006039178270, guid: 246cdc617de2a534d816923ff7f827d6, type: 3}
+  up: {fileID: 9104226267243478177, guid: 246cdc617de2a534d816923ff7f827d6, type: 3}
+  down: {fileID: -6113910039340169269, guid: 246cdc617de2a534d816923ff7f827d6, type: 3}
 --- !u!1 &2116848386094899905
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,6 +63,7 @@ GameObject:
   - component: {fileID: 5910887926640133321}
   - component: {fileID: 2273589744032894281}
   - component: {fileID: 7921657993084948737}
+  - component: {fileID: 8147044306346177389}
   m_Layer: 0
   m_Name: Tray
   m_TagString: Untagged
@@ -117,6 +136,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8147044306346177389
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116848386094899905}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2456237191976728944, guid: ed1dbca405109b64388453161b897cf5, type: 3}
 --- !u!1001 &1600971961123088232
 PrefabInstance:
   m_ObjectHideFlags: 0
