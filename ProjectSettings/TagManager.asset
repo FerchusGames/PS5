@@ -8,6 +8,7 @@ TagManager:
   - Cubo
   - Food
   - Delivery
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
