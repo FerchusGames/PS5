@@ -6,6 +6,8 @@ TagManager:
   tags:
   - GameManager
   - Cubo
+  - Food
+  - Delivery
   layers:
   - Default
   - TransparentFX
