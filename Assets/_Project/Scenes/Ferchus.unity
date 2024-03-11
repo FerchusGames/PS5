@@ -1850,7 +1850,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 388177680989732303, guid: 44783bec323db3d46a9a79894abbeda9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2033,6 +2034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 407e4d65e336bca4188fd8034677503e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStates: 0
   <CurrentScore>k__BackingField: 0
 --- !u!1001 &5300228668973296793
 PrefabInstance:

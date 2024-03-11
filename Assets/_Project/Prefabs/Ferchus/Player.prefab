@@ -358,7 +358,7 @@ Transform:
   m_GameObject: {fileID: 5305424712042420367}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.53, z: 3.28}
+  m_LocalPosition: {x: 0, y: 3.53, z: 2.391}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -461,7 +461,7 @@ PrefabInstance:
     - target: {fileID: 5788533888709581088, guid: 953db69126f939d4098eab4b43a5ae56,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.27
+      value: 0.84
       objectReference: {fileID: 0}
     - target: {fileID: 5788533888709581088, guid: 953db69126f939d4098eab4b43a5ae56,
         type: 3}
@@ -502,7 +502,11 @@ PrefabInstance:
     - {fileID: 2311654938849262093, guid: 953db69126f939d4098eab4b43a5ae56, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 294923480518047871, guid: 953db69126f939d4098eab4b43a5ae56,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5901799822540599478}
   m_SourcePrefab: {fileID: 100100000, guid: 953db69126f939d4098eab4b43a5ae56, type: 3}
 --- !u!4 &3384329574558079442 stripped
 Transform:
@@ -510,3 +514,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 9125011058891309298}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8842055228120987789 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 294923480518047871, guid: 953db69126f939d4098eab4b43a5ae56,
+    type: 3}
+  m_PrefabInstance: {fileID: 9125011058891309298}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5901799822540599478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8842055228120987789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45afbe215fdcba54ca05aa93ef232349, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  left: {fileID: -8499771033913355752, guid: 246cdc617de2a534d816923ff7f827d6, type: 3}
+  right: {fileID: 3860759006039178270, guid: 246cdc617de2a534d816923ff7f827d6, type: 3}
+  up: {fileID: 9104226267243478177, guid: 246cdc617de2a534d816923ff7f827d6, type: 3}
+  down: {fileID: -6113910039340169269, guid: 246cdc617de2a534d816923ff7f827d6, type: 3}

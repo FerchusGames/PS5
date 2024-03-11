@@ -29,7 +29,6 @@ namespace PS5.Core
             }
 
             gameStates = GameStates.gaming;
-            CurrentScore = PlayerPrefs.GetInt("Score");
         }
 
         public void AddScore(int scoreToAdd)

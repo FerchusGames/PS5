@@ -15,7 +15,6 @@ namespace PS5.Objects
         {
             if (other.CompareTag("Food"))
             {
-                GameManager.Instance.Save();
                 Destroy(other.gameObject);
                 objectsFell++;
             }
@@ -26,6 +25,7 @@ namespace PS5.Objects
             if (objectsFell > 2)
             {
                 GameManager.Instance.OnLose();
+                GameManager.Instance.Save();
             }
         }
     }

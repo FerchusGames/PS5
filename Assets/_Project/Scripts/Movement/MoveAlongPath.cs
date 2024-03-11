@@ -1,4 +1,5 @@
 using System;
+using PS5.Core;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -28,21 +29,24 @@ namespace PS5.Movement
 
         private void Update()
         {
-            _distancePercentage += _speed * Time.deltaTime / _splineLength;
-
-            Vector3 currentPosition = _spline.EvaluatePosition(_distancePercentage);
-            transform.position = currentPosition;
-
-            if (_distancePercentage > 1f)
+            if (GameManager.Instance.gameStates == GameStates.gaming)
             {
-                _distancePercentage = 0f;
-                _spline = _splineController.NextSpline;
-                onSplineEndAction?.Invoke();
-            }
+                _distancePercentage += _speed * Time.deltaTime / _splineLength;
 
-            Vector3 nextPosition = _spline.EvaluatePosition(_distancePercentage + 0.05f);
-            Vector3 direction = nextPosition - currentPosition;
-            transform.rotation = Quaternion.LookRotation(direction, transform.up);
+                Vector3 currentPosition = _spline.EvaluatePosition(_distancePercentage);
+                transform.position = currentPosition;
+
+                if (_distancePercentage > 1f)
+                {
+                    _distancePercentage = 0f;
+                    _spline = _splineController.NextSpline;
+                    onSplineEndAction?.Invoke();
+                }
+
+                Vector3 nextPosition = _spline.EvaluatePosition(_distancePercentage + 0.05f);
+                Vector3 direction = nextPosition - currentPosition;
+                transform.rotation = Quaternion.LookRotation(direction, transform.up);
+            }
         }
 
         public void SetSpline(SplineContainer splineContainer)
