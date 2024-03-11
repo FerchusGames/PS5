@@ -9,15 +9,17 @@ public class Spawn : MonoBehaviour
     public float spawnInterval = 2f; // Time between spawns
 
     private float timer;
-
     private void Update()
     {
-        timer += Time.deltaTime;
-
-        if (timer >= spawnInterval)
+        if (PS5.Core.GameManager.Instance.gameStates == GameStates.gaming)
         {
-            SpawnObject();
-            timer = 0f;
+            timer += Time.deltaTime;
+
+            if (timer >= spawnInterval)
+            {
+                SpawnObject();
+                timer = 0f;
+            }
         }
     }
 
