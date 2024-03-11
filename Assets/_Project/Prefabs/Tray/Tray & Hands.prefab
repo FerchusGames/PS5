@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5788533888709581088}
   m_Layer: 0
-  m_Name: PF_Bandeja_Con_Manos
+  m_Name: Tray & Hands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 2273589744032894281}
   - component: {fileID: 7921657993084948737}
   m_Layer: 0
-  m_Name: SM_Bandeja:pCube1
+  m_Name: Tray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,7 +203,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 312ca46b4be705d49a97ff26012d3547,
         type: 3}
       propertyPath: m_Name
-      value: SM_Mano_izquierda_v02 (1)
+      value: Right Hand
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -302,7 +302,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 312ca46b4be705d49a97ff26012d3547,
         type: 3}
       propertyPath: m_Name
-      value: SM_Mano_izquierda_v02
+      value: Left Hand
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
