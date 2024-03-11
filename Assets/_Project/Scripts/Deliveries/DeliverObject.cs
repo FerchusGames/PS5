@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using PS5.Core;
 
@@ -7,8 +8,12 @@ namespace PS5.Deliveries
     {
         private void OnTriggerEnter(Collider other)
         {
-            GameManager.Instance.AddScore(1);
-            Destroy(other.gameObject);
+            if (other.CompareTag("Delivery"))
+            {
+                GameManager.Instance.AddScore(1);
+                Destroy(other.gameObject);
+            }
         }
+
     }
 }
