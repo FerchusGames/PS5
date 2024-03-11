@@ -8,7 +8,7 @@ namespace PS5.Deliveries
     {
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Delivery"))
+            if (other.CompareTag("Food"))
             {
                 GameManager.Instance.AddScore(1);
                 Destroy(other.gameObject);
