@@ -1,26 +1,30 @@
-
 using UnityEngine;
 using TMPro;
-public class GameManager : MonoBehaviour
+
+namespace Class
 {
-    [SerializeField] private TextMeshProUGUI _uiScore;
-    private float score = 0;
-    public float Score => score;
-    
-    public static GameManager Instance { get; private set; }
-    void Start()
+    public class GameManager : MonoBehaviour
     {
-        _uiScore.text = Score.ToString("Score: " + Score);
-    }
+        [SerializeField] private TextMeshProUGUI _uiScore;
+        private float score = 0;
+        public float Score => score;
 
-    public void IncreaseScore(float plus)
-    {
-        score += plus;
-        _uiScore.text = Score.ToString("Score: " + Score);
-    }
+        public static GameManager Instance { get; private set; }
 
-    private void Awake()
-    {
-        Instance = this;
+        void Start()
+        {
+            _uiScore.text = Score.ToString("Score: " + Score);
+        }
+
+        public void IncreaseScore(float plus)
+        {
+            score += plus;
+            _uiScore.text = Score.ToString("Score: " + Score);
+        }
+
+        private void Awake()
+        {
+            Instance = this;
+        }
     }
 }

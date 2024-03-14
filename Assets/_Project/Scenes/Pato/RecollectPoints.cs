@@ -17,7 +17,7 @@ public class RecollectPoints : MonoBehaviour
         if (other.CompareTag("Cubo"))
         {
             Destroy(other.gameObject);
-            GameManager.GetComponent<GameManager>().IncreaseScore(1);
+            //GameManager.GetComponent<GameManager>().IncreaseScore(1);
             
             Debug.Log("Punto");
         }

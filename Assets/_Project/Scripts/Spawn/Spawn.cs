@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawn : MonoBehaviour
@@ -11,7 +9,7 @@ public class Spawn : MonoBehaviour
     private float timer;
     private void Update()
     {
-        if (PS5.Core.GameManager.Instance.gameStates == GameStates.gaming)
+        if (GameManager.Instance.gameStates == GameStates.gaming)
         {
             timer += Time.deltaTime;
 
