@@ -8,9 +8,9 @@ public class WindManager : MonoBehaviour
 {
     public static WindManager Instance { get; private set; }
     public WindState WindState { get; private set; }
-    
-    public Vector3 WindDirection { get; private set; }
-    public float WindMagnitude { get; private set; }
+
+    private Vector3 _windDirection;
+    private float _windMagnitude;
 
     [SerializeField] private float _minWindMagnitude;
     [SerializeField] private float _maxWindMagnitude;
@@ -49,6 +49,8 @@ public class WindManager : MonoBehaviour
     private void Update()
     {
         CheckTimer();
+        
+        Debug.Log($"State: {WindState}, Wind: {GetWind()}");
     }
 
     private void CheckTimer()
@@ -82,8 +84,8 @@ public class WindManager : MonoBehaviour
 
     private void SetWindProperties()
     {
-        WindDirection = GetNextWindDirection();
-        WindMagnitude = Random.Range(_minWindMagnitude, _maxWindMagnitude);
+        _windDirection = GetNextWindDirection();
+        _windMagnitude = Random.Range(_minWindMagnitude, _maxWindMagnitude);
     }
 
     private Vector3 GetNextWindDirection()
@@ -96,6 +98,11 @@ public class WindManager : MonoBehaviour
         float z = Mathf.Sin(angle);
         
         return new Vector3(x, 0f, z);
+    }
+
+    public Vector3 GetWind()
+    {
+        return _windDirection * _windMagnitude;
     }
 }
 

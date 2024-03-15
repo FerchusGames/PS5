@@ -2693,7 +2693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerTransform: {fileID: 60446079}
-  _turnTiltRate: 0.000559
+  _turnTiltRate: 5.02
 --- !u!1 &2117266598
 GameObject:
   m_ObjectHideFlags: 0
@@ -2887,8 +2887,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3efcd3f4399ee4a9b34f2ccfc84ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minWindMagnitude: 1
-  _maxWindMagnitude: 3
+  _minWindMagnitude: 0.2
+  _maxWindMagnitude: 0.5
   _minWindWaitTime: 3
   _maxWindWaitTime: 10
   _minWindActiveTime: 2
