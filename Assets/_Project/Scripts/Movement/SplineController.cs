@@ -1,35 +1,31 @@
-using System;
 using UnityEngine;
 using UnityEngine.Splines;
 
-namespace PS5.Movement
+public class SplineController : MonoBehaviour
 {
-    public class SplineController : MonoBehaviour
+    [field:SerializeField] public SplineContainer CurrentSpline { get; private set; }
+    [field:SerializeField] public SplineContainer NextSpline { get; private set; }
+
+    private MoveAlongPath _moveAlongPath;
+
+    private void Awake()
     {
-        [field:SerializeField] public SplineContainer CurrentSpline { get; private set; }
-        [field:SerializeField] public SplineContainer NextSpline { get; private set; }
+        _moveAlongPath = GetComponent<MoveAlongPath>();
 
-        private MoveAlongPath _moveAlongPath;
+        _moveAlongPath.SetSpline(CurrentSpline);
+    }
 
-        private void Awake()
-        {
-            _moveAlongPath = GetComponent<MoveAlongPath>();
+    private void Start()
+    {
+        _moveAlongPath.onSplineEndAction += CreateNextSpline;
+    }
 
-            _moveAlongPath.SetSpline(CurrentSpline);
-        }
+    private void CreateNextSpline()
+    {
+        CurrentSpline = NextSpline;
 
-        private void Start()
-        {
-            _moveAlongPath.onSplineEndAction += CreateNextSpline;
-        }
-
-        private void CreateNextSpline()
-        {
-            CurrentSpline = NextSpline;
-
-            NextSpline = null; //TODO Generate the next spline and assign it.
-            
-            Debug.Log("Creating Next Spline");
-        }
+        NextSpline = null; //TODO Generate the next spline and assign it.
+        
+        Debug.Log("Creating Next Spline");
     }
 }
