@@ -1,56 +1,53 @@
+using System;
+using Unity.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Tilt : MonoBehaviour
 {
     public float speed = 10f;
-
-    [SerializeField]
-    private InputActionReference left, right, up, down;
-
-    private void OnEnable()
+    private Vector3 directionRot;
+    
+    [SerializeField] private Transform trayTransform;
+    [SerializeField] private Slider sliderRight;
+    [SerializeField] private Slider sliderFront;
+    
+    public void RotateLeftRight(float rotateDir)
     {
-        left.action.Enable();
-        right.action.Enable();
-        up.action.Enable();
-        down.action.Enable();
+        directionRot.z =  rotateDir;
+    }
+    
+    public void RotateFrontBack(float rotateDir)
+    {
+        directionRot.x = rotateDir;
     }
 
-    private void OnDisable()
+    void Update()
     {
-        left.action.Disable();
-        right.action.Disable();
-        up.action.Disable();
-        down.action.Disable();
-    }
-
-    private void Update()
-    {
-        float leftTilt = left.action.ReadValue<float>();
-        float rightTilt = right.action.ReadValue<float>();
-        float upTilt = up.action.ReadValue<float>();
-        float downTilt = down.action.ReadValue<float>();
-
-        if (GameManager.Instance.gameStates == GameStates.gaming )
+        Quaternion angles = trayTransform.rotation; 
+        Debug.Log(angles);
+        
+        if (GameManager.Instance.gameStates == GameStates.gaming)
         {
-            if (leftTilt > 0)
+            if ((angles.x < 0.211f && angles.x > -0.211f) && (angles.z < 0.211f && angles.z > -0.211f))
             {
-                transform.Rotate(new Vector3(0, 0, 1) * (Time.deltaTime * speed), Space.Self);
+                trayTransform.Rotate(directionRot * (speed * Time.deltaTime), Space.Self);
             }
-        
-            if (rightTilt > 0)
+            else
             {
-                transform.Rotate(new Vector3(0, 0, -1) * (Time.deltaTime * speed), Space.Self);
-            }
-        
-            if (upTilt > 0)
-            {
-                transform.Rotate(new Vector3(1, 0, 0) * (Time.deltaTime * speed), Space.Self);
-            }
-        
-            if(downTilt > 0)
-            {
-                transform.Rotate(new Vector3(-1, 0, 0) * (Time.deltaTime * speed), Space.Self);
+                // Correct angles.x if out of bounds
+                if (angles.x > 0.211f  || angles.x < -0.211f) {
+                    float targetX = Mathf.Clamp(angles.x, -0.211f, 0.211f); // Get the nearest valid angle within the limits
+                    angles.x = Mathf.MoveTowardsAngle(angles.x, targetX, speed * Time.deltaTime); // Smoothly move towards the target angle
+                }
+
+                // Correct angles.z if out of bounds
+                if (angles.z > 0.211f || angles.z < -0.211f) {
+                    float targetZ = Mathf.Clamp(angles.z, -0.211f, 0.211f); // Get the nearest valid angle within the limits
+                    angles.z = Mathf.MoveTowardsAngle(angles.z, targetZ, speed * Time.deltaTime); // Smoothly move towards the target angle
+                }
+                
+                trayTransform.rotation = angles;
             }
         }
     }

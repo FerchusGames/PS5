@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5788533888709581088}
-  - component: {fileID: 8393943188488123875}
+  - component: {fileID: 6151670171325267596}
   m_Layer: 0
   m_Name: Tray & Hands
   m_TagString: Untagged
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 5910887926640133321}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8393943188488123875
+--- !u!114 &6151670171325267596
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,14 +44,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 294923480518047871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45afbe215fdcba54ca05aa93ef232349, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f4476dd568ebe94f9e3804d12c0cc3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  left: {fileID: -8499771033913355752, guid: 246cdc617de2a534d816923ff7f827d6, type: 3}
-  right: {fileID: 3860759006039178270, guid: 246cdc617de2a534d816923ff7f827d6, type: 3}
-  up: {fileID: 9104226267243478177, guid: 246cdc617de2a534d816923ff7f827d6, type: 3}
-  down: {fileID: -6113910039340169269, guid: 246cdc617de2a534d816923ff7f827d6, type: 3}
+  _playerTransform: {fileID: 0}
+  _turnTiltRate: 5.02
 --- !u!1 &2116848386094899905
 GameObject:
   m_ObjectHideFlags: 0

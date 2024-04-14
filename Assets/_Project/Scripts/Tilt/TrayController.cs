@@ -10,13 +10,16 @@ public class TrayController : MonoBehaviour
    private Vector3 _currentRotation;
 
    [SerializeField] private Transform _playerTransform;
-   
+
    [SerializeField, Range(1, 10)] private float _turnTiltRate;
    
    private void Update()
    {
-      UpdateRotations();
-      TurnTilt();
+      if (GameManager.Instance.gameStates == GameStates.gaming)
+      {
+         UpdateRotations();
+         TurnTilt();
+      }
    }
 
    private void UpdateRotations()
