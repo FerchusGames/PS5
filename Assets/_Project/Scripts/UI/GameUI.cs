@@ -42,5 +42,10 @@ public class GameUI : MonoBehaviour
     {
         _slider.value = 1f - _moveAlongPath.DistancePercentage;
     }
+
+    public void SetGameStateToGaming()
+    {
+        GameManager.Instance.SetGameState(GameState.gaming);
+    }
 }
 

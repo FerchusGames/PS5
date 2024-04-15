@@ -1,15 +1,17 @@
 using System;
 using UnityEngine;
 using UnityEngine.Serialization;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public GameState GameState { get; private set; }
 
-    [field:SerializeField]
-    public int CurrentScore { get; private set; }
+    private TMP_Text scoreText;
 
+    [field:SerializeField] public int CurrentScore { get; private set; }
+    
     private int _fallenFoodCount = 0;
     [SerializeField] private int _fallenFoodLimit = 5;
     
@@ -27,13 +29,14 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        GameState = GameState.gaming;
     }
 
     private void Start()
     {
-        SetGameState(GameState.gaming);
+        SetGameState(GameState.pause);
+
+        scoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
+
     }
 
     public void AddScore(int scoreToAdd)
