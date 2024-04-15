@@ -50,7 +50,7 @@ public class WindManager : MonoBehaviour
     {
         CheckTimer();
         
-        Debug.Log($"State: {WindState}, Wind: {GetWind()}");
+        //Debug.Log($"State: {WindState}, Wind: {GetWind()}");
     }
 
     private void CheckTimer()

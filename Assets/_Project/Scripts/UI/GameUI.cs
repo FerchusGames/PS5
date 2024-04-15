@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using TMPro;
 
@@ -5,9 +6,14 @@ public class GameUI : MonoBehaviour
 {
     [SerializeField] private TMP_Text _scoreText;
 
-    private void Start()
+    private void OnEnable()
     {
-        GameManager.Instance.onScoreChangeAction += UpdateScore;
+        GameManager.Instance.OnScoreChange += UpdateScore;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.OnScoreChange -= UpdateScore;
     }
 
     private void UpdateScore(int score)

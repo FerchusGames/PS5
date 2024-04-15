@@ -26,6 +26,9 @@ public class MoveAlongPath : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.GameState != GameState.gaming)
+            return;
+        
         _distancePercentage += _speed * Time.deltaTime / _splineLength;
 
         Vector3 currentPosition = _spline.EvaluatePosition(_distancePercentage);

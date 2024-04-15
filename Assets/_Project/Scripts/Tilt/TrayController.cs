@@ -12,14 +12,14 @@ public class TrayController : MonoBehaviour
    [SerializeField] private Transform _playerTransform;
 
    [SerializeField, Range(1, 10)] private float _turnTiltRate;
-   
+
    private void Update()
    {
-      if (GameManager.Instance.gameStates == GameStates.gaming)
-      {
-         UpdateRotations();
-         TurnTilt();
-      }
+      if (GameManager.Instance.GameState != GameState.gaming)
+         return;
+      
+      UpdateRotations();
+      TurnTilt();
    }
 
    private void UpdateRotations()

@@ -12,10 +12,11 @@ public class Spawn : MonoBehaviour
 
     private float timer;
     List<GameObject> objectSpawned = new List<GameObject>();
-
+    
+    
     private void Update()
     {
-        if (GameManager.Instance.gameStates == GameStates.gaming)
+        if (GameManager.Instance.GameState == GameState.gaming)
         {
             timer += Time.deltaTime;
             
@@ -24,7 +25,13 @@ public class Spawn : MonoBehaviour
                 objectSpawned.Add(SpawnObject());
                 timer = 0;
             }
-            
+        }
+    }
+
+    private void CheckGameState(GameState gameState)
+    {
+        if (gameState == GameState.gaming)
+        {
             foreach (var food in objectSpawned)
             {
                 if (food == null)
@@ -33,7 +40,8 @@ public class Spawn : MonoBehaviour
                 food.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             }
         }
-        else if (GameManager.Instance.gameStates == GameStates.pause)
+
+        else
         {
             foreach (var food in objectSpawned)
             {

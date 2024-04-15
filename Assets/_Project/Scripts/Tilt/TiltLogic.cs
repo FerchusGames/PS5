@@ -3,7 +3,7 @@ using Unity.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Tilt : MonoBehaviour
+public class TiltLogic : MonoBehaviour
 {
     public float speed = 10f;
     private Vector3 directionRot;
@@ -25,9 +25,9 @@ public class Tilt : MonoBehaviour
     void Update()
     {
         Quaternion angles = trayTransform.rotation; 
-        Debug.Log(angles);
+        //Debug.Log(angles);
         
-        if (GameManager.Instance.gameStates == GameStates.gaming)
+        if (GameManager.Instance.GameState == GameState.gaming)
         {
             if ((angles.x < 0.211f && angles.x > -0.211f) && (angles.z < 0.211f && angles.z > -0.211f))
             {
