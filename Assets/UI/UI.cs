@@ -9,9 +9,9 @@ public class UI : MonoBehaviour
 {
     public void LoadScene(string sceneToLoad)
     {
-        if (GameManager.Instance.gameStates == GameStates.pause)
+        if (GameManager.Instance.GameState == GameState.pause)
         {
-            GameManager.Instance.gameStates = GameStates.gaming;
+            GameManager.Instance.SetGameState(GameState.gaming);
         }
         
         SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
@@ -19,11 +19,11 @@ public class UI : MonoBehaviour
 
     public void Pause()
     {
-        GameManager.Instance.gameStates = GameStates.pause;
+        GameManager.Instance.SetGameState(GameState.pause);
     }
     public void UnPause()
     {
-        GameManager.Instance.gameStates = GameStates.gaming;
+        GameManager.Instance.SetGameState(GameState.gaming);
     }
     
 }
