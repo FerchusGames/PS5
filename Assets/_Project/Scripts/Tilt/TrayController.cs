@@ -13,6 +13,16 @@ public class TrayController : MonoBehaviour
 
    [SerializeField, Range(1, 10)] private float _turnTiltRate;
 
+   private void OnEnable()
+   {
+      GameManager.Instance.OnGameReset += ResetTransform;
+   }
+   
+   private void OnDisable()
+   {
+      GameManager.Instance.OnGameReset -= ResetTransform;
+   }
+
    private void Update()
    {
       if (GameManager.Instance.GameState != GameState.gaming)
@@ -42,5 +52,12 @@ public class TrayController : MonoBehaviour
    private void TurnTilt()
    {
       transform.Rotate(new Vector3(0, 0, 1) * (GetTurningRate() * _turnTiltRate * 0.0001f), Space.Self);
+   }
+
+   private void ResetTransform()
+   {
+      _playerTransform.position = Vector3.zero;
+      _playerTransform.rotation = Quaternion.identity;
+      transform.rotation = Quaternion.identity;
    }
 }

@@ -6,7 +6,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public GameState GameState { get; private set; }
+    [field:SerializeField] public GameState GameState { get; private set; }
 
     [SerializeField] private TMP_Text _highScoreText;
 
@@ -44,6 +44,12 @@ public class GameManager : MonoBehaviour
         _highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
     }
 
+    public void StartGame()
+    {
+        Reset();
+        SetGameState(GameState.gaming);
+    }
+    
     public void Reset()
     {
         _mainGameUI.SetActive(true);
@@ -51,7 +57,6 @@ public class GameManager : MonoBehaviour
         
         CurrentScore = 0;
         _fallenFoodCount = 0;
-        SetGameState(GameState.gaming);
         OnGameReset?.Invoke();
     }
 
@@ -86,7 +91,7 @@ public class GameManager : MonoBehaviour
     
     public void Lose()
     {
-        GameState = GameState.lose;
+        SetGameState(GameState.lose);
         _gameOverUI.SetActive(true);
         _mainGameUI.SetActive(false);
         _controlsUI.SetActive(false);
