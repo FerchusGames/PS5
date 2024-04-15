@@ -13,7 +13,23 @@ public class ResetHandle : MonoBehaviour, IPointerUpHandler
         _slider = GetComponent<Slider>();
     }
 
+    private void OnEnable()
+    {
+        GameManager.Instance.OnGameStateChange += CheckGameStateChange;
+    }
+
     public void OnPointerUp(PointerEventData eventData)
+    {
+        ResetValue();
+    }
+
+    private void CheckGameStateChange(GameState gameState)
+    {
+        if (gameState != GameState.gaming)
+            ResetValue();
+    }
+
+    private void ResetValue()
     {
         _slider.value = 0;
     }

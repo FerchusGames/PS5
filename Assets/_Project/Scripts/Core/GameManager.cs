@@ -8,16 +8,22 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public GameState GameState { get; private set; }
 
-    private TMP_Text scoreText;
+    [SerializeField] private TMP_Text _highScoreText;
 
     [field:SerializeField] public int CurrentScore { get; private set; }
     
     private int _fallenFoodCount = 0;
     [SerializeField] private int _fallenFoodLimit = 5;
+
+    [SerializeField] private GameObject _gameOverUI;
+    [SerializeField] private GameObject _mainGameUI;
+    [SerializeField] private GameObject _controlsUI;
     
     public event Action<int> OnScoreChange;
     public event Action<GameState> OnGameStateChange;
     public event Action<int> OnHighScoreChange;
+
+    public event Action OnGameReset;
     
     private void Awake()
     {
@@ -33,10 +39,20 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        SetGameState(GameState.pause);
+        SetGameState(GameState.menu);
 
-        scoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
+        _highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
+    }
 
+    public void Reset()
+    {
+        _mainGameUI.SetActive(true);
+        _controlsUI.SetActive(true);
+        
+        CurrentScore = 0;
+        _fallenFoodCount = 0;
+        SetGameState(GameState.gaming);
+        OnGameReset?.Invoke();
     }
 
     public void AddScore(int scoreToAdd)
@@ -62,7 +78,6 @@ public class GameManager : MonoBehaviour
         }
     }
     
-
     public void SetGameState(GameState gameState)
     {
         GameState = gameState;
@@ -72,6 +87,9 @@ public class GameManager : MonoBehaviour
     public void Lose()
     {
         GameState = GameState.lose;
+        _gameOverUI.SetActive(true);
+        _mainGameUI.SetActive(false);
+        _controlsUI.SetActive(false);
     }
 
     public void SaveHighScore()
@@ -96,5 +114,6 @@ public enum GameState
 {
     lose,
     pause,
-    gaming
+    gaming,
+    menu
 }

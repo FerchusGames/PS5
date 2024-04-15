@@ -19,9 +19,25 @@ public class MoveAlongPath : MonoBehaviour
         _splineController = GetComponent<SplineController>();
     }
 
+    private void OnEnable()
+    {
+        GameManager.Instance.OnGameReset += Reset;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.OnGameReset -= Reset;
+    }
+
+    
     private void Start()
     {
         _splineLength = _spline.CalculateLength();
+    }
+
+    private void Reset()
+    {
+        DistancePercentage = 0;
     }
 
     private void Update()
