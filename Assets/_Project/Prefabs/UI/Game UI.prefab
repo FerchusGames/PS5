@@ -67,6 +67,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5042962292176672998}
+  - {fileID: 8984329343236540006}
   m_Father: {fileID: 7262035335046234811}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -481,7 +482,7 @@ GameObject:
   - component: {fileID: 7790746692127939958}
   - component: {fileID: 6236729794110776501}
   m_Layer: 5
-  m_Name: DistanceText
+  m_Name: HighScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -499,11 +500,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7262035335046234811}
+  m_Father: {fileID: 2208085178386177495}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -40.82}
+  m_AnchoredPosition: {x: 757.25, y: 34.18}
   m_SizeDelta: {x: 700, y: 200}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &7790746692127939958
@@ -2120,7 +2121,6 @@ RectTransform:
   - {fileID: 2208085178386177495}
   - {fileID: 5604322826418821168}
   - {fileID: 760809250879793986}
-  - {fileID: 8984329343236540006}
   m_Father: {fileID: 645699320382724859}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3882,7 +3882,7 @@ GameObject:
   - component: {fileID: 1563950205642689785}
   - component: {fileID: 2447980043863634512}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Current
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

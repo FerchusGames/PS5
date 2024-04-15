@@ -11,7 +11,7 @@ public class MoveAlongPath : MonoBehaviour
 
     public event Action onSplineEndAction;
     
-    private float _distancePercentage;
+    public float DistancePercentage { get; private set; }
     private float _splineLength;
 
     private void Awake()
@@ -29,19 +29,19 @@ public class MoveAlongPath : MonoBehaviour
         if (GameManager.Instance.GameState != GameState.gaming)
             return;
         
-        _distancePercentage += _speed * Time.deltaTime / _splineLength;
+        DistancePercentage += _speed * Time.deltaTime / _splineLength;
 
-        Vector3 currentPosition = _spline.EvaluatePosition(_distancePercentage);
+        Vector3 currentPosition = _spline.EvaluatePosition(DistancePercentage);
         transform.position = currentPosition;
 
-        if (_distancePercentage > 1f)
+        if (DistancePercentage > 1f)
         {
-            _distancePercentage = 0f;
+            DistancePercentage = 0f;
             _spline = _splineController.NextSpline;
             onSplineEndAction?.Invoke();
         }
 
-        Vector3 nextPosition = _spline.EvaluatePosition(_distancePercentage + 0.05f);
+        Vector3 nextPosition = _spline.EvaluatePosition(DistancePercentage + 0.05f);
         Vector3 direction = nextPosition - currentPosition;
         transform.rotation = Quaternion.LookRotation(direction, transform.up);
     }

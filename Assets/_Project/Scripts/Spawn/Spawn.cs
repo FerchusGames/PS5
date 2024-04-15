@@ -13,7 +13,6 @@ public class Spawn : MonoBehaviour
     private float timer;
     List<GameObject> objectSpawned = new List<GameObject>();
     
-    
     private void Update()
     {
         if (GameManager.Instance.GameState == GameState.gaming)
@@ -24,31 +23,6 @@ public class Spawn : MonoBehaviour
             {
                 objectSpawned.Add(SpawnObject());
                 timer = 0;
-            }
-        }
-    }
-
-    private void CheckGameState(GameState gameState)
-    {
-        if (gameState == GameState.gaming)
-        {
-            foreach (var food in objectSpawned)
-            {
-                if (food == null)
-                    return;
-                
-                food.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            }
-        }
-
-        else
-        {
-            foreach (var food in objectSpawned)
-            {
-                if (food == null)
-                    return;
-                
-                food.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             }
         }
     }

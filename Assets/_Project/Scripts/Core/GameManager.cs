@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int _fallenFoodLimit = 5;
     
     public event Action<int> OnScoreChange;
-    public event Action<GameState> OnGameStateChange; 
+    public event Action<GameState> OnGameStateChange;
+    public event Action<int> OnHighScoreChange;
     
     private void Awake()
     {
@@ -38,7 +39,9 @@ public class GameManager : MonoBehaviour
     public void AddScore(int scoreToAdd)
     {
         CurrentScore += scoreToAdd;
-        Debug.Log("Current Score: " + CurrentScore);
+        
+        CheckHighScore();
+        
         OnScoreChange?.Invoke(CurrentScore);
     }
 
@@ -56,11 +59,6 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    public void SaveHighScore()
-    {
-        PlayerPrefs.SetInt("HighScore", CurrentScore);
-        PlayerPrefs.Save();
-    }
 
     public void SetGameState(GameState gameState)
     {
@@ -71,7 +69,17 @@ public class GameManager : MonoBehaviour
     public void Lose()
     {
         GameState = GameState.lose;
+    }
 
+    public void SaveHighScore()
+    {
+        PlayerPrefs.SetInt("HighScore", CurrentScore);
+        PlayerPrefs.Save();
+        OnHighScoreChange?.Invoke(CurrentScore);
+    }
+    
+    private void CheckHighScore()
+    {
         int highScore = PlayerPrefs.GetInt("HighScore");
 
         if (CurrentScore > highScore)
