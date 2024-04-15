@@ -1,7 +1,8 @@
 using System;
-using Unity.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Tilt : MonoBehaviour
 {
@@ -9,9 +10,7 @@ public class Tilt : MonoBehaviour
     private Vector3 directionRot;
     
     [SerializeField] private Transform trayTransform;
-    [SerializeField] private Slider sliderRight;
-    [SerializeField] private Slider sliderFront;
-    
+
     public void RotateLeftRight(float rotateDir)
     {
         directionRot.z =  rotateDir;
@@ -21,6 +20,8 @@ public class Tilt : MonoBehaviour
     {
         directionRot.x = rotateDir;
     }
+    
+
 
     void Update()
     {
@@ -35,16 +36,15 @@ public class Tilt : MonoBehaviour
             }
             else
             {
-                // Correct angles.x if out of bounds
                 if (angles.x > 0.211f  || angles.x < -0.211f) {
-                    float targetX = Mathf.Clamp(angles.x, -0.211f, 0.211f); // Get the nearest valid angle within the limits
-                    angles.x = Mathf.MoveTowardsAngle(angles.x, targetX, speed * Time.deltaTime); // Smoothly move towards the target angle
+                    float targetX = Mathf.Clamp(angles.x, -0.211f, 0.211f); 
+                    angles.x = Mathf.MoveTowardsAngle(angles.x, targetX, speed * Time.deltaTime);
                 }
 
                 // Correct angles.z if out of bounds
                 if (angles.z > 0.211f || angles.z < -0.211f) {
-                    float targetZ = Mathf.Clamp(angles.z, -0.211f, 0.211f); // Get the nearest valid angle within the limits
-                    angles.z = Mathf.MoveTowardsAngle(angles.z, targetZ, speed * Time.deltaTime); // Smoothly move towards the target angle
+                    float targetZ = Mathf.Clamp(angles.z, -0.211f, 0.211f);
+                    angles.z = Mathf.MoveTowardsAngle(angles.z, targetZ, speed * Time.deltaTime);
                 }
                 
                 trayTransform.rotation = angles;
