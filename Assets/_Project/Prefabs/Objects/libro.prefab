@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f3af07c418a9cd347a078998f3546d75,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0.178
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f3af07c418a9cd347a078998f3546d75,
         type: 3}
@@ -58,6 +58,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3316209038747775882, guid: f3af07c418a9cd347a078998f3546d75,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 941a9970f60a19640b66f5d1609b2a7a, type: 2}
     - target: {fileID: 919132149155446097, guid: f3af07c418a9cd347a078998f3546d75,
         type: 3}
       propertyPath: m_Name
@@ -71,10 +76,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3517964831027806054}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f3af07c418a9cd347a078998f3546d75,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2215186508775662090}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f3af07c418a9cd347a078998f3546d75,
         type: 3}
       insertIndex: -1
@@ -116,18 +117,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3758573805739257388, guid: f3af07c418a9cd347a078998f3546d75, type: 3}
---- !u!114 &2215186508775662090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668153219931881851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90545ce392b47d4429eee1b3a6d68b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &300998068991201866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,4 +167,4 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1

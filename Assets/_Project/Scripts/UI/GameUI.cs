@@ -14,13 +14,13 @@ public class GameUI : MonoBehaviour
     private void OnEnable()
     {
         GameManager.Instance.OnScoreChange += UpdateScore;
-        GameManager.Instance.OnScoreChange += UpdateHighScore;
+        GameManager.Instance.OnHighScoreChange += UpdateHighScore;
     }
 
     private void OnDisable()
     {
         GameManager.Instance.OnScoreChange -= UpdateScore;
-        GameManager.Instance.OnScoreChange -= UpdateHighScore;
+        GameManager.Instance.OnHighScoreChange -= UpdateHighScore;
     }
 
     private void Start()

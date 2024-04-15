@@ -8,8 +8,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     [field:SerializeField] public GameState GameState { get; private set; }
 
-    [SerializeField] private TMP_Text _highScoreText;
-
     [field:SerializeField] public int CurrentScore { get; private set; }
     
     private int _fallenFoodCount = 0;
@@ -36,12 +34,10 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    
     private void Start()
     {
         SetGameState(GameState.menu);
-
-        _highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
     }
 
     public void StartGame()
@@ -54,8 +50,9 @@ public class GameManager : MonoBehaviour
     {
         _mainGameUI.SetActive(true);
         _controlsUI.SetActive(true);
+
+        AddScore(-CurrentScore);
         
-        CurrentScore = 0;
         _fallenFoodCount = 0;
         OnGameReset?.Invoke();
     }
@@ -112,6 +109,13 @@ public class GameManager : MonoBehaviour
         {
             SaveHighScore();
         }
+    }
+
+    public void ResetHighScore()
+    {
+        PlayerPrefs.SetInt("HighScore", 0);
+        PlayerPrefs.Save();
+        OnHighScoreChange?.Invoke(CurrentScore);
     }
 }
 

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class DeliverObject : MonoBehaviour
@@ -10,6 +11,5 @@ public class DeliverObject : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
-
 }
 
