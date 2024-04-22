@@ -1,18 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SpawnProps : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   [SerializeField] private GameObject[] _propGameObjects;
+   [SerializeField] private Transform[] _propPlacements;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   private void Start()
+   {
+      foreach (Transform propPlacement in _propPlacements)
+      {
+         int propIndex = Random.Range(0, _propGameObjects.Length);
+         Instantiate(_propGameObjects[propIndex], propPlacement);
+      }
+   }
 }
