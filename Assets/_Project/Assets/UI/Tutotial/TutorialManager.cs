@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject spawner;
     [SerializeField] private GameObject mainUI;
     private int popIndex;
-    private float waitTime = 2f;
+    private float waitTime = 2.5f;
     
 
     private void Update()
@@ -37,17 +38,30 @@ public class TutorialManager : MonoBehaviour
         }
         else if (popIndex == 1)
         {
-            spawner.SetActive(true);
-            if (GameManager.Instance.CurrentScore > 0)
+            if (waitTime <= 0)
             {
+                GameManager.Instance.StartGame();
                 popIndex++;
+            }
+            else
+            {
+                waitTime -= Time.deltaTime;
             }
         }
         else if (popIndex == 2)
         {
+            spawner.SetActive(true);
+            if (GameManager.Instance.CurrentScore > 0)
+            {
+                waitTime = 2.5f;
+                popIndex++;
+            }
+        }
+        else if (popIndex == 3)
+        {
             if (waitTime <= 0)
             {
-                mainUI.SetActive(true);
+                popups.Last().SetActive(false);
             }
             else
             {

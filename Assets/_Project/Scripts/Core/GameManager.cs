@@ -45,6 +45,12 @@ public class GameManager : MonoBehaviour
         Reset();
         SetGameState(GameState.gaming);
     }
+
+    public void StartTuto()
+    {
+        Reset();
+        SetGameState(GameState.tutorial);
+    }
     
     public void Reset()
     {
@@ -124,5 +130,6 @@ public enum GameState
     lose,
     pause,
     gaming,
-    menu
+    menu,
+    tutorial
 }
