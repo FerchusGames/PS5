@@ -9,7 +9,7 @@ public class MoveAlongPath : MonoBehaviour
 
     private SplineController _splineController;
 
-    public event Action onSplineEndAction;
+    public event Action OnSplineEndAction;
     
     public float DistancePercentage { get; private set; }
     private float _splineLength;
@@ -54,7 +54,7 @@ public class MoveAlongPath : MonoBehaviour
         {
             DistancePercentage = 0f;
             _spline = _splineController.NextSpline;
-            onSplineEndAction?.Invoke();
+            OnSplineEndAction?.Invoke();
         }
 
         Vector3 nextPosition = _spline.EvaluatePosition(DistancePercentage + 0.05f);

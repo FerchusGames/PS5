@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _gameOverUI;
     [SerializeField] private GameObject _mainGameUI;
     [SerializeField] private GameObject _controlsUI;
+
+    [SerializeField] private Spawn _spawn;
     
     public event Action<int> OnScoreChange;
     public event Action<GameState> OnGameStateChange;
@@ -34,7 +36,17 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnEnable()
+    {
+        _spawn.OnSpawnObjects += ResetFallenFood;
+    }
     
+    private void OnDisable()
+    {
+        _spawn.OnSpawnObjects -= ResetFallenFood;
+    }
+
     private void Start()
     {
         SetGameState(GameState.menu);
@@ -45,7 +57,7 @@ public class GameManager : MonoBehaviour
         Reset();
         SetGameState(GameState.gaming);
     }
-    
+
     public void Reset()
     {
         _mainGameUI.SetActive(true);
@@ -55,6 +67,12 @@ public class GameManager : MonoBehaviour
         
         _fallenFoodCount = 0;
         OnGameReset?.Invoke();
+    }
+
+    private void ResetFallenFood(int newFallenFoodLimit)
+    {
+        _fallenFoodCount = 0;
+        _fallenFoodLimit = newFallenFoodLimit;
     }
 
     public void AddScore(int scoreToAdd)
@@ -71,10 +89,10 @@ public class GameManager : MonoBehaviour
         _fallenFoodCount++;
         CheckLose();
     }
-
+    
     private void CheckLose()
     {
-        if (_fallenFoodCount > _fallenFoodLimit)
+        if (_fallenFoodCount >= _fallenFoodLimit)
         {
             Lose();
         }

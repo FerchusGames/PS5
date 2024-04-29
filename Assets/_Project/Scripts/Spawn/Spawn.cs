@@ -8,33 +8,39 @@ public class Spawn : MonoBehaviour
 {
     public GameObject[] objectsToSpawn; // Array of prefabs to spawn
     public Transform[] spawnPoints; // Spawn points on the tray
-    public float spawnInterval = 2f; // Time between spawns
 
-    private float timer;
+    [SerializeField, Range(1, 10)] private int _minObjects = 2;
+    [SerializeField, Range(1, 10)] private int _maxObjects = 5;
+    
     List<GameObject> objectSpawned = new List<GameObject>();
     
-    private void Update()
+    [SerializeField] private MoveAlongPath _moveAlongPath;
+
+    public event Action<int> OnSpawnObjects;
+
+    private void OnEnable()
     {
-        if (GameManager.Instance.GameState == GameState.gaming)
-        {
-            timer += Time.deltaTime;
-            
-            if (timer >= spawnInterval)
-            {
-                objectSpawned.Add(SpawnObject());
-                timer = 0;
-            }
-        }
+        _moveAlongPath.OnSplineEndAction += SpawnObjects;
+        GameManager.Instance.OnGameReset += SpawnObjects;
     }
 
-    private GameObject SpawnObject()
+    private void OnDisable()
     {
-        // Select a random object and spawn point
-        GameObject objectToSpawn = objectsToSpawn[Random.Range(0, objectsToSpawn.Length)];
-        Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        _moveAlongPath.OnSplineEndAction -= SpawnObjects;
+        GameManager.Instance.OnGameReset -= SpawnObjects;
+    }
 
-        // Instantiate the object at the spawn point
-        GameObject spawnedObject = Instantiate(objectToSpawn, spawnPoint.position, Quaternion.identity, spawnPoint);
-        return spawnedObject;
+    private void SpawnObjects()
+    {
+        int objectSpawnAmount = Random.Range(_minObjects, _maxObjects);
+
+        for (int i = 0; i < objectSpawnAmount; i++)
+        {
+            GameObject objectToSpawn = objectsToSpawn[Random.Range(0, objectsToSpawn.Length)];
+            Transform spawnPoint = spawnPoints[i];
+            GameObject spawnedObject = Instantiate(objectToSpawn, spawnPoint.position, Quaternion.identity, spawnPoint);
+        }
+
+        OnSpawnObjects?.Invoke(objectSpawnAmount);
     }
 }
