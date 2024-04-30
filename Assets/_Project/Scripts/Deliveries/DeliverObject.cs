@@ -9,7 +9,7 @@ public class DeliverObject : MonoBehaviour
 
     private void Start()
     {
-        _playerObject = GameObject.FindWithTag("Respawn");
+        _playerObject = GameObject.FindWithTag("Player");
     }
 
     private void OnTriggerEnter(Collider other)
