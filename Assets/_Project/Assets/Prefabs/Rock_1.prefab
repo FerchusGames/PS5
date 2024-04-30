@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: 6761214306232569132, guid: c3294761d482b8d4cb4772fb73c461a3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.033
       objectReference: {fileID: 0}
     - target: {fileID: 6761214306232569132, guid: c3294761d482b8d4cb4772fb73c461a3,
         type: 3}
@@ -61,7 +61,7 @@ PrefabInstance:
     - target: {fileID: 7226927238385095244, guid: c3294761d482b8d4cb4772fb73c461a3,
         type: 3}
       propertyPath: m_Name
-      value: Tree_2 4
+      value: Rock_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -90,17 +90,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1c2e3937afb16064a8fb10f750159737,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.9878821
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1c2e3937afb16064a8fb10f750159737,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000023841858
+      value: 0.216
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1c2e3937afb16064a8fb10f750159737,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.5469918
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1c2e3937afb16064a8fb10f750159737,
         type: 3}

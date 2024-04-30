@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 75bbc124a8e876c479a6f5e373f54ee7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.399
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 75bbc124a8e876c479a6f5e373f54ee7,
         type: 3}
@@ -140,7 +140,7 @@ PrefabInstance:
     - target: {fileID: 7226927238385095244, guid: c3294761d482b8d4cb4772fb73c461a3,
         type: 3}
       propertyPath: m_Name
-      value: Tree_2 3
+      value: Trunk
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

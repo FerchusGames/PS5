@@ -61,7 +61,7 @@ PrefabInstance:
     - target: {fileID: 7226927238385095244, guid: c3294761d482b8d4cb4772fb73c461a3,
         type: 3}
       propertyPath: m_Name
-      value: Tree_2 1
+      value: Stump_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -95,17 +95,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c431fd7d3cafef94b91dbb56f442e769,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.7225244
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c431fd7d3cafef94b91dbb56f442e769,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000023841858
+      value: 0.339
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c431fd7d3cafef94b91dbb56f442e769,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.1747127
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c431fd7d3cafef94b91dbb56f442e769,
         type: 3}
@@ -115,17 +115,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c431fd7d3cafef94b91dbb56f442e769,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c431fd7d3cafef94b91dbb56f442e769,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c431fd7d3cafef94b91dbb56f442e769,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c431fd7d3cafef94b91dbb56f442e769,
         type: 3}
