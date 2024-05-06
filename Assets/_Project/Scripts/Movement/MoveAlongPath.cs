@@ -47,19 +47,25 @@ public class MoveAlongPath : MonoBehaviour
         
         DistancePercentage += _speed * Time.deltaTime / _splineLength;
 
-        Vector3 currentPosition = _spline.EvaluatePosition(DistancePercentage);
-        transform.position = currentPosition;
+        SetCurrentPosition();
 
         if (DistancePercentage > 1f)
         {
             DistancePercentage = 0f;
             _spline = _splineController.NextSpline;
+            SetCurrentPosition();
             OnSplineEndAction?.Invoke();
         }
 
         Vector3 nextPosition = _spline.EvaluatePosition(DistancePercentage + 0.05f);
-        Vector3 direction = nextPosition - currentPosition;
+        Vector3 direction = nextPosition - transform.position;
         transform.rotation = Quaternion.LookRotation(direction, transform.up);
+    }
+
+    private void SetCurrentPosition()
+    {
+        Vector3 currentPosition = _spline.EvaluatePosition(DistancePercentage);
+        transform.position = currentPosition;
     }
 
     public void SetSpline(SplineContainer splineContainer)
