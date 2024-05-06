@@ -290,7 +290,7 @@ PrefabInstance:
     - target: {fileID: 2233226191116349971, guid: 3eec4e7c2ddac72479e7c26bb4947993,
         type: 3}
       propertyPath: _splinePrefabs.Array.size
-      value: 13
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 2233226191116349971, guid: 3eec4e7c2ddac72479e7c26bb4947993,
         type: 3}
@@ -374,6 +374,42 @@ PrefabInstance:
       propertyPath: _splinePrefabs.Array.data[12]
       value: 
       objectReference: {fileID: 2769183232104577806, guid: 3c14fdac3f24fc0488bf2284827d96c1,
+        type: 3}
+    - target: {fileID: 2233226191116349971, guid: 3eec4e7c2ddac72479e7c26bb4947993,
+        type: 3}
+      propertyPath: _splinePrefabs.Array.data[13]
+      value: 
+      objectReference: {fileID: 2769183232104577806, guid: fe6e66d784029cd419ba86269e4b3d43,
+        type: 3}
+    - target: {fileID: 2233226191116349971, guid: 3eec4e7c2ddac72479e7c26bb4947993,
+        type: 3}
+      propertyPath: _splinePrefabs.Array.data[14]
+      value: 
+      objectReference: {fileID: 2769183232104577806, guid: b13ea07ba5fe2074fbb4321c12639984,
+        type: 3}
+    - target: {fileID: 2233226191116349971, guid: 3eec4e7c2ddac72479e7c26bb4947993,
+        type: 3}
+      propertyPath: _splinePrefabs.Array.data[15]
+      value: 
+      objectReference: {fileID: 2769183232104577806, guid: e373cbb0d7eed994ea14609caaf40fdb,
+        type: 3}
+    - target: {fileID: 2233226191116349971, guid: 3eec4e7c2ddac72479e7c26bb4947993,
+        type: 3}
+      propertyPath: _splinePrefabs.Array.data[16]
+      value: 
+      objectReference: {fileID: 2769183232104577806, guid: 6ae0af2efe98e5b489a867a113a5cc68,
+        type: 3}
+    - target: {fileID: 2233226191116349971, guid: 3eec4e7c2ddac72479e7c26bb4947993,
+        type: 3}
+      propertyPath: _splinePrefabs.Array.data[17]
+      value: 
+      objectReference: {fileID: 2769183232104577806, guid: 684bdf066326c564791edb92dff90b3b,
+        type: 3}
+    - target: {fileID: 2233226191116349971, guid: 3eec4e7c2ddac72479e7c26bb4947993,
+        type: 3}
+      propertyPath: _splinePrefabs.Array.data[18]
+      value: 
+      objectReference: {fileID: 2769183232104577806, guid: 9c661f2f50c0ae64aab9d697e47693e1,
         type: 3}
     - target: {fileID: 2233226191116349971, guid: 3eec4e7c2ddac72479e7c26bb4947993,
         type: 3}
