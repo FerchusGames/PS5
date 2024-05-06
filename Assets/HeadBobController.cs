@@ -24,10 +24,13 @@ public class HeadBobController : MonoBehaviour
     private void Update()
     {
         if (_enable == false) return;
-        
-        PlayMotion(FootStepMotion());
-        RestetPositios();
-        _camera.LookAt(FocusTarget());
+
+        if (GameManager.Instance.GameState == GameState.gaming)
+        {
+            PlayMotion(FootStepMotion());
+            RestetPositios();
+            _camera.LookAt(FocusTarget());
+        }
     }
 
     private void RestetPositios()

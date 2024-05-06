@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +14,7 @@ public class TutorialManager : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerPrefs.GetInt("tutorial") == 0)
+        if (GameManager.Instance.GameState == GameState.tutorial)
         {
             for (int i = 0; i < popups.Length; i++)
             {

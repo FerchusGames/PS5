@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _controlsUI;
 
     [SerializeField] private Spawn _spawn;
+    [SerializeField] private GameObject _PopUps;
     
     public event Action<int> OnScoreChange;
     public event Action<GameState> OnGameStateChange;
@@ -49,9 +50,51 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Reset();
         SetGameState(GameState.menu);
     }
 
+    public void StartTuto()
+    {
+        Reset();
+        if (PlayerPrefs.GetInt("tutorial") == 0)
+        {
+            SetGameState(GameState.tutorial);
+        }
+        else
+        {
+            StartGame();
+        }
+    }
+
+    public void EndTuto()
+    {
+        PlayerPrefs.SetInt("tutorial", 1);
+        PlayerPrefs.Save();
+        SetGameState(GameState.gaming);
+    }
+    
+    public void PlayTuto()
+    {
+        Reset();
+        PlayerPrefs.SetInt("tutorial", 0);
+        Debug.Log(PlayerPrefs.GetInt("tutorial"));
+        ResetPopUps();
+        SetGameState(GameState.tutorial);
+    }
+
+    public void ResetPopUps()
+    {
+        _mainGameUI.SetActive(true);
+        _controlsUI.SetActive(true);
+        _PopUps.SetActive(true);
+
+        AddScore(-CurrentScore);
+        
+        _fallenFoodCount = 0;
+        OnGameReset?.Invoke();
+    }
+    
     public void StartGame()
     {
         Reset();
@@ -142,5 +185,6 @@ public enum GameState
     lose,
     pause,
     gaming,
-    menu
+    menu,
+    tutorial
 }
