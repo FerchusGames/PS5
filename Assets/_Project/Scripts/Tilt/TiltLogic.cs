@@ -28,7 +28,7 @@ public class TiltLogic : MonoBehaviour
         Quaternion angles = trayTransform.rotation; 
         //Debug.Log(angles);
         
-        if (GameManager.Instance.GameState == GameState.gaming)
+        if (GameManager.Instance.GameState is GameState.gaming or GameState.tutorial)
         {
             if ((angles.x < 0.211f && angles.x > -0.211f) && (angles.z < 0.211f && angles.z > -0.211f))
             {
