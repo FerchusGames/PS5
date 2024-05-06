@@ -18,19 +18,19 @@ public class MovementCharacter : MonoBehaviour
     {
         direction = Vector3.zero;
 
-        if(input.GetKey(KeyCode.W))
+        if(Input.GetKey(KeyCode.W))
         {
             direction += Cameratransform.forward;
         }
-        if (input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             direction += -Cameratransform.forward;
         }
-        if (input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             direction += Cameratransform.right;
         }
-        else if (input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
         {
             direction += -Cameratransform.right;
         }
