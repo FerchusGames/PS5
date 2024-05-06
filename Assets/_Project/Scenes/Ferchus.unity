@@ -428,7 +428,7 @@ PrefabInstance:
     - target: {fileID: 3169850635391549054, guid: 3eec4e7c2ddac72479e7c26bb4947993,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3169850635391549054, guid: 3eec4e7c2ddac72479e7c26bb4947993,
         type: 3}
@@ -463,6 +463,11 @@ PrefabInstance:
     - target: {fileID: 4816742887237355905, guid: 3eec4e7c2ddac72479e7c26bb4947993,
         type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816742887237355905, guid: 3eec4e7c2ddac72479e7c26bb4947993,
+        type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4943357416657031048, guid: 3eec4e7c2ddac72479e7c26bb4947993,
@@ -2204,9 +2209,9 @@ Terrain:
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: 3a966949dc0811244a16467c11e83c67, type: 2}
   m_TreeDistance: 5000
-  m_TreeBillboardDistance: 50
-  m_TreeCrossFadeLength: 5
-  m_TreeMaximumFullLODCount: 50
+  m_TreeBillboardDistance: 5
+  m_TreeCrossFadeLength: 0
+  m_TreeMaximumFullLODCount: 0
   m_DetailObjectDistance: 80
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 5
@@ -2254,7 +2259,7 @@ PositionConstraint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2112424815}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Weight: 1
   m_TranslationAtRest: {x: -500, y: 0, z: -500}

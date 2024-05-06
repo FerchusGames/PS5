@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90545ce392b47d4429eee1b3a6d68b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _particleSystem: {fileID: 6081416076872284258, guid: d2788ccc570bfa342a4c489e2707666a,
+  _particleSystem: {fileID: 430371762323143592, guid: 28146d5b387d6084e966669f1a33b0a0,
     type: 3}
 --- !u!1 &1065603248032779027
 GameObject:
@@ -295,15 +295,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _propGameObjects:
-  - {fileID: 6738381085221346864, guid: d5dd584b06e9d024ca4bfa55fcedaceb, type: 3}
-  - {fileID: 6738381085221346864, guid: b20556d048846cd4c9c5da68a6f873ee, type: 3}
-  - {fileID: 6738381085221346864, guid: ccf47031b0b527e489dc3b986b50fe73, type: 3}
-  - {fileID: 6738381085221346864, guid: b179b6976617e9e4dbfa72aded69ad06, type: 3}
+  - {fileID: 7697173442324059885, guid: 9f099bcfc7891c844906cbd66d897739, type: 3}
+  - {fileID: 7697173442324059885, guid: da7cad19d040a4146bd3aef5a842a966, type: 3}
+  - {fileID: 7697173442324059885, guid: 6c21f06c85eac614baab2df6e9bdcf26, type: 3}
+  - {fileID: 7697173442324059885, guid: 2f3dedd6eae903b44bb23f49f5b567ba, type: 3}
+  - {fileID: 7226927238385095244, guid: c3294761d482b8d4cb4772fb73c461a3, type: 3}
+  - {fileID: 7697173442324059885, guid: b8d2fc93b647b0040a0091c8227177dc, type: 3}
+  - {fileID: 7697173442324059885, guid: 92b512cf0d404904fa58536f56ce2f24, type: 3}
   _propPlacements:
   - {fileID: 4710547827534161716}
   - {fileID: 8276828385954551069}
   - {fileID: 6056197286232896453}
   - {fileID: 5482639786586924172}
+  _parent: {fileID: 3400278973937315575}
+  _minScaleMultiplier: 0.8
+  _maxScaleMultiplier: 1.5
 --- !u!1 &8337155760122143116
 GameObject:
   m_ObjectHideFlags: 0
