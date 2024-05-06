@@ -23,13 +23,13 @@ public class SplineController : MonoBehaviour
     private void OnEnable()
     {
         GameManager.Instance.OnGameReset += Reset;
-        _moveAlongPath.onSplineEndAction += CreateNextSpline;
+        _moveAlongPath.OnSplineEndAction += CreateNextSpline;
     }
     
     private void OnDisable()
     {
         GameManager.Instance.OnGameReset -= Reset;
-        _moveAlongPath.onSplineEndAction -= CreateNextSpline;
+        _moveAlongPath.OnSplineEndAction -= CreateNextSpline;
     }
 
     private void Start()
