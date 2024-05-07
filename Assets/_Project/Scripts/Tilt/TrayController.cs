@@ -95,11 +95,12 @@ public class TrayController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            _objectsInTray.Add(rb);
-        }
+        // TODO: Cambiar la forma en la que se añaden y quitan los objetos porque está generando stutters
+        // Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
+        // if (rb != null)
+        // {
+        //     _objectsInTray.Add(rb);
+        // }
     }
 
     private void Reset()

@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Reset();
         SetGameState(GameState.menu);
     }
 
