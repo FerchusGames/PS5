@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class VolumeSettings : MonoBehaviour
 {
@@ -12,12 +11,14 @@ public class VolumeSettings : MonoBehaviour
     {
         _volume = 1;
     }
+    
     void CambiarVolumenMixer()
     {
         _DbVolume = (_volume * 80) - 80;
         //_DbVolume = (1 - Mathf.Sqrt(_volume) * -80);
         _audioMixer.SetFloat("sfx_vol", _DbVolume);
     }
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -42,6 +43,5 @@ public class VolumeSettings : MonoBehaviour
             //_DbVolume = (1 - Mathf.Sqrt(_volume) * -80);
             _audioMixer.SetFloat("sfx_vol", _DbVolume);
         }
-    }
     }
 }
