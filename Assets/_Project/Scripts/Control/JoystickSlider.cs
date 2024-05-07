@@ -13,12 +13,14 @@ public class JoystickSlider : MonoBehaviour
     {
         if (_joystick == Joystick.HORIZONTAL)
         {
-            _slider.value = Input.GetAxis("Horizontal");
+            float value = -Input.GetAxis("Horizontal");
+            _slider.value = value == 0 ? _slider.value : value;
         }
 
         if (_joystick == Joystick.VERTICAL)
         {
-            _slider.value = Input.GetAxis("Vertical");
+            float value = Input.GetAxis("Vertical");
+            _slider.value = value == 0 ? _slider.value : value;
         }
     }
 

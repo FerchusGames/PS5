@@ -464,7 +464,7 @@ PrefabInstance:
     - target: {fileID: 3169850635391549054, guid: 3eec4e7c2ddac72479e7c26bb4947993,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3169850635391549054, guid: 3eec4e7c2ddac72479e7c26bb4947993,
         type: 3}
@@ -530,6 +530,31 @@ PrefabInstance:
         type: 3}
       propertyPath: _spline
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273976659141877417, guid: 3eec4e7c2ddac72479e7c26bb4947993,
+        type: 3}
+      propertyPath: _maxSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273976659141877417, guid: 3eec4e7c2ddac72479e7c26bb4947993,
+        type: 3}
+      propertyPath: _minSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273976659141877417, guid: 3eec4e7c2ddac72479e7c26bb4947993,
+        type: 3}
+      propertyPath: _accelerationDistancePercentage
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273976659141877417, guid: 3eec4e7c2ddac72479e7c26bb4947993,
+        type: 3}
+      propertyPath: _decelerationDistancePercentage
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480490532017524577, guid: 3eec4e7c2ddac72479e7c26bb4947993,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 7035954909419697056, guid: 3eec4e7c2ddac72479e7c26bb4947993,
         type: 3}
@@ -2703,7 +2728,7 @@ PrefabInstance:
     - target: {fileID: 2877188358948322473, guid: 4c864fa367b3dab49a1b8e94918ea0c0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3122008465878130824, guid: 4c864fa367b3dab49a1b8e94918ea0c0,
         type: 3}

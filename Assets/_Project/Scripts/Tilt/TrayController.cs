@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TrayController : MonoBehaviour
@@ -16,12 +17,12 @@ public class TrayController : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.Instance.OnGameReset += ResetTransform;
+        GameManager.Instance.OnGameReset += Reset;
     }
 
     private void OnDisable()
     {
-        GameManager.Instance.OnGameReset -= ResetTransform;
+        GameManager.Instance.OnGameReset -= Reset;
     }
 
     private void Update()
@@ -37,6 +38,9 @@ public class TrayController : MonoBehaviour
 
     private void UpdateRotations()
     {
+        Vector3 newRotation = transform.localRotation.eulerAngles;
+        newRotation.y = 0;
+        transform.localRotation = Quaternion.Euler(newRotation);
         _previousRotation = _currentRotation;
         _currentRotation = _playerTransform.rotation.eulerAngles;
     }
@@ -98,11 +102,15 @@ public class TrayController : MonoBehaviour
         }
     }
 
-    private void ResetTransform()
+    private void Reset()
     {
+        // Transform
         _playerTransform.position = Vector3.zero;
         _playerTransform.rotation = Quaternion.identity;
-        transform.rotation = Quaternion.identity;
+        transform.localRotation = Quaternion.identity;
+
+        _currentRotation = Vector3.zero;
+        
         _objectsInTray.Clear();
     }
 }
