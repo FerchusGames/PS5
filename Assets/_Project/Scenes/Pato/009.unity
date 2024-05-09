@@ -144,6 +144,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 184907702411402068, guid: 3eec4e7c2ddac72479e7c26bb4947993,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1154022108334084796, guid: 3eec4e7c2ddac72479e7c26bb4947993,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -436,7 +441,7 @@ PrefabInstance:
     - target: {fileID: 7007997662002883999, guid: 3eec4e7c2ddac72479e7c26bb4947993,
         type: 3}
       propertyPath: _frequency
-      value: 0.2
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7035954909419697056, guid: 3eec4e7c2ddac72479e7c26bb4947993,
         type: 3}
@@ -532,7 +537,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 184907702411402068, guid: 3eec4e7c2ddac72479e7c26bb4947993,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1837182253}
+      addedObject: {fileID: 1837182257}
   m_SourcePrefab: {fileID: 100100000, guid: 3eec4e7c2ddac72479e7c26bb4947993, type: 3}
 --- !u!4 &143513463 stripped
 Transform:
@@ -6917,10 +6922,10 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -6392984549591252765, guid: 41f1e9ea44038d449a7aa86f0db2238d,
     type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7580,7 +7585,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 143513462}
   m_PrefabAsset: {fileID: 0}
---- !u!81 &1837182253
+--- !u!81 &1837182257
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
