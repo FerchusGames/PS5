@@ -15,7 +15,7 @@ public class HeadBobController : MonoBehaviour
 
     private float _toggleSpeed = 3.0f;
     private Vector3 _startPos;
-
+    private int _LastTime = 0;
     private void Awake()
     {
         _startPos = _camera.localPosition;
@@ -31,6 +31,13 @@ public class HeadBobController : MonoBehaviour
             RestetPositios();
             _camera.LookAt(FocusTarget());
         }
+        int CurrentTime = (int)(Time.time * _frequency);
+        if (CurrentTime>_LastTime)
+        {
+            AudioManager.GetInstance().SetAudio(SOUND_TYPE.FOOTSTEPS);
+            _LastTime = CurrentTime;
+            Debug.Log($"CurrentTime {CurrentTime}");
+        }
     }
 
     private void RestetPositios()
@@ -43,9 +50,9 @@ public class HeadBobController : MonoBehaviour
     private Vector3 FootStepMotion()
     {
         Vector3 pos = Vector3.zero;
-        pos.y += Mathf.Sin(Time.time * _frequency) * _amplitude;
-        pos.x += Mathf.Cos(Time.time * _frequency / 2) * _amplitude * 2;
-
+        pos.y += Mathf.Sin(Time.time * Mathf.PI * _frequency * 2) * _amplitude;
+        pos.x += Mathf.Cos(Time.time * Mathf.PI * _frequency ) * _amplitude * 2;
+       
         return pos;
     }
 

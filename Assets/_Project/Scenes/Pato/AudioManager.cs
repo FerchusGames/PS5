@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PapuAudios : MonoBehaviour
+public class AudioManager : MonoBehaviour
 {
-    private static PapuAudios _instance;
-    public static PapuAudios GetInstance()
+    private static AudioManager _instance;
+    public static AudioManager GetInstance()
     {
         return _instance;
     }
@@ -15,8 +15,8 @@ public class PapuAudios : MonoBehaviour
         SelfAudioSource = GetComponent<AudioSource>();    
     }
 
-    AudioSource SelfAudioSource;
-    AudioLibrary library;
+    [SerializeField]AudioSource SelfAudioSource;
+    [SerializeField] AudioLibrary library;
     [SerializeField] GameObject audioSourcePrefab;
     private List<AudioSource> audioSources = new List<AudioSource>();
     public void SetAudio(SOUND_TYPE _requestSound)
