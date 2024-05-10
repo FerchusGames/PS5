@@ -30,13 +30,17 @@ public class HeadBobController : MonoBehaviour
             PlayMotion(FootStepMotion());
             RestetPositios();
             _camera.LookAt(FocusTarget());
+            PlayFootstep();
         }
+    }
+
+    private void PlayFootstep()
+    {
         int CurrentTime = (int)(Time.time * _frequency);
-        if (CurrentTime>_LastTime)
+        if (CurrentTime > _LastTime)
         {
             AudioManager.GetInstance().SetAudio(SOUND_TYPE.FOOTSTEPS);
             _LastTime = CurrentTime;
-            Debug.Log($"CurrentTime {CurrentTime}");
         }
     }
 
