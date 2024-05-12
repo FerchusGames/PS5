@@ -143,16 +143,6 @@ PrefabInstance:
       propertyPath: <CurrentSpline>k__BackingField
       value: 
       objectReference: {fileID: 1581633764}
-    - target: {fileID: 3169850635391549054, guid: 3eec4e7c2ddac72479e7c26bb4947993,
-        type: 3}
-      propertyPath: tiltSpeed
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169850635391549054, guid: 3eec4e7c2ddac72479e7c26bb4947993,
-        type: 3}
-      propertyPath: trayPivot
-      value: 
-      objectReference: {fileID: 143513463}
     - target: {fileID: 4816742887237355905, guid: 3eec4e7c2ddac72479e7c26bb4947993,
         type: 3}
       propertyPath: m_Name
@@ -1125,7 +1115,7 @@ PrefabInstance:
     - target: {fileID: 4933390897979344417, guid: 4c864fa367b3dab49a1b8e94918ea0c0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: StartGame
+      value: StartTuto
       objectReference: {fileID: 0}
     - target: {fileID: 5869760409772128451, guid: 4c864fa367b3dab49a1b8e94918ea0c0,
         type: 3}

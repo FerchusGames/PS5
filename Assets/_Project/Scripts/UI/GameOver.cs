@@ -31,8 +31,15 @@ public class GameOver : MonoBehaviour
 
     public void Reset()
     {
+        if (PlayerPrefs.GetInt("tutorial") == 0)
+        {
+            GameManager.Instance.SetGameState(GameState.tutorial);
+        }
+        else
+        {
+            GameManager.Instance.SetGameState(GameState.gaming);
+        }
         GameManager.Instance.Reset();        
-        GameManager.Instance.SetGameState(GameState.gaming);
         gameObject.SetActive(false);
     }
 }

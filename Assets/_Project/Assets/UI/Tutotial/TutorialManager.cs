@@ -10,10 +10,15 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject spawner;
     [SerializeField] private GameObject mainUI;
     private int popIndex;
-    private float waitTime = 2.5f;
+    private float waitTime = 1.5f;
 
     private void Update()
     {
+        if (GameManager.Instance.GameState == GameState.lose)
+        {
+            ResetPopUps();
+        }
+        
         if (GameManager.Instance.GameState == GameState.tutorial)
         {
             for (int i = 0; i < popups.Length; i++)
@@ -37,9 +42,9 @@ public class TutorialManager : MonoBehaviour
             }
             else if (popIndex == 1)
             {
+                GameManager.Instance.StartGame();
                 if (waitTime <= 0)
                 {
-                    GameManager.Instance.StartGame();
                     popIndex++;
                 }
                 else
@@ -49,11 +54,13 @@ public class TutorialManager : MonoBehaviour
             }
             else if (popIndex == 2)
             {
-                spawner.SetActive(true);
-                if (GameManager.Instance.CurrentScore > 0)
+                if (waitTime <= 0)
                 {
-                    waitTime = 2.5f;
                     popIndex++;
+                }
+                else
+                {
+                    waitTime -= Time.deltaTime;
                 }
             }
             else if (popIndex == 3)
@@ -70,4 +77,10 @@ public class TutorialManager : MonoBehaviour
             }
         }
     }
+
+    private void ResetPopUps()
+    {
+        popIndex = 0;
+    }
+    
 }

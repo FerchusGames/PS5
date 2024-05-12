@@ -75,11 +75,11 @@ public class GameManager : MonoBehaviour
     
     public void PlayTuto()
     {
-        Reset();
-        PlayerPrefs.SetInt("tutorial", 0);
         Debug.Log(PlayerPrefs.GetInt("tutorial"));
-        ResetPopUps();
         SetGameState(GameState.tutorial);
+        Reset();
+        ResetPopUps();
+        PlayerPrefs.SetInt("tutorial", 0);
     }
 
     public void ResetPopUps()
@@ -102,6 +102,7 @@ public class GameManager : MonoBehaviour
 
     public void Reset()
     {
+   
         _mainGameUI.SetActive(true);
         _controlsUI.SetActive(true);
 
