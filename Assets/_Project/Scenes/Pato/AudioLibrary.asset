@@ -35,3 +35,15 @@ MonoBehaviour:
     - {fileID: 8300000, guid: be211bd3f93d2014cba54c4ee21acc8b, type: 3}
     - {fileID: 8300000, guid: 272ee032ce2798a438784f151139bade, type: 3}
     - {fileID: 8300000, guid: 50d2ca99891e3264a81c70c581fd9c56, type: 3}
+  - soundType: 2
+    clip:
+    - {fileID: 8300000, guid: d78689527141e1f419a886a9b6762358, type: 3}
+    - {fileID: 8300000, guid: 1fa1e6e7ca424184ea289bb1e23f3f37, type: 3}
+    - {fileID: 8300000, guid: 5011a5d4fcfb245419ca4b7108b56989, type: 3}
+    - {fileID: 8300000, guid: 4980771312ff5f74a8eda12d730c905f, type: 3}
+    - {fileID: 8300000, guid: 704bd739a5a19104e96581445e18e69d, type: 3}
+  - soundType: 1
+    clip:
+    - {fileID: 8300000, guid: 2c0fec8a81e3e754ab8f514e5c032227, type: 3}
+    - {fileID: 8300000, guid: 23f1280efaf77924db51538832551e82, type: 3}
+    - {fileID: 8300000, guid: 35484480ecd7a3248a5dcf3490a77aa3, type: 3}
