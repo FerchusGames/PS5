@@ -116,6 +116,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hamburger Top
       objectReference: {fileID: 0}
+    - target: {fileID: 7225688679769053114, guid: 933a4378118b0454eaf71423813827a9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8002084268211850496, guid: 933a4378118b0454eaf71423813827a9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -198,6 +203,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hamburger Meat
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225688679769053114, guid: fbab1ab519f18e74cbe8e4f978e14004,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8002084268211850496, guid: fbab1ab519f18e74cbe8e4f978e14004,
         type: 3}

@@ -12,6 +12,16 @@ public class FreezeRigidbody : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
+    private void Start()
+    {
+        TrayController.Instance.AddObjectRigidbody(_rigidbody);
+    }
+
+    private void OnDestroy()
+    {
+        TrayController.Instance.RemoveObjectRigidbody(_rigidbody);
+    }
+
     private void OnEnable()
     {
         GameManager.Instance.OnGameStateChange += CheckFreeze;

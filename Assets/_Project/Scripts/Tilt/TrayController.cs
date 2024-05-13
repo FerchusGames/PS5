@@ -112,6 +112,11 @@ public class TrayController : MonoBehaviour
         _objectsInTray.Add(rigidbody);
     }
     
+    public void RemoveObjectRigidbody(Rigidbody rigidbody)
+    {
+        _objectsInTray.Remove(rigidbody);
+    }
+    
     private void OnCollisionEnter(Collision other)
     {
         // TODO: Cambiar la forma en la que se añaden y quitan los objetos porque está generando stutters
