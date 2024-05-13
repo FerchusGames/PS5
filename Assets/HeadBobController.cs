@@ -13,7 +13,6 @@ public class HeadBobController : MonoBehaviour
     [SerializeField] private Transform _camera = null;
     [SerializeField] private Transform _cameraHolder = null;
 
-    private float _toggleSpeed = 3.0f;
     private Vector3 _startPos;
 
     private void Awake()
@@ -25,7 +24,7 @@ public class HeadBobController : MonoBehaviour
     {
         if (_enable == false) return;
 
-        if (GameManager.Instance.GameState == GameState.gaming)
+        if (GameManager.Instance.GameState == GameState.gaming || GameManager.Instance.GameState == GameState.tutorial)
         {
             PlayMotion(FootStepMotion());
             RestetPositios();

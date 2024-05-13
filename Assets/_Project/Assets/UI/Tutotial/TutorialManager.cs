@@ -37,15 +37,17 @@ public class TutorialManager : MonoBehaviour
             {
                 if (controls[0].value > 0 || controls[0].value < 0 || controls[1].value > 0 || controls[1].value < 0)
                 { 
+                    waitTime = 1.5f;
                     popIndex++;
                 }
             }
             else if (popIndex == 1)
             {
-                GameManager.Instance.StartGame();
+                GameManager.Instance.PlayTuto();
                 if (waitTime <= 0)
                 {
                     popIndex++;
+                    waitTime = 1.5f;
                 }
                 else
                 {
@@ -57,6 +59,7 @@ public class TutorialManager : MonoBehaviour
                 if (waitTime <= 0)
                 {
                     popIndex++;
+                    waitTime = 1.5f;
                 }
                 else
                 {

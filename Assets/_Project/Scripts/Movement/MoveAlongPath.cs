@@ -48,7 +48,7 @@ public class MoveAlongPath : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.GameState != GameState.gaming)
+        if (GameManager.Instance.GameState != GameState.gaming || GameManager.Instance.GameState != GameState.tutorial)
             return;
 
         CalculateSpeed();
