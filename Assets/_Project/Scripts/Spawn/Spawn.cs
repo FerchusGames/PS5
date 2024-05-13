@@ -38,7 +38,8 @@ public class Spawn : MonoBehaviour
         {
             GameObject objectToSpawn = objectsToSpawn[Random.Range(0, objectsToSpawn.Length)];
             Transform spawnPoint = spawnPoints[i];
-            GameObject spawnedObject = Instantiate(objectToSpawn, spawnPoint.position, Quaternion.identity, spawnPoint);
+            GameObject spawnedObject = Instantiate(objectToSpawn, spawnPoint.position, objectToSpawn.transform.rotation, spawnPoint);
+            spawnedObject.transform.Rotate(Vector3.up, Random.Range(0, 360));
         }
 
         OnSpawnObjects?.Invoke(objectSpawnAmount);
