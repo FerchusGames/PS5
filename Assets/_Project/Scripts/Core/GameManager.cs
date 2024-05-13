@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("tutorial", 0);
         Reset();
         ResetPopUps();
+        OnGameStart?.Invoke();
     }
 
     public void ResetPopUps()
@@ -103,9 +104,8 @@ public class GameManager : MonoBehaviour
         {
             Reset();
             SetGameState(GameState.gaming);
+            OnGameStart?.Invoke();
         }
-        
-        OnGameStart?.Invoke();
     }
 
     public void Reset()
