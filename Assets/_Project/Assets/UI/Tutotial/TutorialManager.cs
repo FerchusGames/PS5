@@ -39,11 +39,11 @@ public class TutorialManager : MonoBehaviour
                 { 
                     waitTime = 1.5f;
                     popIndex++;
+                    GameManager.Instance.PlayTuto();
                 }
             }
             else if (popIndex == 1)
             {
-                GameManager.Instance.PlayTuto();
                 if (waitTime <= 0)
                 {
                     popIndex++;
@@ -68,7 +68,7 @@ public class TutorialManager : MonoBehaviour
             }
             else if (popIndex == 3)
             {
-                if (waitTime <= 0)
+                if (GameManager.Instance.CurrentScore >= 0)
                 {
                     popups.Last().SetActive(false);
                     GameManager.Instance.EndTuto();
