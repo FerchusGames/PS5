@@ -37,5 +37,6 @@ public enum SOUND_TYPE
     DELIVER,
     SLIDE,
     WIND,
-    MUSIC
+    MUSIC,
+    VICTORY
 }
