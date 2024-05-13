@@ -10,7 +10,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject spawner;
     [SerializeField] private GameObject mainUI;
     private int popIndex;
-    private float waitTime = 3f;
+    private float waitTime = 10f;
     private int tutorialInt;
     
     private bool GetIfTutoIsNotPlayed()
@@ -54,7 +54,7 @@ public class TutorialManager : MonoBehaviour
             {
                 if (controls[0].value > 0 || controls[0].value < 0 || controls[1].value > 0 || controls[1].value < 0)
                 { 
-                    waitTime = 3f;
+                    waitTime = 10f;
                     popIndex++;
                     GameManager.Instance.SetGameState(GameState.gaming);               
                 }
@@ -64,7 +64,7 @@ public class TutorialManager : MonoBehaviour
                 if (waitTime <= 0)
                 {
                     popIndex++;
-                    waitTime = 3f;
+                    waitTime = 10f;
                 }
                 else
                 {
@@ -76,7 +76,7 @@ public class TutorialManager : MonoBehaviour
                 if (GameManager.Instance.CurrentScore > 0)
                 {
                     popIndex++;
-                    waitTime = 3f;
+                    waitTime = 5f;
                 }
                 else
                 {

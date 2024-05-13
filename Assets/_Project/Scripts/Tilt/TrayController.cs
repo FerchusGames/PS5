@@ -82,14 +82,9 @@ public class TrayController : MonoBehaviour
         Quaternion targetRotation = Quaternion.FromToRotation(Vector3.up, tiltDirection);
 
         // Apply tilt smoothly
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, tiltSpeed * Time.deltaTime);
+        transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, tiltSpeed * Time.deltaTime);
     }
-
-    public void RemoveFromList(Rigidbody rb)
-    {
-        objectsInTray.Remove(rb);
-    }
-
+    
     private Vector3 CalculateCenterOfMass()
     {
         Vector3 centerMass = Vector3.zero;
@@ -118,21 +113,12 @@ public class TrayController : MonoBehaviour
     {
         objectsInTray.Remove(rigidbody);
     }
-    
-    private void OnCollisionEnter(Collision other)
-    {
-        // Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
-        // if (rb != null)
-        // {
-        //     objectsInTray.Add(rb);
-        // }
-    }
 
     private void ResetTransform()
     {
         _playerTransform.position = Vector3.zero;
         _playerTransform.rotation = Quaternion.identity;
-        transform.rotation = Quaternion.identity;
+        transform.localRotation = Quaternion.identity;
         objectsInTray.Clear();
     }
 }

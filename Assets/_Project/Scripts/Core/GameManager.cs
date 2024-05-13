@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour
     public void OnUnPauseTuto()
     {
         _PopUps.SetActive(true);
+        SetGameState(GameState.gaming);
     }
     
     public void StartGame()
