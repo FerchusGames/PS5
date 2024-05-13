@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public event Action<int> OnHighScoreChange;
 
     public event Action OnGameReset;
+    public event Action OnGameStart;
     
     private void Awake()
     {
@@ -103,6 +104,8 @@ public class GameManager : MonoBehaviour
             Reset();
             SetGameState(GameState.gaming);
         }
+        
+        OnGameStart?.Invoke();
     }
 
     public void Reset()

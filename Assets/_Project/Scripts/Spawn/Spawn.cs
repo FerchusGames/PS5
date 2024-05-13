@@ -21,13 +21,13 @@ public class Spawn : MonoBehaviour
     private void OnEnable()
     {
         _moveAlongPath.OnSplineEndAction += SpawnObjects;
-        GameManager.Instance.OnGameReset += SpawnObjects;
+        GameManager.Instance.OnGameStart += SpawnObjects;
     }
 
     private void OnDisable()
     {
         _moveAlongPath.OnSplineEndAction -= SpawnObjects;
-        GameManager.Instance.OnGameReset -= SpawnObjects;
+        GameManager.Instance.OnGameStart -= SpawnObjects;
     }
 
     private void SpawnObjects()
