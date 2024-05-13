@@ -14,10 +14,9 @@ public class HeadBobController : MonoBehaviour
     
     [SerializeField] private Transform _camera = null;
     [SerializeField] private Transform _cameraHolder = null;
-
-    [SerializeField] private MoveAlongPath _moveAlongPath;
     
-    private float _toggleSpeed = 3.0f;
+    [SerializeField] private MoveAlongPath _moveAlongPath;
+
     private Vector3 _startPos;
     private int _LastTime = 0;
 
@@ -35,7 +34,7 @@ public class HeadBobController : MonoBehaviour
         _frequency = _originalFrequency * _moveAlongPath.GetSpeedPercentage();
         
         if (_enable == false) return;
-
+        
         if (GameManager.Instance.GameState == GameState.gaming)
         {
             PlayMotion(FootStepMotion());

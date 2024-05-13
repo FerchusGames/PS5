@@ -50,7 +50,7 @@ public class MoveAlongPath : MonoBehaviour
     {
         if (GameManager.Instance.GameState != GameState.gaming)
             return;
-
+        
         CalculateSpeed();
         
         DistancePercentage += _speed * Time.deltaTime / _splineLength;

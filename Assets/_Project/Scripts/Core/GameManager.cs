@@ -53,33 +53,17 @@ public class GameManager : MonoBehaviour
         SetGameState(GameState.menu);
     }
 
-    public void StartTuto()
-    {
-        Reset();
-        if (PlayerPrefs.GetInt("tutorial") == 0)
-        {
-            SetGameState(GameState.tutorial);
-        }
-        else
-        {
-            StartGame();
-        }
-    }
-
     public void EndTuto()
     {
         PlayerPrefs.SetInt("tutorial", 1);
         PlayerPrefs.Save();
-        SetGameState(GameState.gaming);
     }
     
     public void PlayTuto()
     {
-        Reset();
         PlayerPrefs.SetInt("tutorial", 0);
-        Debug.Log(PlayerPrefs.GetInt("tutorial"));
+        Reset();
         ResetPopUps();
-        SetGameState(GameState.tutorial);
     }
 
     public void ResetPopUps()
@@ -93,11 +77,31 @@ public class GameManager : MonoBehaviour
         _fallenFoodCount = 0;
         OnGameReset?.Invoke();
     }
+
+    public void OnLoseTuto()
+    {
+        _PopUps.SetActive(true);
+        AddScore(-CurrentScore);
+        
+        _fallenFoodCount = 0;
+    }
+
+    public void OnUnPauseTuto()
+    {
+        _PopUps.SetActive(true);
+    }
     
     public void StartGame()
     {
-        Reset();
-        SetGameState(GameState.gaming);
+        if (PlayerPrefs.GetInt("tutorial") == 0)
+        {
+            PlayTuto();
+        }
+        else
+        {
+            Reset();
+            SetGameState(GameState.gaming);
+        }
     }
 
     public void Reset()
@@ -152,6 +156,7 @@ public class GameManager : MonoBehaviour
         _gameOverUI.SetActive(true);
         _mainGameUI.SetActive(false);
         _controlsUI.SetActive(false);
+        _PopUps.SetActive(false);
     }
 
     public void SaveHighScore()
@@ -185,5 +190,4 @@ public enum GameState
     pause,
     gaming,
     menu,
-    tutorial
 }

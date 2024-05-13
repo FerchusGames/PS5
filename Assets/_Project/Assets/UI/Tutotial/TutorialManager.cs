@@ -10,11 +10,33 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject spawner;
     [SerializeField] private GameObject mainUI;
     private int popIndex;
-    private float waitTime = 2.5f;
+    private float waitTime = 3f;
+    private int tutorialInt;
+    
+    private bool GetIfTutoIsNotPlayed()
+    {
+        tutorialInt = PlayerPrefs.GetInt("tutorial");
+        
+        if (tutorialInt == 0)
+        {
+            return true;
+        }
+        return false;
+    }
 
+    public void ResetIndex()
+    {
+        popIndex = 0;
+    }
+    
     private void Update()
     {
-        if (GameManager.Instance.GameState == GameState.tutorial)
+        if (GameManager.Instance.GameState == GameState.lose)
+        {
+            GameManager.Instance.OnLoseTuto();
+        }
+        
+        if (GetIfTutoIsNotPlayed())
         {
             for (int i = 0; i < popups.Length; i++)
             {
@@ -32,15 +54,17 @@ public class TutorialManager : MonoBehaviour
             {
                 if (controls[0].value > 0 || controls[0].value < 0 || controls[1].value > 0 || controls[1].value < 0)
                 { 
+                    waitTime = 3f;
                     popIndex++;
+                    GameManager.Instance.SetGameState(GameState.gaming);               
                 }
             }
             else if (popIndex == 1)
             {
                 if (waitTime <= 0)
                 {
-                    GameManager.Instance.StartGame();
                     popIndex++;
+                    waitTime = 3f;
                 }
                 else
                 {
@@ -49,19 +73,22 @@ public class TutorialManager : MonoBehaviour
             }
             else if (popIndex == 2)
             {
-                spawner.SetActive(true);
                 if (GameManager.Instance.CurrentScore > 0)
                 {
-                    waitTime = 2.5f;
                     popIndex++;
+                    waitTime = 3f;
+                }
+                else
+                {
+                    waitTime -= Time.deltaTime;
                 }
             }
             else if (popIndex == 3)
             {
                 if (waitTime <= 0)
                 {
-                    popups.Last().SetActive(false);
                     GameManager.Instance.EndTuto();
+                    popups.Last().SetActive(false);
                 }
                 else
                 {
@@ -70,4 +97,10 @@ public class TutorialManager : MonoBehaviour
             }
         }
     }
+
+    private void ResetPopUps()
+    {
+        popIndex = 0;
+    }
+    
 }

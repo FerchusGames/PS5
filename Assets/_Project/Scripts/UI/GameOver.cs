@@ -31,8 +31,9 @@ public class GameOver : MonoBehaviour
 
     public void Reset()
     {
-        GameManager.Instance.Reset();        
         GameManager.Instance.SetGameState(GameState.gaming);
+     
+        GameManager.Instance.Reset();        
         gameObject.SetActive(false);
     }
 }

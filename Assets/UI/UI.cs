@@ -23,7 +23,14 @@ public class UI : MonoBehaviour
     }
     public void UnPause()
     {
-        GameManager.Instance.SetGameState(GameState.gaming);
+        if (PlayerPrefs.GetInt("tutorial") == 0)
+        {
+            GameManager.Instance.OnUnPauseTuto();            
+        }
+        else
+        {
+            GameManager.Instance.SetGameState(GameState.gaming);
+        }
     }
     
 }

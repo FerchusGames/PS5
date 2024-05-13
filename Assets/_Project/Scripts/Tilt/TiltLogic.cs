@@ -23,7 +23,7 @@ public class TiltLogic : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Instance.GameState is GameState.gaming or GameState.tutorial)
+        if (GameManager.Instance.GameState is GameState.gaming)
         {
             trayTransform.Rotate(directionRot * (speed * Time.deltaTime), Space.Self);
             Quaternion angles = trayTransform.rotation; 
