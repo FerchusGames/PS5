@@ -10,7 +10,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject spawner;
     [SerializeField] private GameObject mainUI;
     private int popIndex;
-    private float waitTime = 1.5f;
+    private float waitTime = 3f;
     private int tutorialInt;
     
     private bool GetIfTutoIsNotPlayed()
@@ -77,6 +77,7 @@ public class TutorialManager : MonoBehaviour
                 {
                     popIndex++;
                     waitTime = 1.5f;
+                    GameManager.Instance.EndTuto();
                 }
                 else
                 {
@@ -88,7 +89,6 @@ public class TutorialManager : MonoBehaviour
                 if (waitTime <= 0)
                 {
                     popups.Last().SetActive(false);
-                    GameManager.Instance.EndTuto();
                 }
                 else
                 {
