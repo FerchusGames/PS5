@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class TrayController : MonoBehaviour
 {
+    public static TrayController Instance { get; private set; }
+    
     private Vector3 _previousRotation;
     private Vector3 _currentRotation;
     
@@ -14,6 +16,18 @@ public class TrayController : MonoBehaviour
     [SerializeField] private float tiltSpeed  = 0.1f; 
     
     private List<Rigidbody> _objectsInTray = new List<Rigidbody>();
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void OnEnable()
     {
@@ -93,6 +107,11 @@ public class TrayController : MonoBehaviour
         return centerMass;
     }
 
+    public void AddObjectRigidbody(Rigidbody rigidbody)
+    {
+        _objectsInTray.Add(rigidbody);
+    }
+    
     private void OnCollisionEnter(Collision other)
     {
         // TODO: Cambiar la forma en la que se añaden y quitan los objetos porque está generando stutters

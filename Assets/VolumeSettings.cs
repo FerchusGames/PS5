@@ -9,17 +9,17 @@ public class VolumeSettings : MonoBehaviour
     float _DbVolume = 0;
     [SerializeField] Slider _slider;
     [SerializeField]  MixerChannel _mixerChannel;
-
+    
     private void OnEnable()
     {
         if (_mixerChannel == MixerChannel.SFX)
         {
-            _slider.value = PlayerPrefs.GetFloat("sfxLevel");
+            _slider.value = PlayerPrefs.GetFloat("sfxLevel", 1f);
         }
 
         if (_mixerChannel == MixerChannel.MUSIC)
         {
-           _slider.value = PlayerPrefs.GetFloat("musicLevel");;
+           _slider.value = PlayerPrefs.GetFloat("musicLevel", 1f);;
         }
     }
 

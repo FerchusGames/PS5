@@ -354,7 +354,7 @@ PrefabInstance:
     - target: {fileID: 2561458967091372649, guid: 3eec4e7c2ddac72479e7c26bb4947993,
         type: 3}
       propertyPath: objectsToSpawn.Array.size
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2561458967091372649, guid: 3eec4e7c2ddac72479e7c26bb4947993,
         type: 3}
@@ -381,6 +381,36 @@ PrefabInstance:
       propertyPath: spawnPoints.Array.data[5]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2561458967091372649, guid: 3eec4e7c2ddac72479e7c26bb4947993,
+        type: 3}
+      propertyPath: objectsToSpawn.Array.data[1]
+      value: 
+      objectReference: {fileID: 7225688679769053114, guid: 4f138383f199b7c498f2ca64d95cedee,
+        type: 3}
+    - target: {fileID: 2561458967091372649, guid: 3eec4e7c2ddac72479e7c26bb4947993,
+        type: 3}
+      propertyPath: objectsToSpawn.Array.data[2]
+      value: 
+      objectReference: {fileID: 7225688679769053114, guid: 65c728b582ac3d44b9f39febaf0ec571,
+        type: 3}
+    - target: {fileID: 2561458967091372649, guid: 3eec4e7c2ddac72479e7c26bb4947993,
+        type: 3}
+      propertyPath: objectsToSpawn.Array.data[3]
+      value: 
+      objectReference: {fileID: 7225688679769053114, guid: 64e047d68bdd0d247a2d55f067869695,
+        type: 3}
+    - target: {fileID: 2561458967091372649, guid: 3eec4e7c2ddac72479e7c26bb4947993,
+        type: 3}
+      propertyPath: objectsToSpawn.Array.data[4]
+      value: 
+      objectReference: {fileID: 4371483375689442010, guid: d6a9931f854a10343ad1e0783ed74f18,
+        type: 3}
+    - target: {fileID: 2561458967091372649, guid: 3eec4e7c2ddac72479e7c26bb4947993,
+        type: 3}
+      propertyPath: objectsToSpawn.Array.data[5]
+      value: 
+      objectReference: {fileID: 4371483375689442010, guid: d6a9931f854a10343ad1e0783ed74f18,
+        type: 3}
     - target: {fileID: 3169850635391549054, guid: 3eec4e7c2ddac72479e7c26bb4947993,
         type: 3}
       propertyPath: m_Enabled
@@ -6602,6 +6632,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1298403663}
+    - targetCorrespondingSourceObject: {fileID: 2520043784555150788, guid: 46728215861efda4db9aac4ce80dcbdd,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1298403666}
   m_SourcePrefab: {fileID: 100100000, guid: 46728215861efda4db9aac4ce80dcbdd, type: 3}
 --- !u!114 &795524732 stripped
 MonoBehaviour:
@@ -7217,6 +7251,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1298403666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298403659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e8e000a44e6cf4291caee92f25592c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioMixer: {fileID: 24100000, guid: 41f1e9ea44038d449a7aa86f0db2238d, type: 2}
 --- !u!114 &1340867606 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5273976659141877417, guid: 3eec4e7c2ddac72479e7c26bb4947993,
@@ -8270,6 +8317,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 138692529, guid: dad00f31585de7149b9a3dc1889473d0,
         type: 3}
+    - target: {fileID: 178491188370783292, guid: 4c864fa367b3dab49a1b8e94918ea0c0,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 178491188370783292, guid: 4c864fa367b3dab49a1b8e94918ea0c0,
         type: 3}
       propertyPath: m_MaxValue
@@ -9475,6 +9527,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -191
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984702941495520749, guid: 4c864fa367b3dab49a1b8e94918ea0c0,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5984702941495520749, guid: 4c864fa367b3dab49a1b8e94918ea0c0,
         type: 3}
