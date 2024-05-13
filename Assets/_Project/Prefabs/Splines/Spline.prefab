@@ -166,6 +166,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055aab36c90acf940b5de49eaa2e6b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1025572639553240019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6689732597557276500}
+  m_Layer: 0
+  m_Name: Character Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6689732597557276500
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025572639553240019}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: -4.48, z: 4.77}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3718591417239287892}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1065603248032779027
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,6 +855,9 @@ MonoBehaviour:
   - {fileID: 7226927238385095244, guid: c3294761d482b8d4cb4772fb73c461a3, type: 3}
   - {fileID: 7697173442324059885, guid: b8d2fc93b647b0040a0091c8227177dc, type: 3}
   - {fileID: 7697173442324059885, guid: 92b512cf0d404904fa58536f56ce2f24, type: 3}
+  _characterGameObjects:
+  - {fileID: 2770724851428126548, guid: c5ecaf42b30de0a47a73d6c4aba99905, type: 3}
+  - {fileID: 1195621416338158586, guid: b0644383465d8df40a64e6067aa29662, type: 3}
   _propPlacements:
   - {fileID: 4710547827534161716}
   - {fileID: 8276828385954551069}
@@ -841,7 +875,9 @@ MonoBehaviour:
   - {fileID: 8284293978102501733}
   - {fileID: 5403504549212753779}
   - {fileID: 6765921674126357694}
+  _characterPlacement: {fileID: 6689732597557276500}
   _parent: {fileID: 3400278973937315575}
+  _house: {fileID: 3718591417239287892}
   _minScaleMultiplier: 0.8
   _maxScaleMultiplier: 1.2
 --- !u!1 &6803594352139648070
@@ -1474,6 +1510,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2099489705381471165}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: fedd0ae7685ac3a49ba827488260f471,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6689732597557276500}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fedd0ae7685ac3a49ba827488260f471, type: 3}
 --- !u!4 &3718591417239287892 stripped

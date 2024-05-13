@@ -100,4 +100,11 @@ public class MoveAlongPath : MonoBehaviour
     {
         _spline = splineContainer;
     }
+
+    public float GetSpeedPercentage()
+    {
+        float speedDifference = _maxSpeed - _minSpeed;
+
+        return (_speed - _minSpeed) / speedDifference;
+    }
 }
