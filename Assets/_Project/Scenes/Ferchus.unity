@@ -333,6 +333,11 @@ PrefabInstance:
       objectReference: {fileID: 1581633764}
     - target: {fileID: 2561458967091372649, guid: 3eec4e7c2ddac72479e7c26bb4947993,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561458967091372649, guid: 3eec4e7c2ddac72479e7c26bb4947993,
+        type: 3}
       propertyPath: spawnInterval
       value: 1000
       objectReference: {fileID: 0}

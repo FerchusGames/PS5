@@ -6,11 +6,11 @@ using UnityEngine.EventSystems;
 
 public class TiltLogic : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed = 100f;  
     private Vector3 directionRot;
     
     [SerializeField] private Transform trayTransform;
-
+    
     public void RotateLeftRight(float rotateDir)
     {
         directionRot.z =  rotateDir;
@@ -20,35 +20,25 @@ public class TiltLogic : MonoBehaviour
     {
         directionRot.x = rotateDir;
     }
-    
-
 
     void Update()
     {
-        Quaternion angles = trayTransform.rotation; 
-        //Debug.Log(angles);
-        
         if (GameManager.Instance.GameState is GameState.gaming or GameState.tutorial)
         {
-            if ((angles.x < 0.211f && angles.x > -0.211f) && (angles.z < 0.211f && angles.z > -0.211f))
-            {
-                trayTransform.Rotate(directionRot * (speed * Time.deltaTime), Space.Self);
+            trayTransform.Rotate(directionRot * (speed * Time.deltaTime), Space.Self);
+            Quaternion angles = trayTransform.rotation; 
+            
+            if (angles.x > 0.211f  || angles.x < -0.211f) {
+                float targetX = Mathf.Clamp(angles.x, -0.211f, 0.211f);
+                angles.x = targetX;
             }
-            else
-            {
-                if (angles.x > 0.211f  || angles.x < -0.211f) {
-                    float targetX = Mathf.Clamp(angles.x, -0.211f, 0.211f); 
-                    angles.x = Mathf.MoveTowardsAngle(angles.x, targetX, speed * Time.deltaTime);
-                }
-
-                // Correct angles.z if out of bounds
-                if (angles.z > 0.211f || angles.z < -0.211f) {
-                    float targetZ = Mathf.Clamp(angles.z, -0.211f, 0.211f);
-                    angles.z = Mathf.MoveTowardsAngle(angles.z, targetZ, speed * Time.deltaTime);
-                }
-                
-                trayTransform.rotation = angles;
+            
+            if (angles.z > 0.211f || angles.z < -0.211f) {
+                float targetZ = Mathf.Clamp(angles.z, -0.211f, 0.211f);
+                angles.z = targetZ;
             }
+            
+            trayTransform.rotation = angles;
         }
     }
 }
