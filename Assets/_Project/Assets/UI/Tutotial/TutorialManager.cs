@@ -54,7 +54,7 @@ public class TutorialManager : MonoBehaviour
             {
                 if (controls[0].value > 0 || controls[0].value < 0 || controls[1].value > 0 || controls[1].value < 0)
                 { 
-                    waitTime = 1.5f;
+                    waitTime = 3f;
                     popIndex++;
                     GameManager.Instance.SetGameState(GameState.gaming);               
                 }
@@ -64,7 +64,7 @@ public class TutorialManager : MonoBehaviour
                 if (waitTime <= 0)
                 {
                     popIndex++;
-                    waitTime = 1.5f;
+                    waitTime = 3f;
                 }
                 else
                 {
@@ -76,8 +76,7 @@ public class TutorialManager : MonoBehaviour
                 if (GameManager.Instance.CurrentScore > 0)
                 {
                     popIndex++;
-                    waitTime = 1.5f;
-                    GameManager.Instance.EndTuto();
+                    waitTime = 3f;
                 }
                 else
                 {
@@ -88,6 +87,7 @@ public class TutorialManager : MonoBehaviour
             {
                 if (waitTime <= 0)
                 {
+                    GameManager.Instance.EndTuto();
                     popups.Last().SetActive(false);
                 }
                 else
