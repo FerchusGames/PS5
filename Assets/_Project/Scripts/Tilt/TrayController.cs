@@ -111,21 +111,21 @@ public class TrayController : MonoBehaviour
 
     public void AddObjectRigidbody(Rigidbody rigidbody)
     {
-        _objectsInTray.Add(rigidbody);
+        objectsInTray.Add(rigidbody);
     }
     
     public void RemoveObjectRigidbody(Rigidbody rigidbody)
     {
-        _objectsInTray.Remove(rigidbody);
+        objectsInTray.Remove(rigidbody);
     }
     
     private void OnCollisionEnter(Collision other)
     {
-        Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            objectsInTray.Add(rb);
-        }
+        // Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
+        // if (rb != null)
+        // {
+        //     objectsInTray.Add(rb);
+        // }
     }
 
     private void ResetTransform()
