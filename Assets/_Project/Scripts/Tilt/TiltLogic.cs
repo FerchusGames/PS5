@@ -13,11 +13,20 @@ public class TiltLogic : MonoBehaviour
     
     public void RotateLeftRight(float rotateDir)
     {
+        if (PlayerPrefs.GetInt("InvertedAxisX",0)==1)
+        {
+            rotateDir *=-1;
+        }
+       
         directionRot.z =  rotateDir;
     }
     
     public void RotateFrontBack(float rotateDir)
     {
+        if (PlayerPrefs.GetInt("InvertedAxisY",0)==1)
+        {
+            rotateDir *=-1;
+        }   
         directionRot.x = rotateDir;
     }
 
