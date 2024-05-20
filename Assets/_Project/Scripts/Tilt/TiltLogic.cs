@@ -83,8 +83,6 @@ public class TiltLogic : MonoBehaviour, TiltActions.ITIltActions
                         trayTransform.rotation = angles; 
                     }
                     break;
-                default:
-                    break;
             }
         }
 
