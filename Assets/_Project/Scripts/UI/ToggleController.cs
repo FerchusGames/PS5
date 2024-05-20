@@ -1,22 +1,41 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using Unity.VisualScripting;
+using UnityEngine.UI;
 
+[RequireComponent(typeof(Toggle))]
 public class ToggleController : MonoBehaviour
 {
+    private Toggle _toggle;
+    [SerializeField] private ToggleType _toggleType;
+
+    private void Awake()
+    {
+        _toggle = GetComponent<Toggle>();
+    }
+
+    private void Start()
+    {
+        switch (_toggleType)
+        {
+            case ToggleType.InvertAxisX:
+                _toggle.isOn = PlayerPrefs.GetInt("InvertAxisX") == 1;
+                break;
+            
+            case ToggleType.InvertAxisY:
+                _toggle.isOn = PlayerPrefs.GetInt("InvertAxisY") == 1;
+                break;
+        }
+    }
+
     public void ToggleAxisX(bool ToggleValue)
     {
         if (ToggleValue)
         {
-            PlayerPrefs.SetInt("InvertedAxisX",1);
-            
+            PlayerPrefs.SetInt("InvertAxisX",1);
         }
         else
         {
-            PlayerPrefs.SetInt("InvertedAxisX",0);
+            PlayerPrefs.SetInt("InvertAxisX",0);
             
         }
     }
@@ -25,13 +44,18 @@ public class ToggleController : MonoBehaviour
     {
         if (ToggleValue)
         {
-            PlayerPrefs.SetInt("InvertedAxisY",1);
+            PlayerPrefs.SetInt("InvertAxisY",1);
             
         }
         else
         {
-            PlayerPrefs.SetInt("InvertedAxisY",0);
-            
+            PlayerPrefs.SetInt("InvertAxisY",0);
         }
+    }
+    
+    public enum ToggleType
+    {
+        InvertAxisX,
+        InvertAxisY
     }
 }
