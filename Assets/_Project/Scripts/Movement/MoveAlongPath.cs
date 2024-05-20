@@ -53,7 +53,11 @@ public class MoveAlongPath : MonoBehaviour
         _stallTimer = 0;
         
         _countdownAnimation.speed = 1 / _stallTime;
-        _countdownAnimation.SetTrigger("StartCountdown");
+
+        if (PlayerPrefs.GetInt("tutorial") != 0)
+        {
+            _countdownAnimation.SetTrigger("StartCountdown");
+        }
     }
 
     private void Update()
