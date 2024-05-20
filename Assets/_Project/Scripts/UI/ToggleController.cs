@@ -13,7 +13,7 @@ public class ToggleController : MonoBehaviour
         _toggle = GetComponent<Toggle>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         switch (_toggleType)
         {
