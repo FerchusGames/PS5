@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public event Action<int> OnHighScoreChange;
 
     public event Action OnGameReset;
+    public event Action OnGameStart;
     
     private void Awake()
     {
@@ -64,6 +65,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("tutorial", 0);
         Reset();
         ResetPopUps();
+        OnGameStart?.Invoke();
     }
 
     public void ResetPopUps()
@@ -80,7 +82,7 @@ public class GameManager : MonoBehaviour
 
     public void OnLoseTuto()
     {
-        _PopUps.SetActive(true);
+        _PopUps.SetActive(false);
         AddScore(-CurrentScore);
         
         _fallenFoodCount = 0;
@@ -102,6 +104,7 @@ public class GameManager : MonoBehaviour
         {
             Reset();
             SetGameState(GameState.gaming);
+            OnGameStart?.Invoke();
         }
     }
 

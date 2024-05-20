@@ -3,114 +3,82 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 
-public class TiltLogic : MonoBehaviour, TiltActions.ITIltActions
+public class TiltLogic : MonoBehaviour
 {
-    public float speed = 10f;
-    private Vector3 directionRot;
-    private bool gyroActive;
-    
     [SerializeField] private Transform trayTransform;
-    private TiltActions _tiltActions;
-    private Vector3 _movementValue;
+    [SerializeField, Range(0.1f, 0.99f)] private float _swingTreshold = 0.7f;
 
-    private void Start()
-    {
-        _tiltActions = new TiltActions();
-        _tiltActions.TIlt.SetCallbacks(this);
-        _tiltActions.TIlt.Enable();
-    }
+    public float speed = 100f;
+    private float _previousRotateDirZ = 0;
+    private float _previousRotateDirX = 0;
+    private bool _canSwingDirZ = true;
+    private bool _canSwingDirX = true;
+    private float _swingAudioLevel = 0.4f;
+    private Vector3 directionRot;
+
     
     public void RotateLeftRight(float rotateDir)
     {
+        if (Mathf.Abs(rotateDir) >= _swingTreshold && _canSwingDirZ)
+        {
+            AudioManager.GetInstance().SetAudio(SOUND_TYPE.SWING, _swingAudioLevel);
+            _canSwingDirZ = false;
+        }
+
+        if (!_canSwingDirZ)
+        {
+            _canSwingDirZ = rotateDir * _previousRotateDirZ <= 0; // Reset when direction changes
+        }
+        
+        if (PlayerPrefs.GetInt("InvertAxisX",0)==1)
+        {
+            rotateDir *=-1;
+        }
+       
         directionRot.z =  rotateDir;
+        _previousRotateDirZ = rotateDir;
     }
     
     public void RotateFrontBack(float rotateDir)
     {
+        if (Mathf.Abs(rotateDir) >= _swingTreshold && _canSwingDirX)
+        {
+            AudioManager.GetInstance().SetAudio(SOUND_TYPE.SWING, _swingAudioLevel);
+            _canSwingDirX = false;
+        }
+        
+        if (!_canSwingDirX)
+        {
+            _canSwingDirX = rotateDir * _previousRotateDirX <= 0; // Reset when direction changes
+        }
+        
+        if (PlayerPrefs.GetInt("InvertAxisY",0)==1)
+        {
+            rotateDir *=-1;
+        }   
         directionRot.x = rotateDir;
+        _previousRotateDirX = rotateDir;
     }
 
     void Update()
     {
-        Quaternion angles = trayTransform.rotation; 
-        //Debug.Log(angles);
-
-        if (GameManager.Instance.GameState == GameState.gaming)
+        if (GameManager.Instance.GameState is GameState.gaming)
         {
-            switch (gyroActive)
-            {
-                case true:
-                    if ((angles.x < 0.211f && angles.x > -0.211f) && (angles.z < 0.211f && angles.z > -0.211f))
-                    {
-                        trayTransform.Rotate(_movementValue * (speed * Time.deltaTime), Space.Self);
-                    }
-                    else
-                    {
-                        if (angles.x > 0.211f  || angles.x < -0.211f) {
-                            float targetX = Mathf.Clamp(angles.x, -0.211f, 0.211f); 
-                            angles.x = Mathf.MoveTowardsAngle(angles.x, targetX, speed * Time.deltaTime);
-                        }
-
-                        // Correct angles.z if out of bounds
-                        if (angles.z > 0.211f || angles.z < -0.211f) {
-                            float targetZ = Mathf.Clamp(angles.z, -0.211f, 0.211f);
-                            angles.z = Mathf.MoveTowardsAngle(angles.z, targetZ, speed * Time.deltaTime);
-                        }
-                    
-                        trayTransform.rotation = angles; 
-                    }
-                    break;
-                case false:
-                    if ((angles.x < 0.211f && angles.x > -0.211f) && (angles.z < 0.211f && angles.z > -0.211f))
-                    {
-                        trayTransform.Rotate(directionRot * (speed * Time.deltaTime), Space.Self);
-                    }
-                    else
-                    {
-                        if (angles.x > 0.211f  || angles.x < -0.211f) {
-                            float targetX = Mathf.Clamp(angles.x, -0.211f, 0.211f); 
-                            angles.x = Mathf.MoveTowardsAngle(angles.x, targetX, speed * Time.deltaTime);
-                        }
-
-                        // Correct angles.z if out of bounds
-                        if (angles.z > 0.211f || angles.z < -0.211f) {
-                            float targetZ = Mathf.Clamp(angles.z, -0.211f, 0.211f);
-                            angles.z = Mathf.MoveTowardsAngle(angles.z, targetZ, speed * Time.deltaTime);
-                        }
-                    
-                        trayTransform.rotation = angles; 
-                    }
-                    break;
+            trayTransform.Rotate(directionRot * (speed * Time.deltaTime), Space.Self);
+            Quaternion angles = trayTransform.rotation; 
+            
+            if (angles.x > 0.211f  || angles.x < -0.211f) {
+                float targetX = Mathf.Clamp(angles.x, -0.211f, 0.211f);
+                angles.x = targetX;
             }
+            
+            if (angles.z > 0.211f || angles.z < -0.211f) {
+                float targetZ = Mathf.Clamp(angles.z, -0.211f, 0.211f);
+                angles.z = targetZ;
+            }
+            
+            trayTransform.rotation = angles;
         }
-
-    }
-
-    public void OnRigth(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnLeft(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnUp(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnDown(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnTiltGyro(InputAction.CallbackContext context)
-    {
-        _movementValue = context.ReadValue<Vector3>();
-    }
-    
-    private void OnDestroy()
-    {
-        _tiltActions.TIlt.Disable();
     }
 }

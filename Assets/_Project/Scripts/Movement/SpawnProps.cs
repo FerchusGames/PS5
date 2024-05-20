@@ -7,8 +7,11 @@ using Random = UnityEngine.Random;
 public class SpawnProps : MonoBehaviour
 {
    [SerializeField] private GameObject[] _propGameObjects;
+   [SerializeField] private GameObject[] _characterGameObjects;
    [SerializeField] private Transform[] _propPlacements;
+   [SerializeField] private Transform _characterPlacement;
    [SerializeField] private Transform _parent;
+   [SerializeField] private Transform _house;
 
    [SerializeField] private float _minScaleMultiplier = 1f;
    [SerializeField] private float _maxScaleMultiplier = 1f;
@@ -24,5 +27,10 @@ public class SpawnProps : MonoBehaviour
             (1 / _parent.localScale.y) * scaleMultiplier , 
             (1 / _parent.localScale.z) * scaleMultiplier); 
       }
+      
+      int characterIndex = Random.Range(0, _characterGameObjects.Length);
+      GameObject character = Instantiate(_characterGameObjects[characterIndex], _characterPlacement);
+      character.transform.localScale =
+         new Vector3((1 / _parent.localScale.x) / _house.localScale.x , (1 / _parent.localScale.y) / _house.localScale.y, (1 / _parent.localScale.z) / _house.localScale.z);
    }
 }

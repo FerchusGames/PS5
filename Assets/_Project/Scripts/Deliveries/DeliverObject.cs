@@ -6,7 +6,8 @@ public class DeliverObject : MonoBehaviour
     public GameObject _particleSystem;
 
     private GameObject _playerObject;
-
+    private bool _firstTime = true;
+    
     private void Start()
     {
         _playerObject = GameObject.FindWithTag("Player");
@@ -20,6 +21,13 @@ public class DeliverObject : MonoBehaviour
             Destroy(other.gameObject);
             GameObject particleSystem = Instantiate(_particleSystem, other.transform.position, other.transform.rotation);
             particleSystem.transform.SetParent(_playerObject.transform);
+            AudioManager.GetInstance().SetAudio(SOUND_TYPE.DELIVER, 2f);
+
+            if (_firstTime)
+            {
+                AudioManager.GetInstance().SetAudio(SOUND_TYPE.VICTORY, 0.8f);
+                _firstTime = false;
+            }
         }
     }
 }

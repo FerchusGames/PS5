@@ -10,26 +10,52 @@ public class HeadBobController : MonoBehaviour
     [SerializeField, Range(0, 0.1f)] private float _amplitude = 0.015f;
     [SerializeField, Range(0, 30)] private float _frequency = 10.0f;
 
+    private float _originalFrequency;
+    
     [SerializeField] private Transform _camera = null;
     [SerializeField] private Transform _cameraHolder = null;
+    
+    [SerializeField] private MoveAlongPath _moveAlongPath;
 
+    private CameraShake _cameraShake;
+    
     private Vector3 _startPos;
+    private int _LastTime = 0;
 
+    private float _currentTime = 0;
+    
     private void Awake()
     {
         _startPos = _camera.localPosition;
+        _originalFrequency = _frequency;
+        _cameraShake = Camera.main.GetComponent<CameraShake>();
     }
 
     private void Update()
     {
+        _currentTime += Time.deltaTime * _frequency;
+        _frequency = _originalFrequency * _moveAlongPath.GetSpeedPercentage();
+        
         if (_enable == false) return;
+        
+        if (GameManager.Instance.GameState == GameState.gaming)
+        {
+            PlayMotion(FootStepMotion());
+            RestetPositios();
+            _camera.LookAt(FocusTarget());
+            PlayFootstep();
+        }
+    }
 
-        if (GameManager.Instance.GameState != GameState.gaming) 
-            return;
-            
-        PlayMotion(FootStepMotion()); 
-        RestetPositios();
-        _camera.LookAt(FocusTarget());
+    private void PlayFootstep()
+    {
+        int intTime = (int)(_currentTime);
+        if (intTime > _LastTime)
+        {
+            AudioManager.GetInstance().SetAudio(SOUND_TYPE.FOOTSTEPS, 0.5f);
+            _cameraShake.StartCoroutine(_cameraShake.Shaking());
+            _LastTime = intTime;
+        }
     }
 
     private void RestetPositios()
@@ -42,9 +68,9 @@ public class HeadBobController : MonoBehaviour
     private Vector3 FootStepMotion()
     {
         Vector3 pos = Vector3.zero;
-        pos.y += Mathf.Sin(Time.time * _frequency) * _amplitude;
-        pos.x += Mathf.Cos(Time.time * _frequency / 2) * _amplitude * 2;
-
+        pos.y += Mathf.Sin(Mathf.PI * _currentTime * 2) * _amplitude;
+        pos.x += Mathf.Cos(Mathf.PI * _currentTime ) * _amplitude * 2;
+       
         return pos;
     }
 

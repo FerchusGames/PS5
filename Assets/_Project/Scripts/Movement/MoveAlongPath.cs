@@ -8,8 +8,12 @@ public class MoveAlongPath : MonoBehaviour
     [SerializeField] private SplineContainer _spline;
     [SerializeField] private float _maxSpeed = 15;
     [SerializeField] private float _minSpeed = 5;
+    [SerializeField] private GameObject _tray;
+    [SerializeField] private Animator _countdownAnimation;
     [SerializeField, Range(0, 1)] private float _accelerationDistancePercentage = 0.05f;
     [SerializeField, Range(0, 1)] private float _decelerationDistancePercentage = 0.95f;
+    [SerializeField] private float _stallTime = 3;
+    private float _stallTimer = 0;
 
     [SerializeField] private float _speed;
     
@@ -39,27 +43,47 @@ public class MoveAlongPath : MonoBehaviour
     private void Start()
     {
         _splineLength = _spline.CalculateLength();
+        Reset();
     }
 
     private void Reset()
     {
         DistancePercentage = 0;
+        _speed = 0;
+        _stallTimer = 0;
+        
+        _countdownAnimation.speed = 1 / _stallTime;
+
+        if (PlayerPrefs.GetInt("tutorial") != 0)
+        {
+            _countdownAnimation.SetTrigger("StartCountdown");
+        }
     }
 
     private void Update()
     {
         if (GameManager.Instance.GameState != GameState.gaming)
             return;
+
+        _stallTimer += Time.deltaTime;
         
-        CalculateSpeed();
-        
+        if (_stallTimer >= _stallTime)
+        {
+            CalculateSpeed();
+        }
+
+        else
+        {
+            _tray.transform.localRotation = Quaternion.identity;
+        }
+
         DistancePercentage += _speed * Time.deltaTime / _splineLength;
 
         SetCurrentPosition();
 
         if (DistancePercentage > 1f)
         {
-            DistancePercentage = 0f;
+            Reset();
             _spline = _splineController.NextSpline;
             SetCurrentPosition();
             OnSplineEndAction?.Invoke();
@@ -99,5 +123,12 @@ public class MoveAlongPath : MonoBehaviour
     public void SetSpline(SplineContainer splineContainer)
     {
         _spline = splineContainer;
+    }
+
+    public float GetSpeedPercentage()
+    {
+        float speedDifference = _maxSpeed - _minSpeed;
+
+        return (_speed - _minSpeed) / speedDifference;
     }
 }

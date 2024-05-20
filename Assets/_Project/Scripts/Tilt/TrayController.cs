@@ -6,6 +6,8 @@ using UnityEngine.Serialization;
 
 public class TrayController : MonoBehaviour
 {
+    public static TrayController Instance { get; private set; }
+    
     private Vector3 _previousRotation;
     private Vector3 _currentRotation;
     
@@ -14,6 +16,18 @@ public class TrayController : MonoBehaviour
     [SerializeField] private float tiltSpeed  = 0.1f;
 
     private List<Rigidbody> objectsInTray = new List<Rigidbody>();
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void OnEnable()
     {
@@ -68,14 +82,9 @@ public class TrayController : MonoBehaviour
         Quaternion targetRotation = Quaternion.FromToRotation(Vector3.up, tiltDirection);
 
         // Apply tilt smoothly
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, tiltSpeed * Time.deltaTime);
+        transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, tiltSpeed * Time.deltaTime);
     }
-
-    public void RemoveFromList(Rigidbody rb)
-    {
-        objectsInTray.Remove(rb);
-    }
-
+    
     private Vector3 CalculateCenterOfMass()
     {
         Vector3 centerMass = Vector3.zero;
@@ -95,20 +104,21 @@ public class TrayController : MonoBehaviour
         return centerMass;
     }
 
-    private void OnCollisionEnter(Collision other)
+    public void AddObjectRigidbody(Rigidbody rigidbody)
     {
-        Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            objectsInTray.Add(rb);
-        }
+        objectsInTray.Add(rigidbody);
+    }
+    
+    public void RemoveObjectRigidbody(Rigidbody rigidbody)
+    {
+        objectsInTray.Remove(rigidbody);
     }
 
     private void ResetTransform()
     {
         _playerTransform.position = Vector3.zero;
         _playerTransform.rotation = Quaternion.identity;
-        transform.rotation = Quaternion.identity;
+        transform.localRotation = Quaternion.identity;
         objectsInTray.Clear();
     }
 }

@@ -9,8 +9,8 @@ public class ObjectsLose : MonoBehaviour
     {
         if (other.CompareTag("Food"))
         {
-            _trayController.RemoveFromList(other.GetComponent<Rigidbody>());
             GameManager.Instance.AddFallenFood();
+            AudioManager.GetInstance().SetAudio(SOUND_TYPE.FALL, 0.8f);
             Destroy(other.gameObject);
         }
     }

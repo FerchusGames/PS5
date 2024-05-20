@@ -32,9 +32,13 @@ public class AudioData
 }
 public enum SOUND_TYPE
 {
-    PAPUPASOS,
-    PAPUDISPAROS,
-    PAPUTRAIL,
-    PAPUMUERTE,
-    PAPUSPAWN
+    FOOTSTEPS,
+    HIT,
+    DELIVER,
+    SLIDE,
+    WIND,
+    MUSIC,
+    VICTORY,
+    FALL,
+    SWING,
 }
