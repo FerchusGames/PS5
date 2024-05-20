@@ -17,6 +17,8 @@ public class HeadBobController : MonoBehaviour
     
     [SerializeField] private MoveAlongPath _moveAlongPath;
 
+    private CameraShake _cameraShake;
+    
     private Vector3 _startPos;
     private int _LastTime = 0;
 
@@ -26,6 +28,7 @@ public class HeadBobController : MonoBehaviour
     {
         _startPos = _camera.localPosition;
         _originalFrequency = _frequency;
+        _cameraShake = Camera.main.GetComponent<CameraShake>();
     }
 
     private void Update()
@@ -50,6 +53,7 @@ public class HeadBobController : MonoBehaviour
         if (intTime > _LastTime)
         {
             AudioManager.GetInstance().SetAudio(SOUND_TYPE.FOOTSTEPS, 0.5f);
+            _cameraShake.StartCoroutine(_cameraShake.Shaking());
             _LastTime = intTime;
         }
     }
