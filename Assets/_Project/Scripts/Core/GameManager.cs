@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
 
     public void OnLoseTuto()
     {
-        _PopUps.SetActive(true);
+        _PopUps.SetActive(false);
         AddScore(-CurrentScore);
         
         _fallenFoodCount = 0;
