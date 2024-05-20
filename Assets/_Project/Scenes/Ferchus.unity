@@ -9725,6 +9725,11 @@ PrefabInstance:
       propertyPath: trayTransform
       value: 
       objectReference: {fileID: 143513463}
+    - target: {fileID: 3628796115696131250, guid: 4c864fa367b3dab49a1b8e94918ea0c0,
+        type: 3}
+      propertyPath: _swingTreshold
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 3792313098299505792, guid: 4c864fa367b3dab49a1b8e94918ea0c0,
         type: 3}
       propertyPath: m_AnchorMax.x

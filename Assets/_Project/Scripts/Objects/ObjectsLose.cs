@@ -10,6 +10,7 @@ public class ObjectsLose : MonoBehaviour
         if (other.CompareTag("Food"))
         {
             GameManager.Instance.AddFallenFood();
+            AudioManager.GetInstance().SetAudio(SOUND_TYPE.FALL, 0.8f);
             Destroy(other.gameObject);
         }
     }

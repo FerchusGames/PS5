@@ -61,3 +61,13 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 2c0fec8a81e3e754ab8f514e5c032227, type: 3}
     - {fileID: 8300000, guid: 23f1280efaf77924db51538832551e82, type: 3}
     - {fileID: 8300000, guid: 35484480ecd7a3248a5dcf3490a77aa3, type: 3}
+  - soundType: 8
+    clip:
+    - {fileID: 8300000, guid: dc2c3bf8d26384f4fa46b6871fc43f62, type: 3}
+    - {fileID: 8300000, guid: 0a130ba3020da8a4fb64c98b88df5b16, type: 3}
+    - {fileID: 8300000, guid: 35a427d9125e9ae4581edfad148e28e2, type: 3}
+    - {fileID: 8300000, guid: d5e9a91b6fec0cc4181166c262ff66e3, type: 3}
+  - soundType: 7
+    clip:
+    - {fileID: 8300000, guid: a9b3ad6792767924ca24cd7add2681d6, type: 3}
+    - {fileID: 8300000, guid: d1f5a1d99b9f3c444b3d2ba59d3dfc84, type: 3}
