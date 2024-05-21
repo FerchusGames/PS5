@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 2847741819545002798, guid: 5f7f415c0c52e574c9635e56118670c5,
         type: 3}
       propertyPath: m_Name
-      value: UpDown Joystick Animation
+      value: LeftRight Joystick Animation
       objectReference: {fileID: 0}
     - target: {fileID: 4476818671387350908, guid: 5f7f415c0c52e574c9635e56118670c5,
         type: 3}
@@ -109,6 +109,51 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4476818671387350908, guid: 5f7f415c0c52e574c9635e56118670c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825374318967658564, guid: 5f7f415c0c52e574c9635e56118670c5,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825374318967658564, guid: 5f7f415c0c52e574c9635e56118670c5,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825374318967658564, guid: 5f7f415c0c52e574c9635e56118670c5,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030153160444306270, guid: 5f7f415c0c52e574c9635e56118670c5,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030153160444306270, guid: 5f7f415c0c52e574c9635e56118670c5,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030153160444306270, guid: 5f7f415c0c52e574c9635e56118670c5,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419929587681776780, guid: 5f7f415c0c52e574c9635e56118670c5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419929587681776780, guid: 5f7f415c0c52e574c9635e56118670c5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419929587681776780, guid: 5f7f415c0c52e574c9635e56118670c5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0

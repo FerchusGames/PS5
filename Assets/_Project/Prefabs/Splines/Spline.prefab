@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055aab36c90acf940b5de49eaa2e6b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gizmoRadius: 1
 --- !u!1 &1025572639553240019
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055aab36c90acf940b5de49eaa2e6b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gizmoRadius: 1
 --- !u!1 &1095652378265221252
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,6 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055aab36c90acf940b5de49eaa2e6b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gizmoRadius: 1
 --- !u!1 &1421297774215922035
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055aab36c90acf940b5de49eaa2e6b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gizmoRadius: 1
 --- !u!1 &1808565179018443630
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055aab36c90acf940b5de49eaa2e6b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gizmoRadius: 1
 --- !u!1 &2277839812083372214
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,6 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055aab36c90acf940b5de49eaa2e6b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gizmoRadius: 1
 --- !u!1 &2365610640657057188
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,6 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055aab36c90acf940b5de49eaa2e6b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gizmoRadius: 1
 --- !u!1 &2921349496690123247
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,7 +530,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2096584179699911506, guid: fedd0ae7685ac3a49ba827488260f471, type: 3}
+  - {fileID: 2100000, guid: b026c3c3be455504481d6a5579f7c0e1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -611,6 +618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055aab36c90acf940b5de49eaa2e6b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gizmoRadius: 1
 --- !u!1 &4402982666603300766
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,6 +663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055aab36c90acf940b5de49eaa2e6b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gizmoRadius: 1
 --- !u!1 &4412232216025740890
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,6 +708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055aab36c90acf940b5de49eaa2e6b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gizmoRadius: 1
 --- !u!1 &4895214928974031032
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,6 +753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055aab36c90acf940b5de49eaa2e6b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gizmoRadius: 1
 --- !u!1 &4952853157522344382
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,6 +798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055aab36c90acf940b5de49eaa2e6b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gizmoRadius: 1
 --- !u!1 &5967994949635998604
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,6 +936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055aab36c90acf940b5de49eaa2e6b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gizmoRadius: 1
 --- !u!1 &7355035551621848380
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,6 +981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055aab36c90acf940b5de49eaa2e6b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gizmoRadius: 1
 --- !u!1 &7450741232873881288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,6 +1026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055aab36c90acf940b5de49eaa2e6b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gizmoRadius: 1
 --- !u!1 &7869119517918879184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,6 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055aab36c90acf940b5de49eaa2e6b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gizmoRadius: 1
 --- !u!1 &8337155760122143116
 GameObject:
   m_ObjectHideFlags: 0
@@ -1498,11 +1514,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6109292572816562250, guid: fedd0ae7685ac3a49ba827488260f471,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2435ac83cdb79154f8eedfdbe611327d, type: 2}
+    - target: {fileID: -6067185528594298527, guid: fedd0ae7685ac3a49ba827488260f471,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 45ab23ceabad5ff448930a735969fb66, type: 2}
+    - target: {fileID: 84192411948282234, guid: fedd0ae7685ac3a49ba827488260f471,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 45ab23ceabad5ff448930a735969fb66, type: 2}
+    - target: {fileID: 587139436864663717, guid: fedd0ae7685ac3a49ba827488260f471,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 424a7231cbd0c7e46bb0fb05fb16032f, type: 2}
     - target: {fileID: 919132149155446097, guid: fedd0ae7685ac3a49ba827488260f471,
         type: 3}
       propertyPath: m_Name
       value: casita_checkpoint
       objectReference: {fileID: 0}
+    - target: {fileID: 3604028297526920992, guid: fedd0ae7685ac3a49ba827488260f471,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: b026c3c3be455504481d6a5579f7c0e1, type: 2}
+    - target: {fileID: 5901893356585517859, guid: fedd0ae7685ac3a49ba827488260f471,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 45ab23ceabad5ff448930a735969fb66, type: 2}
+    - target: {fileID: 8893123384742268189, guid: fedd0ae7685ac3a49ba827488260f471,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 45ab23ceabad5ff448930a735969fb66, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

@@ -41,4 +41,6 @@ public enum SOUND_TYPE
     VICTORY,
     FALL,
     SWING,
+    TAP
+    
 }
