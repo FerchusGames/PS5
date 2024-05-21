@@ -32,5 +32,5 @@ Material:
     - _OutlineWidth: 0.103
     - _RimStep: 0
     m_Colors:
-    - _BaseColor: {r: 0.9245283, g: 0.6333373, b: 0.12646852, a: 1}
+    - _BaseColor: {r: 1, g: 0.6918841, b: 0.2688679, a: 1}
   m_BuildTextureStacks: []
