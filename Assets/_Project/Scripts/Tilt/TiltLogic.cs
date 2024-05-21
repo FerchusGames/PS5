@@ -8,8 +8,7 @@ public class TiltLogic : MonoBehaviour
 {
     [SerializeField] private Transform trayTransform;
     [SerializeField, Range(0.1f, 0.99f)] private float _swingTreshold = 0.7f;
-
-    public float speed = 100f;
+    
     private float _previousRotateDirZ = 0;
     private float _previousRotateDirX = 0;
     private bool _canSwingDirZ = true;
@@ -65,7 +64,7 @@ public class TiltLogic : MonoBehaviour
     {
         if (GameManager.Instance.GameState is GameState.gaming)
         {
-            trayTransform.Rotate(directionRot * (speed * Time.deltaTime), Space.Self);
+            trayTransform.Rotate(directionRot * (GameManager.Instance.GameValues.TiltControlSpeed * 10 * Time.deltaTime), Space.Self);
             Quaternion angles = trayTransform.rotation; 
             
             if (angles.x > 0.211f  || angles.x < -0.211f) {

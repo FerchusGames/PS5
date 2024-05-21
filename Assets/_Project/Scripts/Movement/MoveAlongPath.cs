@@ -6,8 +6,7 @@ using Range = UnityEngine.SocialPlatforms.Range;
 public class MoveAlongPath : MonoBehaviour
 {
     [SerializeField] private SplineContainer _spline;
-    [SerializeField] private float _maxSpeed = 15;
-    [SerializeField] private float _minSpeed = 5;
+    [SerializeField] private float _minSpeed = 0.2f;
     [SerializeField] private GameObject _tray;
     [SerializeField] private Animator _countdownAnimation;
     [SerializeField] private Animation _finsihAnimation;
@@ -100,7 +99,7 @@ public class MoveAlongPath : MonoBehaviour
 
     private void CalculateSpeed()
     {
-        float speedDifference = _maxSpeed - _minSpeed;
+        float speedDifference = GameManager.Instance.GameValues.MaxSpeed - _minSpeed;
         
         if (DistancePercentage < _accelerationDistancePercentage)
         {
@@ -110,11 +109,11 @@ public class MoveAlongPath : MonoBehaviour
         else if (DistancePercentage > _decelerationDistancePercentage)
         {
             float decelerationSpeedPercentage = (1 / (1 - _decelerationDistancePercentage)) * (DistancePercentage - _decelerationDistancePercentage);
-            _speed = _maxSpeed - (Mathf.Sqrt(decelerationSpeedPercentage) * speedDifference);
+            _speed = GameManager.Instance.GameValues.MaxSpeed - (Mathf.Sqrt(decelerationSpeedPercentage) * speedDifference);
         }
         else
         {
-            _speed = _maxSpeed;
+            _speed = GameManager.Instance.GameValues.MaxSpeed;
         }
     }
 
@@ -141,7 +140,7 @@ public class MoveAlongPath : MonoBehaviour
     
     public float GetSpeedPercentage()
     {
-        float speedDifference = _maxSpeed - _minSpeed;
+        float speedDifference = GameManager.Instance.GameValues.MaxSpeed - _minSpeed;
 
         return (_speed - _minSpeed) / speedDifference;
     }

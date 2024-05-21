@@ -272,7 +272,7 @@ PrefabInstance:
     - target: {fileID: 5273976659141877417, guid: 3eec4e7c2ddac72479e7c26bb4947993,
         type: 3}
       propertyPath: _minSpeed
-      value: 0.2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5273976659141877417, guid: 3eec4e7c2ddac72479e7c26bb4947993,
         type: 3}
@@ -6538,6 +6538,12 @@ PrefabInstance:
       propertyPath: _fallenFoodLimit
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5166055536018696204, guid: 46728215861efda4db9aac4ce80dcbdd,
+        type: 3}
+      propertyPath: <GameValues>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 2d76a86d9bde60a46b7610102ec73d4e,
+        type: 2}
     - target: {fileID: 6382767183083969542, guid: 46728215861efda4db9aac4ce80dcbdd,
         type: 3}
       propertyPath: m_Enabled

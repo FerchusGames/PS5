@@ -60,15 +60,17 @@ public class HeadBobController : MonoBehaviour
         {
             AudioManager.GetInstance().SetAudio(SOUND_TYPE.FOOTSTEPS);
             _cameraShake.StartCoroutine(_cameraShake.Shaking());
-
+            
             if (positionX > 0)
             {
                 _handle.sprite = _walkingRightLegForward;
+                _handle.rectTransform.rotation = Quaternion.Euler(0, 0, 5f);
             }
 
             else
             {
                 _handle.sprite = _walkingLeftLegForward;
+                _handle.rectTransform.rotation = Quaternion.Euler(0, 0, -5f);
             }
             
             _LastTime = intTime;

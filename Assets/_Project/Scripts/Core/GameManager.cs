@@ -6,6 +6,9 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    
+    [field:SerializeField] public GameValues GameValues { get; private set; }
+    
     [field:SerializeField] public GameState GameState { get; private set; }
 
     [field:SerializeField] public int CurrentScore { get; private set; }
