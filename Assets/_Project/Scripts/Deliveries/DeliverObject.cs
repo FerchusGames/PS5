@@ -21,11 +21,11 @@ public class DeliverObject : MonoBehaviour
             Destroy(other.gameObject);
             GameObject particleSystem = Instantiate(_particleSystem, other.transform.position, other.transform.rotation);
             particleSystem.transform.SetParent(_playerObject.transform);
-            AudioManager.GetInstance().SetAudio(SOUND_TYPE.DELIVER, 2f);
+            AudioManager.GetInstance().SetAudio(SOUND_TYPE.DELIVER);
 
             if (_firstTime)
             {
-                AudioManager.GetInstance().SetAudio(SOUND_TYPE.VICTORY, 0.8f);
+                AudioManager.GetInstance().SetAudio(SOUND_TYPE.VICTORY);
                 _firstTime = false;
             }
         }

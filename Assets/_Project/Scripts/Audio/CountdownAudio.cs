@@ -1,22 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 public class CountdownAudio : MonoBehaviour
 {
-    [SerializeField] private AudioClip _countBeep;
-    [SerializeField] private AudioClip _startBeep;
-
-    [SerializeField] private AudioSource _audioSource;
-    
-    public void PlayCountBeep()
+    public void PlayCountdownBeep()
     {
-        _audioSource.PlayOneShot(_countBeep, 0.3f);
+        AudioManager.GetInstance().SetAudio(SOUND_TYPE.COUNTDOWN_BEEP);
     }
 
-    public void PlayStartBeep()
+    public void PlayCountdownStart()
     {
-        _audioSource.PlayOneShot(_startBeep, 0.3f);
+        AudioManager.GetInstance().SetAudio(SOUND_TYPE.COUNTDOWN_START);
     }
 }

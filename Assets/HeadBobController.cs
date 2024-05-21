@@ -52,7 +52,7 @@ public class HeadBobController : MonoBehaviour
         int intTime = (int)(_currentTime);
         if (intTime > _LastTime)
         {
-            AudioManager.GetInstance().SetAudio(SOUND_TYPE.FOOTSTEPS, 0.5f);
+            AudioManager.GetInstance().SetAudio(SOUND_TYPE.FOOTSTEPS);
             _cameraShake.StartCoroutine(_cameraShake.Shaking());
             _LastTime = intTime;
         }

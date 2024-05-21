@@ -14,37 +14,41 @@ public class TiltLogic : MonoBehaviour
     private float _previousRotateDirX = 0;
     private bool _canSwingDirZ = true;
     private bool _canSwingDirX = true;
-    private float _swingAudioLevel = 0.4f;
     private Vector3 directionRot;
 
     
     public void RotateLeftRight(float rotateDir)
     {
+        if (PlayerPrefs.GetInt("InvertAxisX",0)==1)
+        {
+            rotateDir *=-1;
+        }
+        
         if (Mathf.Abs(rotateDir) >= _swingTreshold && _canSwingDirZ)
         {
-            AudioManager.GetInstance().SetAudio(SOUND_TYPE.SWING, _swingAudioLevel);
+            AudioManager.GetInstance().SetAudio(SOUND_TYPE.SWING);
             _canSwingDirZ = false;
         }
-
+       
         if (!_canSwingDirZ)
         {
             _canSwingDirZ = rotateDir * _previousRotateDirZ <= 0; // Reset when direction changes
         }
         
-        if (PlayerPrefs.GetInt("InvertAxisX",0)==1)
-        {
-            rotateDir *=-1;
-        }
-       
         directionRot.z =  rotateDir;
         _previousRotateDirZ = rotateDir;
     }
     
     public void RotateFrontBack(float rotateDir)
     {
+        if (PlayerPrefs.GetInt("InvertAxisY",0)==1)
+        {
+            rotateDir *=-1;
+        }   
+        
         if (Mathf.Abs(rotateDir) >= _swingTreshold && _canSwingDirX)
         {
-            AudioManager.GetInstance().SetAudio(SOUND_TYPE.SWING, _swingAudioLevel);
+            AudioManager.GetInstance().SetAudio(SOUND_TYPE.SWING);
             _canSwingDirX = false;
         }
         
@@ -52,11 +56,7 @@ public class TiltLogic : MonoBehaviour
         {
             _canSwingDirX = rotateDir * _previousRotateDirX <= 0; // Reset when direction changes
         }
-        
-        if (PlayerPrefs.GetInt("InvertAxisY",0)==1)
-        {
-            rotateDir *=-1;
-        }   
+       
         directionRot.x = rotateDir;
         _previousRotateDirX = rotateDir;
     }

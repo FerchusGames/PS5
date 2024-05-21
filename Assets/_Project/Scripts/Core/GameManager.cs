@@ -90,7 +90,10 @@ public class GameManager : MonoBehaviour
 
     public void OnUnPauseTuto()
     {
-        _PopUps.SetActive(true);
+        if (PlayerPrefs.GetInt("tutorial") == 0)
+        {
+            _PopUps.SetActive(true);
+        }
         SetGameState(GameState.gaming);
     }
     

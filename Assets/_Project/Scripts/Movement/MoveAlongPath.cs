@@ -51,7 +51,8 @@ public class MoveAlongPath : MonoBehaviour
         DistancePercentage = 0;
         _speed = 0;
         _stallTimer = 0;
-        
+
+        _countdownAnimation.SetTrigger("Reset");
         _countdownAnimation.speed = 1 / _stallTime;
 
         if (PlayerPrefs.GetInt("tutorial") != 0)
@@ -125,6 +126,16 @@ public class MoveAlongPath : MonoBehaviour
         _spline = splineContainer;
     }
 
+    public void PauseCountdown()
+    {
+        _countdownAnimation.speed = 0;
+    }
+    
+    public void ResumeCountdown()
+    {
+        _countdownAnimation.speed = 1 / _stallTime;
+    }
+    
     public float GetSpeedPercentage()
     {
         float speedDifference = _maxSpeed - _minSpeed;
