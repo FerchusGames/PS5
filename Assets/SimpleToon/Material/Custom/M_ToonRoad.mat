@@ -45,9 +45,9 @@ Material:
     - _Step3: 0.97
     - _Step4: 0.025
     m_Colors:
-    - _BaseColor: {r: 0.20754719, g: 0.18348755, b: 0.14587043, a: 1}
+    - _BaseColor: {r: 0.31132078, g: 0.22899131, b: 0.030838378, a: 1}
     - _HighColor: {r: 1, g: 1, b: 1, a: 1}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 0.3679245, g: 0.31506446, b: 0.2481755, a: 1}
-    - _SpecularColor: {r: 0.16037738, g: 0.06237608, b: 0.031016378, a: 1}
+    - _OutlineColor: {r: 0.3962264, g: 0.31098613, b: 0.0504628, a: 1}
+    - _RimColor: {r: 0.38679248, g: 0.28742796, b: 0.0784532, a: 1}
+    - _SpecularColor: {r: 1, g: 0.37994924, b: 0.051886797, a: 1}
   m_BuildTextureStacks: []
