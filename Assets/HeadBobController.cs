@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HeadBobController : MonoBehaviour
 {
@@ -23,6 +24,11 @@ public class HeadBobController : MonoBehaviour
     private int _LastTime = 0;
 
     private float _currentTime = 0;
+
+    [SerializeField] private Image _handle;
+    [SerializeField] private Sprite _walkingLeftLegForward;
+    [SerializeField] private Sprite _walkingRightLegForward;
+    private float positionX = 0;
     
     private void Awake()
     {
@@ -54,6 +60,17 @@ public class HeadBobController : MonoBehaviour
         {
             AudioManager.GetInstance().SetAudio(SOUND_TYPE.FOOTSTEPS);
             _cameraShake.StartCoroutine(_cameraShake.Shaking());
+
+            if (positionX > 0)
+            {
+                _handle.sprite = _walkingRightLegForward;
+            }
+
+            else
+            {
+                _handle.sprite = _walkingLeftLegForward;
+            }
+            
             _LastTime = intTime;
         }
     }
@@ -70,7 +87,9 @@ public class HeadBobController : MonoBehaviour
         Vector3 pos = Vector3.zero;
         pos.y += Mathf.Sin(Mathf.PI * _currentTime * 2) * _amplitude;
         pos.x += Mathf.Cos(Mathf.PI * _currentTime ) * _amplitude * 2;
-       
+
+        positionX = pos.x;
+        
         return pos;
     }
 

@@ -57,6 +57,8 @@ public enum SOUND_TYPE
     VICTORY,
     FALL,
     SWING,
-    TAP
+    TAP,
+    FIREWORK_LAUNCH,
+    FIREWORK_EXPLODE
     
 }
