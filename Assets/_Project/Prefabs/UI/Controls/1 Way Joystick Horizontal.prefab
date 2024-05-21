@@ -210,6 +210,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9124637670700114246, guid: 6f06b58895892b748806427aa2f28a13,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9124637670700114246, guid: 6f06b58895892b748806427aa2f28a13,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9124637670700114246, guid: 6f06b58895892b748806427aa2f28a13,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9208362231455733994, guid: 6f06b58895892b748806427aa2f28a13,
         type: 3}
       propertyPath: m_Name

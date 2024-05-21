@@ -8,9 +8,6 @@ public class Spawn : MonoBehaviour
 {
     public GameObject[] objectsToSpawn; // Array of prefabs to spawn
     public Transform[] spawnPoints; // Spawn points on the tray
-
-    [SerializeField, Range(1, 10)] private int _minObjects = 2;
-    [SerializeField, Range(1, 10)] private int _maxObjects = 5;
     
     List<GameObject> objectSpawned = new List<GameObject>();
     
@@ -32,7 +29,7 @@ public class Spawn : MonoBehaviour
 
     private void SpawnObjects()
     {
-        int objectSpawnAmount = Random.Range(_minObjects, _maxObjects);
+        int objectSpawnAmount = Random.Range(GameManager.Instance.GameValues.MinObjects, GameManager.Instance.GameValues.MaxObjects);
 
         for (int i = 0; i < objectSpawnAmount; i++)
         {
