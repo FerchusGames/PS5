@@ -64,13 +64,13 @@ public class HeadBobController : MonoBehaviour
             if (positionX > 0)
             {
                 _handle.sprite = _walkingRightLegForward;
-                _handle.rectTransform.rotation = Quaternion.Euler(0, 0, 5f);
+                _handle.rectTransform.rotation = Quaternion.Euler(0, 0, 0);
             }
 
             else
             {
                 _handle.sprite = _walkingLeftLegForward;
-                _handle.rectTransform.rotation = Quaternion.Euler(0, 0, -5f);
+                _handle.rectTransform.rotation = Quaternion.Euler(0, 0, -5);
             }
             
             _LastTime = intTime;
