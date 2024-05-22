@@ -27,7 +27,6 @@ Library: C:\Game Dev\PS5\Temp\BurstOutput\tempburstlibs\arm64-v8a\lib_burst_gene
 --assembly-defines=Unity.RenderPipelines.Universal.Runtime;
 --assembly-defines=Unity.Splines;
 --assembly-defines=Unity.TextMeshPro;
---assembly-defines=Unity.Timeline;
 --assembly-defines=UnityEngine;
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=C:\Game Dev\PS5\Temp\Burst
@@ -65,7 +64,6 @@ Library: C:\Game Dev\PS5\Temp\BurstOutput\tempburstlibs\arm64-v8a\lib_burst_gene
 --assembly-defines=Unity.RenderPipelines.Universal.Runtime;
 --assembly-defines=Unity.Splines;
 --assembly-defines=Unity.TextMeshPro;
---assembly-defines=Unity.Timeline;
 --assembly-defines=UnityEngine;
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=C:\Game Dev\PS5\Temp\Burst

@@ -84,19 +84,22 @@ public class MoveAlongPath : MonoBehaviour
 
         SetCurrentPosition();
 
-        if (DistancePercentage > 1f)
+        if (DistancePercentage < 1f)
         {
-            Reset();
-            _spline = _splineController.NextSpline;
-            SetCurrentPosition();
-            OnSplineEndAction?.Invoke();
+            Vector3 nextPosition = _spline.EvaluatePosition(DistancePercentage + 0.05f);
+            Vector3 direction = nextPosition - transform.position;
+            transform.rotation = Quaternion.LookRotation(direction, transform.up);
         }
-
-        Vector3 nextPosition = _spline.EvaluatePosition(DistancePercentage + 0.05f);
-        Vector3 direction = nextPosition - transform.position;
-        transform.rotation = Quaternion.LookRotation(direction, transform.up);
     }
 
+    public void StartNextRun()
+    {
+        Reset();
+        _spline = _splineController.NextSpline;
+        SetCurrentPosition();
+        OnSplineEndAction?.Invoke();
+    }
+    
     private void CalculateSpeed()
     {
         float speedDifference = GameManager.Instance.GameValues.MaxSpeed - _minSpeed;

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd491deb5e847bb4088c0dad02d3e0db, type: 3}
   m_Name: Ferchus Game Values 1
   m_EditorClassIdentifier: 
-  <MaxSpeed>k__BackingField: 10
-  <TiltControlSpeed>k__BackingField: 10
-  <TurningTiltRate>k__BackingField: 5
-  <WeightTiltRate>k__BackingField: 10
-  <MinObjects>k__BackingField: 5
-  <MaxObjects>k__BackingField: 8
+  MaxSpeed: 10
+  TiltControlSpeed: 10
+  TurningTiltRate: 5
+  WeightTiltRate: 10
+  MinObjects: 5
+  MaxObjects: 8
