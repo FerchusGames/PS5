@@ -81,6 +81,11 @@ public class EditGameValues : MonoBehaviour
         
         _text.text = $"{value:0.00}";
     }
+
+    public void ResetValues()
+    {
+        GameManager.Instance.GameValues = GameManager.Instance.DefaultGameValues;
+    }
     
     public enum ValueToAssign
     {
@@ -90,5 +95,6 @@ public class EditGameValues : MonoBehaviour
         WeightTiltRate,
         MinObjects,
         MaxObjects,
+        None,
     }
 }
