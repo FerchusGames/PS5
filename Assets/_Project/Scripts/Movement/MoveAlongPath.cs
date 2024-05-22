@@ -1,5 +1,6 @@
     using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.Splines;
 using Range = UnityEngine.SocialPlatforms.Range;
 
@@ -12,8 +13,8 @@ public class MoveAlongPath : MonoBehaviour
     [SerializeField] private Animation _finsihAnimation;
     [SerializeField, Range(0, 1)] private float _accelerationDistancePercentage = 0.05f;
     [SerializeField, Range(0, 1)] private float _decelerationDistancePercentage = 0.95f;
-    [SerializeField] private float _stallTime = 3;
-    private float _stallTimer = 0;
+    [FormerlySerializedAs("_stallTime")] public float StallTime = 3;
+    [HideInInspector] public float StallTimer = 0;
 
     [SerializeField] private float _speed;
     
@@ -51,11 +52,11 @@ public class MoveAlongPath : MonoBehaviour
     {
         DistancePercentage = 0;
         _speed = 0;
-        _stallTimer = 0;
+        StallTimer = 0;
 
         _finsihAnimation.Stop();
         //_countdownAnimation.SetTrigger("Reset");
-        _countdownAnimation.speed = 1 / _stallTime;
+        _countdownAnimation.speed = 1 / StallTime;
 
         if (PlayerPrefs.GetInt("tutorial") != 0)
         {
@@ -68,16 +69,11 @@ public class MoveAlongPath : MonoBehaviour
         if (GameManager.Instance.GameState != GameState.gaming)
             return;
 
-        _stallTimer += Time.deltaTime;
+        StallTimer += Time.deltaTime;
         
-        if (_stallTimer >= _stallTime)
+        if (StallTimer >= StallTime)
         {
             CalculateSpeed();
-        }
-
-        else
-        {
-            _tray.transform.localRotation = Quaternion.identity;
         }
 
         DistancePercentage += _speed * Time.deltaTime / _splineLength;
@@ -138,7 +134,7 @@ public class MoveAlongPath : MonoBehaviour
     
     public void ResumeCountdown()
     {
-        _countdownAnimation.speed = 1 / _stallTime;
+        _countdownAnimation.speed = 1 / StallTime;
     }
     
     public float GetSpeedPercentage()

@@ -8,6 +8,7 @@ public class TiltLogic : MonoBehaviour
 {
     [SerializeField] private Transform trayTransform;
     [SerializeField, Range(0.1f, 0.99f)] private float _swingTreshold = 0.7f;
+    [SerializeField] private MoveAlongPath _moveAlongPath;
     
     private float _previousRotateDirZ = 0;
     private float _previousRotateDirX = 0;
@@ -78,6 +79,11 @@ public class TiltLogic : MonoBehaviour
             }
             
             trayTransform.rotation = angles;
+            
+            if (_moveAlongPath.StallTimer <= _moveAlongPath.StallTime)
+            {
+                trayTransform.localRotation = Quaternion.identity;
+            }
         }
     }
 }

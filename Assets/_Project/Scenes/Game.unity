@@ -10254,6 +10254,11 @@ PrefabInstance:
       propertyPath: trayTransform
       value: 
       objectReference: {fileID: 143513463}
+    - target: {fileID: 3628796115696131250, guid: 4c864fa367b3dab49a1b8e94918ea0c0,
+        type: 3}
+      propertyPath: _moveAlongPath
+      value: 
+      objectReference: {fileID: 1340867606}
     - target: {fileID: 3883603017761287965, guid: 4c864fa367b3dab49a1b8e94918ea0c0,
         type: 3}
       propertyPath: m_AnchorMax.x
