@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Default Game Values
   m_EditorClassIdentifier: 
   MaxSpeed: 10
-  TiltControlSpeed: 10
+  TiltControlSpeed: 2
   TurningTiltRate: 5
-  WeightTiltRate: 10
+  WeightTiltRate: 6
   MinObjects: 5
   MaxObjects: 8
