@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Spawn _spawn;
     [SerializeField] private GameObject _PopUps;
+
+    public bool IsTutorial { get; private set; } = false;
     
     public event Action<int> OnScoreChange;
     public event Action<GameState> OnGameStateChange;
@@ -66,10 +69,17 @@ public class GameManager : MonoBehaviour
     
     public void PlayTuto()
     {
-        PlayerPrefs.SetInt("tutorial", 0);
-        Reset();
+        SceneManager.LoadScene("Tutorial");
+        //Reset();
+        //ResetPopUps();
+        //OnGameStart?.Invoke();
+    }
+
+    public void StartTuto()
+    {
         ResetPopUps();
-        OnGameStart?.Invoke();
+        SetGameState(GameState.gaming);
+        IsTutorial = true;
     }
 
     public void ResetPopUps()

@@ -21,7 +21,9 @@ public class DeliverObject : MonoBehaviour
     {
         if (other.CompareTag("Food"))
         {
-            GameManager.Instance.AddScore(1);
+            if (!GameManager.Instance.IsTutorial)
+                GameManager.Instance.AddScore(1);
+            
             Destroy(other.gameObject);
             GameObject particleSystem = Instantiate(_particleSystem, other.transform.position, other.transform.rotation);
             particleSystem.transform.SetParent(_playerObject.transform);

@@ -26,18 +26,20 @@ public class GameUI : MonoBehaviour
 
     private void Start()
     {
+        if (!_highScoreText) return;
         _highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
     }
 
     private void UpdateScore(int score)
     {
+        if(!_scoreText) return;
         _scoreText.text = score.ToString();
         _animation.Play();
-        
     }
 
     private void UpdateHighScore(int highScore)
     {
+        if (!_highScoreText) return; 
         _highScoreText.text = highScore.ToString();
     }
 

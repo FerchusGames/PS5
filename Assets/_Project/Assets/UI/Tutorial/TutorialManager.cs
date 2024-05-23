@@ -9,10 +9,15 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private Slider[] controls;
     [SerializeField] private GameObject spawner;
     [SerializeField] private GameObject mainUI;
-    private int popIndex;
+    private int popIndex = 0;
     private float waitTime = 10f;
     private int tutorialInt;
-    
+
+    private void Start()
+    {
+        GameManager.Instance.StartTuto();
+    }
+
     private bool GetIfTutoIsNotPlayed()
     {
         tutorialInt = PlayerPrefs.GetInt("tutorial");
@@ -36,64 +41,61 @@ public class TutorialManager : MonoBehaviour
             GameManager.Instance.OnLoseTuto();
         }
         
-        if (GetIfTutoIsNotPlayed())
+        for (int i = 0; i < popups.Length; i++)
         {
-            for (int i = 0; i < popups.Length; i++)
+            if (i == popIndex)
             {
-                if (i == popIndex)
-                {
-                    popups[i].SetActive(true);
-                }
-                else
-                {
-                    popups[i].SetActive(false);
-                }
+                popups[i].SetActive(true);
             }
-                    
-            if (popIndex == 0)
+            else
             {
-                if (controls[0].value > 0 || controls[0].value < 0 || controls[1].value > 0 || controls[1].value < 0)
-                { 
-                    waitTime = 10f;
-                    popIndex++;
-                    GameManager.Instance.SetGameState(GameState.gaming);               
-                }
+                popups[i].SetActive(false);
             }
-            else if (popIndex == 1)
-            {
-                if (waitTime <= 0)
-                {
-                    popIndex++;
-                    waitTime = 10f;
-                }
-                else
-                {
-                    waitTime -= Time.deltaTime;
-                }
+        }
+                
+        if (popIndex == 0)
+        {
+            if (controls[0].value > 0 || controls[0].value < 0 || controls[1].value > 0 || controls[1].value < 0)
+            { 
+                waitTime = 10f;
+                popIndex++;
+                GameManager.Instance.SetGameState(GameState.gaming);               
             }
-            else if (popIndex == 2)
+        }
+        else if (popIndex == 1)
+        {
+            if (waitTime <= 0)
             {
-                if (GameManager.Instance.CurrentScore > 0)
-                {
-                    popIndex++;
-                    waitTime = 5f;
-                }
-                else
-                {
-                    waitTime -= Time.deltaTime;
-                }
+                popIndex++;
+                waitTime = 10f;
             }
-            else if (popIndex == 3)
+            else
             {
-                if (waitTime <= 0)
-                {
-                    GameManager.Instance.EndTuto();
-                    popups.Last().SetActive(false);
-                }
-                else
-                {
-                    waitTime -= Time.deltaTime;
-                }
+                waitTime -= Time.deltaTime;
+            }
+        }
+        else if (popIndex == 2)
+        {
+            if (GameManager.Instance.CurrentScore > 0)
+            {
+                popIndex++;
+                waitTime = 5f;
+            }
+            else
+            {
+                waitTime -= Time.deltaTime;
+            }
+        }
+        else if (popIndex == 3)
+        {
+            if (waitTime <= 0)
+            {
+                GameManager.Instance.EndTuto();
+                popups.Last().SetActive(false);
+            }
+            else
+            {
+                waitTime -= Time.deltaTime;
             }
         }
     }

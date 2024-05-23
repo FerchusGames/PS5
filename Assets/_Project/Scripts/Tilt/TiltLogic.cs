@@ -85,7 +85,7 @@ public class TiltLogic : MonoBehaviour
 
             trayTransform.localRotation = lockRotation;
             
-            if (_moveAlongPath.StallTimer <= _moveAlongPath.StallTime)
+            if (_moveAlongPath.StallTimer <= _moveAlongPath.StallTime && !GameManager.Instance.IsTutorial)
             {
                 trayTransform.localRotation = Quaternion.identity;
             }
