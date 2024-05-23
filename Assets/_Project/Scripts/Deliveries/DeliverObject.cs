@@ -5,7 +5,7 @@ public class DeliverObject : MonoBehaviour
 {
     public GameObject _particleSystem;
 
-    private Animation _finishAnimation;
+    private Animator _finishAnimation;
     
     private GameObject _playerObject;
     [SerializeField] private GameObject[] _fireworks;
@@ -14,7 +14,7 @@ public class DeliverObject : MonoBehaviour
     private void Start()
     {
         _playerObject = GameObject.FindWithTag("Player");
-        _finishAnimation = Camera.main.GetComponent<Animation>();
+        _finishAnimation = Camera.main.GetComponent<Animator>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,7 +30,7 @@ public class DeliverObject : MonoBehaviour
             if (_firstTime)
             {
                 AudioManager.GetInstance().SetAudio(SOUND_TYPE.VICTORY);
-                _finishAnimation.Play();
+                _finishAnimation.enabled = true;
                 _firstTime = false;
 
                 for (int i = 0; i < _fireworks.Length; i++)

@@ -10,7 +10,7 @@ public class MoveAlongPath : MonoBehaviour
     [SerializeField] private float _minSpeed = 0.2f;
     [SerializeField] private GameObject _tray;
     [SerializeField] private Animator _countdownAnimation;
-    [SerializeField] private Animation _finsihAnimation;
+    [SerializeField] private Animator _finsihAnimation;
     [SerializeField, Range(0, 1)] private float _accelerationDistancePercentage = 0.05f;
     [SerializeField, Range(0, 1)] private float _decelerationDistancePercentage = 0.95f;
     [FormerlySerializedAs("_stallTime")] public float StallTime = 3;
@@ -44,7 +44,7 @@ public class MoveAlongPath : MonoBehaviour
     private void Start()
     {
         _splineLength = _spline.CalculateLength();
-        _finsihAnimation = Camera.main.GetComponent<Animation>();
+        _finsihAnimation = Camera.main.GetComponent<Animator>();
         Reset();
     }
 
@@ -54,7 +54,7 @@ public class MoveAlongPath : MonoBehaviour
         _speed = 0;
         StallTimer = 0;
 
-        _finsihAnimation.Stop();
+        _finsihAnimation.enabled = false;
         //_countdownAnimation.SetTrigger("Reset");
         _countdownAnimation.speed = 1 / StallTime;
 
