@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +14,13 @@ public class Spawn : MonoBehaviour
     
     [SerializeField] private MoveAlongPath _moveAlongPath;
 
+    private WaitForSeconds _wsSpawnDelay;
     public event Action<int> OnSpawnObjects;
+
+    private void Awake()
+    {
+        _wsSpawnDelay = new WaitForSeconds(0.2f);
+    }
 
     private void OnEnable()
     {
@@ -29,6 +36,11 @@ public class Spawn : MonoBehaviour
 
     private void SpawnObjects()
     {
+        StartCoroutine(SpawnObjectsCoroutine());
+    }
+    
+    private IEnumerator SpawnObjectsCoroutine()
+    {
         int objectSpawnAmount = Random.Range(GameManager.Instance.GameValues.MinObjects, GameManager.Instance.GameValues.MaxObjects);
 
         for (int i = 0; i < objectSpawnAmount; i++)
@@ -36,7 +48,8 @@ public class Spawn : MonoBehaviour
             GameObject objectToSpawn = objectsToSpawn[Random.Range(0, objectsToSpawn.Length)];
             Transform spawnPoint = spawnPoints[i];
             GameObject spawnedObject = Instantiate(objectToSpawn, spawnPoint.position, objectToSpawn.transform.rotation, spawnPoint);
-            spawnedObject.transform.Rotate(Vector3.up, Random.Range(0, 360));
+            spawnedObject.transform.Rotate(spawnedObject.transform.up, Random.Range(0, 360));
+            yield return _wsSpawnDelay;
         }
 
         OnSpawnObjects?.Invoke(objectSpawnAmount);

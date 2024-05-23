@@ -253,10 +253,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spline: {fileID: 0}
-  _maxSpeed: 8
   _minSpeed: 1
+  _tray: {fileID: 0}
+  _countdownAnimation: {fileID: 0}
+  _finsihAnimation: {fileID: 0}
   _accelerationDistancePercentage: 0.05
   _decelerationDistancePercentage: 0.95
+  StallTime: 3
+  StallTimer: 0
   _speed: 10
 --- !u!114 &2233226191116349971
 MonoBehaviour:
@@ -323,8 +327,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  _minObjects: 5
-  _maxObjects: 5
   _moveAlongPath: {fileID: 5273976659141877417}
 --- !u!114 &7007997662002883999
 MonoBehaviour:
@@ -344,6 +346,9 @@ MonoBehaviour:
   _camera: {fileID: 4905139853320105868}
   _cameraHolder: {fileID: 8632695640954199669}
   _moveAlongPath: {fileID: 5273976659141877417}
+  _handle: {fileID: 0}
+  _walkingLeftLegForward: {fileID: 0}
+  _walkingRightLegForward: {fileID: 0}
 --- !u!1 &7730521489536002901
 GameObject:
   m_ObjectHideFlags: 0
