@@ -3,8 +3,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
-public class TiltLogic : MonoBehaviour
+public class TiltLogic : MonoBehaviour, TiltActions.ITIltActions
 {
     [SerializeField] private Transform trayTransform;
     [SerializeField, Range(0.1f, 0.99f)] private float _swingTreshold = 0.7f;
@@ -15,7 +16,16 @@ public class TiltLogic : MonoBehaviour
     private bool _canSwingDirZ = true;
     private bool _canSwingDirX = true;
     private Vector3 directionRot;
+    private TiltActions.ITIltActions _itIltActionsImplementation;
+    private Vector3 _movementValue;
+    private TiltActions _tiltActions;
 
+    private void Start()
+    {
+        _tiltActions = new TiltActions();
+        _tiltActions.TIlt.SetCallbacks(this);
+        _tiltActions.TIlt.Enable();
+    }
     
     public void RotateLeftRight(float rotateDir)
     {
@@ -65,30 +75,69 @@ public class TiltLogic : MonoBehaviour
     {
         if (GameManager.Instance.GameState is GameState.gaming)
         {
-            trayTransform.Rotate(directionRot * (GameManager.Instance.GameValues.TiltControlSpeed * 10 * Time.deltaTime), Space.Self);
             Quaternion angles = trayTransform.rotation; 
-            
-            if (angles.x > 0.211f  || angles.x < -0.211f) {
-                float targetX = Mathf.Clamp(angles.x, -0.211f, 0.211f);
-                angles.x = targetX;
-            }
-            
-            if (angles.z > 0.211f || angles.z < -0.211f) {
-                float targetZ = Mathf.Clamp(angles.z, -0.211f, 0.211f);
-                angles.z = targetZ;
-            }
-            
-            trayTransform.rotation = angles;
-
             Quaternion lockRotation = trayTransform.localRotation;
-            lockRotation.y = 0;
-
-            trayTransform.localRotation = lockRotation;
-            
-            if (_moveAlongPath.StallTimer <= _moveAlongPath.StallTime)
+            switch (GameManager.Instance.GyroActive)
             {
-                trayTransform.localRotation = Quaternion.identity;
+                case true:
+                    trayTransform.Rotate(directionRot * (GameManager.Instance.GameValues.TiltControlSpeed * 10 * Time.deltaTime), Space.Self);
+            
+                    if (angles.x > 0.211f  || angles.x < -0.211f) {
+                        float targetX = Mathf.Clamp(angles.x, -0.211f, 0.211f);
+                        angles.x = targetX;
+                    }
+            
+                    if (angles.z > 0.211f || angles.z < -0.211f) {
+                        float targetZ = Mathf.Clamp(angles.z, -0.211f, 0.211f);
+                        angles.z = targetZ;
+                    }
+            
+                    trayTransform.rotation = angles;
+
+                    lockRotation.y = 0;
+
+                    trayTransform.localRotation = lockRotation;
+            
+                    if (_moveAlongPath.StallTimer <= _moveAlongPath.StallTime)
+                    {
+                        trayTransform.localRotation = Quaternion.identity;
+                    }
+                    break;
+                case false:
+                    trayTransform.Rotate(directionRot * (GameManager.Instance.GameValues.TiltControlSpeed * 10 * Time.deltaTime), Space.Self);
+            
+                    if (angles.x > 0.211f  || angles.x < -0.211f) {
+                        float targetX = Mathf.Clamp(angles.x, -0.211f, 0.211f);
+                        angles.x = targetX;
+                    }
+            
+                    if (angles.z > 0.211f || angles.z < -0.211f) {
+                        float targetZ = Mathf.Clamp(angles.z, -0.211f, 0.211f);
+                        angles.z = targetZ;
+                    }
+            
+                    trayTransform.rotation = angles;
+
+                    lockRotation.y = 0;
+
+                    trayTransform.localRotation = lockRotation;
+            
+                    if (_moveAlongPath.StallTimer <= _moveAlongPath.StallTime)
+                    {
+                        trayTransform.localRotation = Quaternion.identity;
+                    }
+                    break;
             }
         }
+    }
+    
+    private void OnDestroy()
+    {
+        _tiltActions.TIlt.Disable();
+    }
+
+    public void OnTiltGyro(InputAction.CallbackContext context)
+    {
+        _movementValue = context.ReadValue<Vector3>();
     }
 }
