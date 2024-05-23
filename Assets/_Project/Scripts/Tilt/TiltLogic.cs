@@ -79,6 +79,11 @@ public class TiltLogic : MonoBehaviour
             }
             
             trayTransform.rotation = angles;
+
+            Quaternion lockRotation = trayTransform.localRotation;
+            lockRotation.y = 0;
+
+            trayTransform.localRotation = lockRotation;
             
             if (_moveAlongPath.StallTimer <= _moveAlongPath.StallTime)
             {
