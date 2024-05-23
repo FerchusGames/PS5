@@ -19,7 +19,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Spawn _spawn;
     [SerializeField] private GameObject _PopUps;
-    
+    [field: SerializeField] public bool GyroActive { get; private set; }
+
     public event Action<int> OnScoreChange;
     public event Action<GameState> OnGameStateChange;
     public event Action<int> OnHighScoreChange;
@@ -119,6 +120,11 @@ public class GameManager : MonoBehaviour
         OnGameReset?.Invoke();
     }
 
+    public void ActivateGyro(bool isGyroActive)
+    {
+        GyroActive = isGyroActive;
+    }
+    
     private void ResetFallenFood(int newFallenFoodLimit)
     {
         _fallenFoodCount = 0;

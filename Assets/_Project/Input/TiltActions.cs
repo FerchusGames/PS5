@@ -28,42 +28,6 @@ public partial class @TiltActions: IInputActionCollection2, IDisposable
             ""id"": ""60e3f505-4498-4922-a5c6-005ab5684fc1"",
             ""actions"": [
                 {
-                    ""name"": ""Rigth"",
-                    ""type"": ""Button"",
-                    ""id"": ""3ac7943f-59b6-4d3c-9a1d-fce495ae99cb"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Left"",
-                    ""type"": ""Button"",
-                    ""id"": ""bee64956-f4f6-49ca-ab9c-e76ccb6d02e7"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Up"",
-                    ""type"": ""Button"",
-                    ""id"": ""fa3e8c8d-dda6-44d0-ba8f-a9e5b09210a3"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Down"",
-                    ""type"": ""Button"",
-                    ""id"": ""d5a69561-a0e0-4c84-97a4-e21187668fa7"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""TiltGyro"",
                     ""type"": ""Value"",
                     ""id"": ""0a23aedc-55b0-48c5-8620-e2a8952963a7"",
@@ -74,94 +38,6 @@ public partial class @TiltActions: IInputActionCollection2, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""685d2b23-fd02-44c5-9405-dd25b30a1f2d"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": ""Hold"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rigth"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""cff4f22e-3849-4e39-b157-3439f645f3f3"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rigth"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ed1b482b-34f6-4c8d-a10b-5eefa5f6ce89"",
-                    ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": ""Hold"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Left"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c581958e-3247-47c9-ba73-59fa5669f47c"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Left"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d92558cf-b309-4dd5-86e0-8108ed0802e8"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": ""Hold"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Up"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""62edaf5b-d2ae-4259-bde0-fc5fda615378"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Up"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f80fc6e3-dbf2-4d3b-a584-69e762b1a643"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": ""Hold"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Down"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""77547baa-9c8d-41a5-a9db-ddf10eb94071"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Down"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""9e321357-391f-4c6c-8768-3161c17513c3"",
@@ -180,10 +56,6 @@ public partial class @TiltActions: IInputActionCollection2, IDisposable
 }");
         // TIlt
         m_TIlt = asset.FindActionMap("TIlt", throwIfNotFound: true);
-        m_TIlt_Rigth = m_TIlt.FindAction("Rigth", throwIfNotFound: true);
-        m_TIlt_Left = m_TIlt.FindAction("Left", throwIfNotFound: true);
-        m_TIlt_Up = m_TIlt.FindAction("Up", throwIfNotFound: true);
-        m_TIlt_Down = m_TIlt.FindAction("Down", throwIfNotFound: true);
         m_TIlt_TiltGyro = m_TIlt.FindAction("TiltGyro", throwIfNotFound: true);
     }
 
@@ -246,19 +118,11 @@ public partial class @TiltActions: IInputActionCollection2, IDisposable
     // TIlt
     private readonly InputActionMap m_TIlt;
     private List<ITIltActions> m_TIltActionsCallbackInterfaces = new List<ITIltActions>();
-    private readonly InputAction m_TIlt_Rigth;
-    private readonly InputAction m_TIlt_Left;
-    private readonly InputAction m_TIlt_Up;
-    private readonly InputAction m_TIlt_Down;
     private readonly InputAction m_TIlt_TiltGyro;
     public struct TIltActions
     {
         private @TiltActions m_Wrapper;
         public TIltActions(@TiltActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Rigth => m_Wrapper.m_TIlt_Rigth;
-        public InputAction @Left => m_Wrapper.m_TIlt_Left;
-        public InputAction @Up => m_Wrapper.m_TIlt_Up;
-        public InputAction @Down => m_Wrapper.m_TIlt_Down;
         public InputAction @TiltGyro => m_Wrapper.m_TIlt_TiltGyro;
         public InputActionMap Get() { return m_Wrapper.m_TIlt; }
         public void Enable() { Get().Enable(); }
@@ -269,18 +133,6 @@ public partial class @TiltActions: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_TIltActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_TIltActionsCallbackInterfaces.Add(instance);
-            @Rigth.started += instance.OnRigth;
-            @Rigth.performed += instance.OnRigth;
-            @Rigth.canceled += instance.OnRigth;
-            @Left.started += instance.OnLeft;
-            @Left.performed += instance.OnLeft;
-            @Left.canceled += instance.OnLeft;
-            @Up.started += instance.OnUp;
-            @Up.performed += instance.OnUp;
-            @Up.canceled += instance.OnUp;
-            @Down.started += instance.OnDown;
-            @Down.performed += instance.OnDown;
-            @Down.canceled += instance.OnDown;
             @TiltGyro.started += instance.OnTiltGyro;
             @TiltGyro.performed += instance.OnTiltGyro;
             @TiltGyro.canceled += instance.OnTiltGyro;
@@ -288,18 +140,6 @@ public partial class @TiltActions: IInputActionCollection2, IDisposable
 
         private void UnregisterCallbacks(ITIltActions instance)
         {
-            @Rigth.started -= instance.OnRigth;
-            @Rigth.performed -= instance.OnRigth;
-            @Rigth.canceled -= instance.OnRigth;
-            @Left.started -= instance.OnLeft;
-            @Left.performed -= instance.OnLeft;
-            @Left.canceled -= instance.OnLeft;
-            @Up.started -= instance.OnUp;
-            @Up.performed -= instance.OnUp;
-            @Up.canceled -= instance.OnUp;
-            @Down.started -= instance.OnDown;
-            @Down.performed -= instance.OnDown;
-            @Down.canceled -= instance.OnDown;
             @TiltGyro.started -= instance.OnTiltGyro;
             @TiltGyro.performed -= instance.OnTiltGyro;
             @TiltGyro.canceled -= instance.OnTiltGyro;
@@ -322,10 +162,6 @@ public partial class @TiltActions: IInputActionCollection2, IDisposable
     public TIltActions @TIlt => new TIltActions(this);
     public interface ITIltActions
     {
-        void OnRigth(InputAction.CallbackContext context);
-        void OnLeft(InputAction.CallbackContext context);
-        void OnUp(InputAction.CallbackContext context);
-        void OnDown(InputAction.CallbackContext context);
         void OnTiltGyro(InputAction.CallbackContext context);
     }
 }

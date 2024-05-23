@@ -3,8 +3,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
-public class TiltLogic : MonoBehaviour
+public class TiltLogic : MonoBehaviour, TiltActions.ITIltActions
 {
     [SerializeField] private Transform trayTransform;
     [SerializeField, Range(0.1f, 0.99f)] private float _swingTreshold = 0.7f;
@@ -16,6 +17,16 @@ public class TiltLogic : MonoBehaviour
     private bool _canSwingDirX = true;
     private float _swingAudioLevel = 0.4f;
     private Vector3 directionRot;
+    private TiltActions _tiltActions;
+    private Vector3 _movementValue;
+
+    
+    private void Start()
+    {
+        _tiltActions = new TiltActions();
+        _tiltActions.TIlt.SetCallbacks(this);
+        _tiltActions.TIlt.Enable();
+    }
 
     
     public void RotateLeftRight(float rotateDir)
@@ -64,21 +75,50 @@ public class TiltLogic : MonoBehaviour
     void Update()
     {
         if (GameManager.Instance.GameState is GameState.gaming)
-        {
-            trayTransform.Rotate(directionRot * (speed * Time.deltaTime), Space.Self);
+        { 
             Quaternion angles = trayTransform.rotation; 
+            switch (GameManager.Instance.GyroActive)
+            {
+                case true:
+                    trayTransform.Rotate(_movementValue * (speed * Time.deltaTime), Space.Self);
             
-            if (angles.x > 0.211f  || angles.x < -0.211f) {
-                float targetX = Mathf.Clamp(angles.x, -0.211f, 0.211f);
-                angles.x = targetX;
+                    if (angles.x > 0.211f  || angles.x < -0.211f) {
+                        float targetX = Mathf.Clamp(angles.x, -0.211f, 0.211f);
+                        angles.x = targetX;
+                    }
+            
+                    if (angles.z > 0.211f || angles.z < -0.211f) {
+                        float targetZ = Mathf.Clamp(angles.z, -0.211f, 0.211f);
+                        angles.z = targetZ;
+                    }
+            
+                    trayTransform.rotation = angles;
+                    break;
+                case false:
+                    trayTransform.Rotate(directionRot * (speed * Time.deltaTime), Space.Self);
+                    if (angles.x > 0.211f  || angles.x < -0.211f) {
+                        float targetX = Mathf.Clamp(angles.x, -0.211f, 0.211f);
+                        angles.x = targetX;
+                    }
+            
+                    if (angles.z > 0.211f || angles.z < -0.211f) {
+                        float targetZ = Mathf.Clamp(angles.z, -0.211f, 0.211f);
+                        angles.z = targetZ;
+                    }
+            
+                    trayTransform.rotation = angles;
+                    break;
             }
-            
-            if (angles.z > 0.211f || angles.z < -0.211f) {
-                float targetZ = Mathf.Clamp(angles.z, -0.211f, 0.211f);
-                angles.z = targetZ;
-            }
-            
-            trayTransform.rotation = angles;
         }
+    }
+    
+    private void OnDestroy()
+    {
+        _tiltActions.TIlt.Disable();
+    }
+
+    public void OnTiltGyro(InputAction.CallbackContext context)
+    {
+        _movementValue = context.ReadValue<Vector3>();
     }
 }
