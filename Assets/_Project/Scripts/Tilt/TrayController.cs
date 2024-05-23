@@ -12,8 +12,6 @@ public class TrayController : MonoBehaviour
     private Vector3 _currentRotation;
     
     [SerializeField] private Transform _playerTransform;
-    [SerializeField, Range(1, 10)] private float _turnTiltRate;
-    [SerializeField] private float tiltSpeed  = 0.1f;
 
     private List<Rigidbody> objectsInTray = new List<Rigidbody>();
 
@@ -69,7 +67,7 @@ public class TrayController : MonoBehaviour
     
     private void TurnTilt()
     {
-        transform.Rotate(new Vector3(0, 0, 1) * (GetTurningRate() * _turnTiltRate * 0.0001f), Space.Self);
+        transform.Rotate(new Vector3(0, 0, 1) * (GetTurningRate() * GameManager.Instance.GameValues.TurningTiltRate * 0.0001f), Space.Self);
     }
 
     private void WeightyTilt()
@@ -82,7 +80,7 @@ public class TrayController : MonoBehaviour
         Quaternion targetRotation = Quaternion.FromToRotation(Vector3.up, tiltDirection);
 
         // Apply tilt smoothly
-        transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, tiltSpeed * Time.deltaTime);
+        transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, GameManager.Instance.GameValues.WeightTiltRate * 0.01f * Time.deltaTime);
     }
     
     private Vector3 CalculateCenterOfMass()

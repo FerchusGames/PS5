@@ -6,6 +6,10 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+
+    [field: SerializeField] public GameValues GameValues;
+    [field: SerializeField] public GameValues DefaultGameValues { get; private set; }
+
     [field:SerializeField] public GameState GameState { get; private set; }
 
     [field:SerializeField] public int CurrentScore { get; private set; }
@@ -91,7 +95,10 @@ public class GameManager : MonoBehaviour
 
     public void OnUnPauseTuto()
     {
-        _PopUps.SetActive(true);
+        if (PlayerPrefs.GetInt("tutorial") == 0)
+        {
+            _PopUps.SetActive(true);
+        }
         SetGameState(GameState.gaming);
     }
     

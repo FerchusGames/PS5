@@ -19,9 +19,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioLibrary library;
     [SerializeField] GameObject audioSourcePrefab;
     private List<AudioSource> audioSources = new List<AudioSource>();
-    public void SetAudio(SOUND_TYPE _requestSound, float volumeScale = 1f)
+    public void SetAudio(SOUND_TYPE _requestSound)
     {
-        SelfAudioSource.PlayOneShot(library.GetAudio(_requestSound), volumeScale);
+        SelfAudioSource.PlayOneShot(library.GetAudio(_requestSound), library.GetLevel(_requestSound));
     }
     public void SetAudio(SOUND_TYPE _requestSound, Vector3 position)
     {

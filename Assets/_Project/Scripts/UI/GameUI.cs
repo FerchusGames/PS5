@@ -10,6 +10,7 @@ public class GameUI : MonoBehaviour
 
     [SerializeField] private MoveAlongPath _moveAlongPath;
     [SerializeField] private Slider _slider;
+    [SerializeField] private Animation _animation;
     
     private void OnEnable()
     {
@@ -31,6 +32,8 @@ public class GameUI : MonoBehaviour
     private void UpdateScore(int score)
     {
         _scoreText.text = score.ToString();
+        _animation.Play();
+        
     }
 
     private void UpdateHighScore(int highScore)
