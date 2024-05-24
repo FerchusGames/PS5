@@ -5,9 +5,19 @@ using UnityEngine;
 public class StartNextRun : MonoBehaviour
 {
     [SerializeField] private MoveAlongPath _moveAlongPath;
-
+    [SerializeField] private GameObject _enableObject;
+    [SerializeField] private Animator _animator;
+    
     public void StartNextRunEvent()
     {
-        _moveAlongPath.StartNextRun();
+        if (GameManager.Instance.IsTutorial)
+        {
+            _animator.speed = 0;
+            _enableObject.SetActive(true);
+        }
+        else
+        {
+            _moveAlongPath.StartNextRun();
+        }
     }
 }

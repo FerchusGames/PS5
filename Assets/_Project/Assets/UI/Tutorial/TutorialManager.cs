@@ -18,17 +18,6 @@ public class TutorialManager : MonoBehaviour
         GameManager.Instance.StartTuto();
     }
 
-    private bool GetIfTutoIsNotPlayed()
-    {
-        tutorialInt = PlayerPrefs.GetInt("tutorial");
-        
-        if (tutorialInt == 0)
-        {
-            return true;
-        }
-        return false;
-    }
-
     public void ResetIndex()
     {
         popIndex = 0;
@@ -40,7 +29,10 @@ public class TutorialManager : MonoBehaviour
         {
             GameManager.Instance.OnLoseTuto();
         }
-        
+    }
+
+    private void OriginalUpdate()
+    {
         for (int i = 0; i < popups.Length; i++)
         {
             if (i == popIndex)
@@ -52,7 +44,7 @@ public class TutorialManager : MonoBehaviour
                 popups[i].SetActive(false);
             }
         }
-                
+
         if (popIndex == 0)
         {
             if (controls[0].value > 0 || controls[0].value < 0 || controls[1].value > 0 || controls[1].value < 0)
@@ -99,10 +91,4 @@ public class TutorialManager : MonoBehaviour
             }
         }
     }
-
-    private void ResetPopUps()
-    {
-        popIndex = 0;
-    }
-    
 }

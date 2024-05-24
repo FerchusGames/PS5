@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("tutorial", 1);
         PlayerPrefs.Save();
+        GoToMainGame();
     }
     
     public void PlayTuto()
@@ -75,6 +76,11 @@ public class GameManager : MonoBehaviour
         //OnGameStart?.Invoke();
     }
 
+    public void GoToMainGame()
+    {
+        SceneManager.LoadScene("Game");
+    }
+    
     public void StartTuto()
     {
         ResetPopUps();
