@@ -92,7 +92,8 @@ public class GameManager : MonoBehaviour
     {
         _mainGameUI.SetActive(true);
         _controlsUI.SetActive(true);
-        _PopUps.SetActive(true);
+        if (_PopUps)
+            _PopUps.SetActive(true);
 
         AddScore(-CurrentScore);
         
@@ -102,7 +103,9 @@ public class GameManager : MonoBehaviour
 
     public void OnLoseTuto()
     {
+        if (_PopUps)
         _PopUps.SetActive(false);
+        
         AddScore(-CurrentScore);
         
         _fallenFoodCount = 0;
@@ -112,6 +115,7 @@ public class GameManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("tutorial") == 0)
         {
+            if (_PopUps)
             _PopUps.SetActive(true);
         }
         SetGameState(GameState.gaming);
@@ -188,6 +192,7 @@ public class GameManager : MonoBehaviour
         _gameOverUI.SetActive(true);
         _mainGameUI.SetActive(false);
         _controlsUI.SetActive(false);
+        if (_PopUps)
         _PopUps.SetActive(false);
     }
 
