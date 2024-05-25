@@ -320,7 +320,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _nextPopUp
       value: 
-      objectReference: {fileID: 2010195553}
+      objectReference: {fileID: 2147141536}
     - target: {fileID: 4231892238449321101, guid: 90c74431635146b4592062d1b075295b,
         type: 3}
       propertyPath: m_Pivot.x
@@ -10073,6 +10073,11 @@ PrefabInstance:
       propertyPath: _enableTime
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 3994903105670869424, guid: 90c74431635146b4592062d1b075295b,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4192930396633543006, guid: 90c74431635146b4592062d1b075295b,
         type: 3}
       propertyPath: _nextPopUp
@@ -10191,12 +10196,6 @@ PrefabInstance:
 --- !u!224 &2010195552 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4231892238449321101, guid: 90c74431635146b4592062d1b075295b,
-    type: 3}
-  m_PrefabInstance: {fileID: 2010195551}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2010195553 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3098299030432223753, guid: 90c74431635146b4592062d1b075295b,
     type: 3}
   m_PrefabInstance: {fileID: 2010195551}
   m_PrefabAsset: {fileID: 0}
