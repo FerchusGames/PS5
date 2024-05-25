@@ -6836,12 +6836,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e34091ba517103a4897bc8de1da9c7b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &631324514 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5805894708714039520, guid: 4c864fa367b3dab49a1b8e94918ea0c0,
-    type: 3}
-  m_PrefabInstance: {fileID: 2821124306861081123}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &647064825 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8842055228120987789, guid: 3eec4e7c2ddac72479e7c26bb4947993,
@@ -7030,7 +7024,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _PopUps
       value: 
-      objectReference: {fileID: 631324514}
+      objectReference: {fileID: 0}
     - target: {fileID: 5166055536018696204, guid: 46728215861efda4db9aac4ce80dcbdd,
         type: 3}
       propertyPath: _loseUI
@@ -10004,7 +9998,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
-      objectReference: {fileID: 631324514}
+      objectReference: {fileID: 0}
     - target: {fileID: 699924204230401819, guid: 4c864fa367b3dab49a1b8e94918ea0c0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
@@ -11484,6 +11478,7 @@ PrefabInstance:
     - {fileID: 7091831092439004250, guid: 4c864fa367b3dab49a1b8e94918ea0c0, type: 3}
     - {fileID: 6519578886923217385, guid: 4c864fa367b3dab49a1b8e94918ea0c0, type: 3}
     - {fileID: 7298021484671584736, guid: 4c864fa367b3dab49a1b8e94918ea0c0, type: 3}
+    - {fileID: 5805894708714039520, guid: 4c864fa367b3dab49a1b8e94918ea0c0, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8688332852406165188, guid: 4c864fa367b3dab49a1b8e94918ea0c0,
         type: 3}
