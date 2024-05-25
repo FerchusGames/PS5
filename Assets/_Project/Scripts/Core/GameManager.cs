@@ -151,6 +151,11 @@ public class GameManager : MonoBehaviour
     public void AddScore(int scoreToAdd)
     {
         CurrentScore += scoreToAdd;
+
+        if (CurrentScore > 999)
+        {
+            CurrentScore = 999;
+        }
         
         CheckHighScore();
         

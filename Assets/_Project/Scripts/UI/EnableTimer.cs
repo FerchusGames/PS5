@@ -9,6 +9,7 @@ public class EnableTimer : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private Button _button;
+    [SerializeField] private Slider _slider;
     [SerializeField] private float _enableTime = 5f;
 
     private float _timer;
@@ -23,5 +24,6 @@ public class EnableTimer : MonoBehaviour
         }
 
         _timer += Time.deltaTime;
+        _slider.value = _timer / _enableTime;
     }
 }
