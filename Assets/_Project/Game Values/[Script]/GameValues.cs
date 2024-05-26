@@ -16,9 +16,9 @@ public class GameValues : ScriptableObject
     public float TiltControlSpeed = 2f;
     
     [Header("Tray Balancing")]
-    [Range(0.1f, 20f), Tooltip("The rate at which the tray will tilt left/right when the player is turning")]
+    [Range(0.1f, 100f), Tooltip("The rate at which the tray will tilt left/right when the player is turning")]
     public float TurningTiltRate = 5f;
-    [Range(0.1f, 20f), Tooltip("The rate at which the tray will tilt because of the objects' weight")]
+    [Range(0.1f, 100f), Tooltip("The rate at which the tray will tilt because of the objects' weight")]
     public float WeightTiltRate = 6f;
     
     [Header(("Spawn"))] 

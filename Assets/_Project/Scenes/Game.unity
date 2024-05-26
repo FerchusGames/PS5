@@ -6733,7 +6733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &614239373
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6809,6 +6809,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 614239374}
+        m_TargetAssemblyTypeName: TapSound, Assembly-CSharp
+        m_MethodName: PlayTapSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 6379332339617796777}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -6825,18 +6837,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 614239374}
-        m_TargetAssemblyTypeName: TapSound, Assembly-CSharp
-        m_MethodName: PlayTapSound
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7105,7 +7105,7 @@ PrefabInstance:
         type: 3}
       propertyPath: GameValues
       value: 
-      objectReference: {fileID: 11400000, guid: 2d76a86d9bde60a46b7610102ec73d4e,
+      objectReference: {fileID: 11400000, guid: 9de6b1d2367f99941b2d9120b0f10e31,
         type: 2}
     - target: {fileID: 5166055536018696204, guid: 46728215861efda4db9aac4ce80dcbdd,
         type: 3}
@@ -7139,14 +7139,31 @@ PrefabInstance:
       objectReference: {fileID: 1702837968}
     - target: {fileID: 5166055536018696204, guid: 46728215861efda4db9aac4ce80dcbdd,
         type: 3}
+      propertyPath: _moveAlongPath
+      value: 
+      objectReference: {fileID: 1340867606}
+    - target: {fileID: 5166055536018696204, guid: 46728215861efda4db9aac4ce80dcbdd,
+        type: 3}
       propertyPath: _fallenFoodLimit
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5166055536018696204, guid: 46728215861efda4db9aac4ce80dcbdd,
         type: 3}
+      propertyPath: DefaultGameValues
+      value: 
+      objectReference: {fileID: 11400000, guid: 2d76a86d9bde60a46b7610102ec73d4e,
+        type: 2}
+    - target: {fileID: 5166055536018696204, guid: 46728215861efda4db9aac4ce80dcbdd,
+        type: 3}
       propertyPath: <GameValues>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 9de6b1d2367f99941b2d9120b0f10e31,
+        type: 2}
+    - target: {fileID: 5166055536018696204, guid: 46728215861efda4db9aac4ce80dcbdd,
+        type: 3}
+      propertyPath: <EndGameValues>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: f01d26f1b8e89074cb7f7f568babb8d9,
         type: 2}
     - target: {fileID: 5166055536018696204, guid: 46728215861efda4db9aac4ce80dcbdd,
         type: 3}
@@ -7540,12 +7557,12 @@ PrefabInstance:
     - target: {fileID: 4614347149362821125, guid: 513df4e0a8835464ab5cbf33591682dd,
         type: 3}
       propertyPath: m_Value
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4614347149362821125, guid: 513df4e0a8835464ab5cbf33591682dd,
         type: 3}
       propertyPath: m_MaxValue
-      value: 20
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4614347149362821125, guid: 513df4e0a8835464ab5cbf33591682dd,
         type: 3}
@@ -8572,12 +8589,12 @@ PrefabInstance:
     - target: {fileID: 4614347149362821125, guid: 513df4e0a8835464ab5cbf33591682dd,
         type: 3}
       propertyPath: m_Value
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4614347149362821125, guid: 513df4e0a8835464ab5cbf33591682dd,
         type: 3}
       propertyPath: m_MaxValue
-      value: 20
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4614347149362821125, guid: 513df4e0a8835464ab5cbf33591682dd,
         type: 3}

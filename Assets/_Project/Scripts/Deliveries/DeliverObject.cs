@@ -40,6 +40,7 @@ public class DeliverObject : MonoBehaviour
                 _finishAnimation = Camera.main.GetComponent<Animator>();
             }
             
+            _finishAnimation.Rebind();
             _finishAnimation.enabled = true;
             
             if (!GameManager.Instance.IsTutorial)

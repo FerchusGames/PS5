@@ -84,7 +84,7 @@ public class EditGameValues : MonoBehaviour
 
     public void ResetValues()
     {
-        GameManager.Instance.GameValues = GameManager.Instance.DefaultGameValues;
+        GameManager.Instance.GameValues = GameManager.Instance.EndGameValues;
     }
     
     public enum ValueToAssign

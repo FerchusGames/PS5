@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [field: SerializeField] public GameValues GameValues;
-    [field: SerializeField] public GameValues DefaultGameValues { get; private set; }
+    [field: SerializeField] public GameValues DefaultGameValues;
+    [field: SerializeField] public GameValues EndGameValues { get; private set; }
 
     [field:SerializeField] public GameState GameState { get; private set; }
 
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Spawn _spawn;
     [SerializeField] private GameObject _PopUps;
-
+    
     public bool IsTutorial { get; private set; } = false;
     
     public event Action<int> OnScoreChange;
@@ -33,6 +34,13 @@ public class GameManager : MonoBehaviour
 
     public event Action OnGameReset;
     public event Action OnGameStart;
+
+    [SerializeField] private MoveAlongPath _moveAlongPath;
+    
+    private float _initialTurningTiltRate;
+    private float _initialWeightTiltRate;
+    private float _turningTiltRateDifference;
+    private float _weightTiltRateDifference;
     
     private void Awake()
     {
@@ -49,16 +57,40 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         _spawn.OnSpawnObjects += ResetFallenFood;
+        _moveAlongPath.OnSplineEndAction += MoveAlongPathOnOnSplineEndAction;
     }
-    
+
+    private void MoveAlongPathOnOnSplineEndAction()
+    {
+        GameValues.TurningTiltRate = _initialTurningTiltRate + ((CurrentScore / 999f) * _turningTiltRateDifference);
+        GameValues.WeightTiltRate = _initialWeightTiltRate + ((CurrentScore / 999f) * _weightTiltRateDifference);
+        
+        Debug.Log($"Turning Tilt Rate: {GameValues.TurningTiltRate}, Weight Tilt Rate: {GameValues.WeightTiltRate}");
+    }
+
     private void OnDisable()
     {
         _spawn.OnSpawnObjects -= ResetFallenFood;
+        _moveAlongPath.OnSplineEndAction -= MoveAlongPathOnOnSplineEndAction;
     }
 
     private void Start()
     {
         SetGameState(GameState.menu);
+
+        ResetGameValues();
+
+        _initialTurningTiltRate = DefaultGameValues.TurningTiltRate;
+        _initialWeightTiltRate = DefaultGameValues.WeightTiltRate;
+        
+        _turningTiltRateDifference = EndGameValues.TurningTiltRate - DefaultGameValues.TurningTiltRate;
+        _weightTiltRateDifference = EndGameValues.WeightTiltRate - DefaultGameValues.WeightTiltRate;
+    }
+
+    private void ResetGameValues()
+    {
+        GameValues.TurningTiltRate = DefaultGameValues.TurningTiltRate;
+        GameValues.WeightTiltRate = DefaultGameValues.WeightTiltRate;
     }
 
     public void EndTuto()
@@ -137,6 +169,9 @@ public class GameManager : MonoBehaviour
 
     public void Reset()
     {
+        ResetGameValues();
+        Debug.Log($"Turning Tilt Rate: {GameValues.TurningTiltRate}, Weight Tilt Rate: {GameValues.WeightTiltRate}");
+        
         _mainGameUI.SetActive(true);
         _controlsUI.SetActive(true);
 
