@@ -6,12 +6,12 @@ public class AnimationControls : MonoBehaviour
 {
     [SerializeField] private Animator _animation;
 
-    public void StopAnimation()
+    private void StopAnimation()
     {
         _animation.speed = 0;
     }
 
-    public void ResumeAnimation()
+    private void ResumeAnimation()
     {
         _animation.speed = 1;
     }

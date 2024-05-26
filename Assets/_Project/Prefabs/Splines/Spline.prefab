@@ -133,6 +133,30 @@ MonoBehaviour:
   - {fileID: 2571060202021000481}
   - {fileID: 2351986026055245920}
   - {fileID: 4326547522835537580}
+  _animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 11.2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 7
+      value: -40
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &817896390241709797
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,7 +782,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a30739cf31a5540b85814e0a2b4a18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_system: {fileID: 0}
+  _minLaunchTime: 0.2
+  _maxLaunchTime: 0.4
+  _maxExplodeTime: 0.5
+  _minExplodeTime: 0.9
 --- !u!1 &4402982666603300766
 GameObject:
   m_ObjectHideFlags: 0

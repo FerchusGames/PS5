@@ -5,14 +5,15 @@ public class DeliverObject : MonoBehaviour
 {
     public GameObject _particleSystem;
 
-    private Animator _finishAnimation;
-    
-    private GameObject _playerObject;
     [SerializeField] private GameObject[] _fireworks;
-    private bool _firstTime = true;
-    [SerializeField] private StartNextRun _startNextRun;
+    [SerializeField] private AnimationCurve _animationCurve;
+    
+    private Animator _finishAnimation;
+    private GameObject _playerObject;
+    private StartNextRun _startNextRun;
+    private Transform _cameraTransform;
     private bool _isTutorial = true;
-
+    private bool _firstTime = true;
     private float _timer = 0f;
     
     private void Start()
@@ -21,14 +22,21 @@ public class DeliverObject : MonoBehaviour
         _playerObject = GameObject.FindWithTag("Player");
         _finishAnimation = GameManager.Instance.CameraAnimator;
         _startNextRun = GameManager.Instance.CameraAnimator.gameObject.GetComponent<StartNextRun>();
+        _cameraTransform = GameManager.Instance.CameraAnimator.transform;
     }
 
     private void Update()
     {
         if (!_firstTime && !_isTutorial)
         {
-            _timer += Time.deltaTime;
+            if(GameManager.Instance.GameState == GameState.gaming)
+                _timer += Time.deltaTime;
 
+            Quaternion rotation;
+            rotation = _cameraTransform.localRotation;
+            rotation.eulerAngles = new Vector3(_animationCurve.Evaluate(_timer), rotation.eulerAngles.y, rotation.eulerAngles.z);
+            _cameraTransform.localRotation = rotation;
+            
             if (_timer >= 7f)
             {
                 _startNextRun.StartNextRunEvent();
@@ -42,10 +50,13 @@ public class DeliverObject : MonoBehaviour
         {
             if (_firstTime)
             {
-                _finishAnimation.enabled = true;
-                _finishAnimation.Rebind();
-                _finishAnimation.enabled = false;
-                _finishAnimation.enabled = true;
+                if (GameManager.Instance.IsTutorial)
+                {
+                    _finishAnimation.enabled = true;
+                    _finishAnimation.Rebind();
+                    _finishAnimation.enabled = false;
+                    _finishAnimation.enabled = true;  
+                }
                 
                 AudioManager.GetInstance().SetAudio(SOUND_TYPE.VICTORY);
                 _firstTime = false;
