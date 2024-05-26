@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    [field: SerializeField] public Animator CameraAnimator { get; private set; }
+
     [field: SerializeField] public GameValues GameValues;
     [field: SerializeField] public GameValues DefaultGameValues;
     [field: SerializeField] public GameValues EndGameValues { get; private set; }

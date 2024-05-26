@@ -10,24 +10,29 @@ public class DeliverObject : MonoBehaviour
     private GameObject _playerObject;
     [SerializeField] private GameObject[] _fireworks;
     private bool _firstTime = true;
+    [SerializeField] private StartNextRun _startNextRun;
+    private bool _isTutorial = true;
+
+    private float _timer = 0f;
     
     private void Start()
     {
         _firstTime = true;
         _playerObject = GameObject.FindWithTag("Player");
-        InvokeRepeating(nameof(TryGetFinishAnimation), 0f, 1f);
+        _finishAnimation = GameManager.Instance.CameraAnimator;
+        _startNextRun = GameManager.Instance.CameraAnimator.gameObject.GetComponent<StartNextRun>();
     }
 
     private void Update()
     {
-        TryGetFinishAnimation();
-    }
-
-    private void TryGetFinishAnimation()
-    {
-        if (!_finishAnimation)
+        if (!_firstTime && !_isTutorial)
         {
-            _finishAnimation = Camera.main.GetComponent<Animator>();
+            _timer += Time.deltaTime;
+
+            if (_timer >= 7f)
+            {
+                _startNextRun.StartNextRunEvent();
+            }
         }
     }
 
@@ -35,31 +40,29 @@ public class DeliverObject : MonoBehaviour
     {
         if (other.CompareTag("Food"))
         {
-            if (!_finishAnimation)
-            {
-                _finishAnimation = Camera.main.GetComponent<Animator>();
-            }
-            
-            _finishAnimation.Rebind();
-            _finishAnimation.enabled = true;
-            
-            if (!GameManager.Instance.IsTutorial)
-            {
-                GameManager.Instance.AddScore(1);
-                Destroy(other.gameObject);
-                GameObject particleSystem = Instantiate(_particleSystem, other.transform.position, other.transform.rotation);
-                particleSystem.transform.SetParent(_playerObject.transform);
-                AudioManager.GetInstance().SetAudio(SOUND_TYPE.DELIVER);
-            }
-            
             if (_firstTime)
             {
+                _finishAnimation.enabled = true;
+                _finishAnimation.Rebind();
+                _finishAnimation.enabled = false;
+                _finishAnimation.enabled = true;
+                
                 AudioManager.GetInstance().SetAudio(SOUND_TYPE.VICTORY);
                 _firstTime = false;
                 for (int i = 0; i < _fireworks.Length; i++)
                 {
                     _fireworks[i].SetActive(true);
                 }
+            }
+            
+            if (!GameManager.Instance.IsTutorial)
+            {
+                _isTutorial = false;
+                GameManager.Instance.AddScore(1);
+                Destroy(other.gameObject);
+                GameObject particleSystem = Instantiate(_particleSystem, other.transform.position, other.transform.rotation);
+                particleSystem.transform.SetParent(_playerObject.transform);
+                AudioManager.GetInstance().SetAudio(SOUND_TYPE.DELIVER);
             }
         }
     }
