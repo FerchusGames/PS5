@@ -50,6 +50,8 @@ public class DeliverObject : MonoBehaviour
         {
             if (_firstTime)
             {
+                GameManager.Instance.DisableDistance();
+                
                 if (GameManager.Instance.IsTutorial)
                 {
                     _finishAnimation.enabled = true;

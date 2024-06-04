@@ -17,6 +17,7 @@ public class StartNextRun : MonoBehaviour
         }
         else
         {
+            GameManager.Instance.EnableDistance();  
             _moveAlongPath.StartNextRun();
         }
     }

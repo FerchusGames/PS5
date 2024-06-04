@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Spawn _spawn;
     [SerializeField] private GameObject _PopUps;
+    [SerializeField] private GameObject _distanceSlider;
     
     public bool IsTutorial { get; private set; } = false;
     
@@ -256,7 +257,18 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.Save();
         OnHighScoreChange?.Invoke(CurrentScore);
     }
+    
+    public void EnableDistance()
+    {
+        _distanceSlider.SetActive(true);
+    }
+
+    public void DisableDistance()
+    {
+        _distanceSlider.SetActive(false);
+    }
 }
+
 
 public enum GameState
 {

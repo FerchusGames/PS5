@@ -7144,6 +7144,11 @@ PrefabInstance:
       objectReference: {fileID: 1340867606}
     - target: {fileID: 5166055536018696204, guid: 46728215861efda4db9aac4ce80dcbdd,
         type: 3}
+      propertyPath: _distanceSlider
+      value: 
+      objectReference: {fileID: 1258017961}
+    - target: {fileID: 5166055536018696204, guid: 46728215861efda4db9aac4ce80dcbdd,
+        type: 3}
       propertyPath: _fallenFoodLimit
       value: 10
       objectReference: {fileID: 0}
@@ -7954,6 +7959,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247672564}
   m_CullTransparentMesh: 1
+--- !u!1 &1258017961 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5496447537032700474, guid: 4c864fa367b3dab49a1b8e94918ea0c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2821124306861081123}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1264629041 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5947683910817206007, guid: 4c864fa367b3dab49a1b8e94918ea0c0,
