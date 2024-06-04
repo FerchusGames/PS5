@@ -37,7 +37,7 @@ public class DeliverObject : MonoBehaviour
             rotation.eulerAngles = new Vector3(_animationCurve.Evaluate(_timer), rotation.eulerAngles.y, rotation.eulerAngles.z);
             _cameraTransform.localRotation = rotation;
             
-            if (_timer >= 7f)
+            if (_timer >= 5f)
             {
                 _startNextRun.StartNextRunEvent();
             }
